@@ -36,9 +36,10 @@ You can even insert gifs using the same notation.
 ![thumbs up](https://media.giphy.com/media/l41lUjUgLLwWrz20w/giphy.gif)
 
 
-How to publish a new blog post? 
+# How do I publish a new blog post? 
 
 1. Knit the blog Rmd and check that it looks how you want in the viewer. Save and close the Rmd. 
+
 2. Open the index.Rmd file and add a link to your new post 
 - to make a link put the text you want to appear in square brackets followed by the link to the html file in round brackets 
 
@@ -53,15 +54,22 @@ This code in RMarkdown...
 
 2. Knit the index file, save and close the Rmd.
 
-3. In the console, type wflow_build() and let it chug
+3. In the console, type `wflow_build()` and let it chug
 - this will reknit the Rmd files that have changed and will generate an html for each one in the docs folder. 
 
-4. In the console, type wflow_status()
-- this does a check of which files have been changed and which need to be committed and published (i.e pushed to git)
+4. In the console, type `wflow_status()`
+- this does a check of which files have been changed and need to be committed and published (i.e pushed to github)
 
-5. In the console, type wflow_publish(). Put a list of the files that have been changed inside the brackets, along with a "commit" message. 
+5. In the console, type `wflow_publish()`. Put a list of the files that have been changed inside the brackets, along with a "commit" message. 
 
 ```
 wflow_publish(files = c("analysis/blog_instructions.Rmd", "analysis/coding1.Rmd), "this is the commit message"))
 
 ```
+6. In the console, type wflow_git_push()
+- it will ask you for your github username and password
+
+Wait a little bit, then go to your github repo. You should see your commit message for the analysis folder. Wait a few more minutes (sometimes 30 min- it's not instant) and your site should reflect the changes. 
+
+![](https://media.giphy.com/media/1PMVNNKVIL8Ig/giphy.gif)
+

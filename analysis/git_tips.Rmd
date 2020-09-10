@@ -1,0 +1,40 @@
+---
+title: "git tips"
+author: "Jen Richmond"
+date: "10/09/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Git tips for experts
+
+The `workflowr` package is nice because the commands you type make sense and it gives you nice messages about what it is doing at each step of the way. When you get comfortable with this workflow, you might decide to work with git in the terminal. 
+
+When you want to push things to git, just knit your documents (or use wflow_build() to knit everything that has changed) and then use these 3 commands in the TERMINAL to push the changes to git. 
+
+### The 3 git commands you need
+
+> git add . 
+
+This says hey git, I want to add some stuff, in fact all things that have changed (aka .)
+
+> git commit -m "a message that makes sense"
+
+This commits the changes and tags them with a message. 
+
+> git push
+
+
+### Collaborating with git
+
+When you are working on a repo with someone else, it is possible that your collaborator has pushed their changes to your repo since the last time your were working. You don't want to change the same files they have and create merge conflicts, so it is good practice to start your work session by using 
+
+> git pull
+
+This pulls the latest version of the repo from git onto your local machine and makes it much less likely that you will create merge conflicts (aka clashes with your collaborators)
+
+
+Jenny Bryan who works for R-Studio has written a great site called [happygitwithr](www.happygitwithr.com) which has lots of good tips and tricks if you are looking for more. 

@@ -13,6 +13,7 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 
 # Coding
 
+Links to weekly R coding practice exercises will go here
 
 
 # Blog
@@ -22,3 +23,14 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 
 
 # MTT project
+
+Links to code created visualising and analysing the MTT anxiety project data will go here. 
+
+
+# Resources from Jenny
+
+- [blog instructions](blog_instructions.html)
+- [git tips](git-tips.html)
+- [Jenny's R notes to herself](http://jenrichmond.rbind.io/post/)
+- [iamlearningR resources](https://iamlearningr.netlify.app/)
+
