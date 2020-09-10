@@ -23,6 +23,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -296,7 +298,13 @@ $(document).ready(function () {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/jenrichmond/sakiko_project">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -362,23 +370,27 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong0b8549b"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 0b8549b </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree05651150736fdbf192f78764973b9f74aa8d5dactargetblank0565115a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/05651150736fdbf192f78764973b9f74aa8d5dac" target="_blank">0565115</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong0b8549b" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree05651150736fdbf192f78764973b9f74aa8d5dactargetblank0565115a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 0b8549b. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/05651150736fdbf192f78764973b9f74aa8d5dac" target="_blank">0565115</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .DS_Store
     Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  site_libs/
 
 </code></pre>
 <p>
@@ -422,7 +434,7 @@ Message
 Rmd
 </td>
 <td>
-0b8549b
+<a href="https://github.com/jenrichmond/sakiko_project/blob/05651150736fdbf192f78764973b9f74aa8d5dac/analysis/index.Rmd" target="_blank">0565115</a>
 </td>
 <td>
 Your Name
@@ -431,7 +443,7 @@ Your Name
 2020-09-10
 </td>
 <td>
-update front page
+update git tips
 </td>
 </tr>
 <tr>
@@ -439,7 +451,7 @@ update front page
 html
 </td>
 <td>
-555ddf0
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/d9d8b547bc8f7d197219fd5f2c8458521731fd27/docs/index.html" target="_blank">d9d8b54</a>
 </td>
 <td>
 Your Name
@@ -456,7 +468,41 @@ Build site.
 Rmd
 </td>
 <td>
-46063fc
+<a href="https://github.com/jenrichmond/sakiko_project/blob/0b8549b7bcc512d38e4f90affcb0886f32190c42/analysis/index.Rmd" target="_blank">0b8549b</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-10
+</td>
+<td>
+update front page
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/555ddf0e26b04ad1dba6dacbb61026aa4d892aea/docs/index.html" target="_blank">555ddf0</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-10
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/46063fcb2127276416515300edb534d0af09473c/analysis/index.Rmd" target="_blank">46063fc</a>
 </td>
 <td>
 Your Name
@@ -473,7 +519,7 @@ first analysis files
 Rmd
 </td>
 <td>
-01fe073
+<a href="https://github.com/jenrichmond/sakiko_project/blob/01fe0738e5c3af49156a43ad37f7f8a0e3a81b35/analysis/index.Rmd" target="_blank">01fe073</a>
 </td>
 <td>
 Your Name
@@ -495,6 +541,7 @@ Start workflowr project.
 <p>Welcome to Sakiko’s research website. This is where she will work on R code and blog about her experiences doing an internship in the Richmond Lab.</p>
 <div id="coding" class="section level1">
 <h1>Coding</h1>
+<p>Links to weekly R coding practice exercises will go here</p>
 </div>
 <div id="blog" class="section level1">
 <h1>Blog</h1>
@@ -502,6 +549,16 @@ Start workflowr project.
 </div>
 <div id="mtt-project" class="section level1">
 <h1>MTT project</h1>
+<p>Links to code created visualising and analysing the MTT anxiety project data will go here.</p>
+</div>
+<div id="resources-from-jenny" class="section level1">
+<h1>Resources from Jenny</h1>
+<ul>
+<li><a href="blog_instructions.html">blog instructions</a></li>
+<li><a href="git-tips.html">git tips</a></li>
+<li><a href="http://jenrichmond.rbind.io/post/">Jenny’s R notes to herself</a></li>
+<li><a href="https://iamlearningr.netlify.app/">iamlearningR resources</a></li>
+</ul>
 </div>
 
 

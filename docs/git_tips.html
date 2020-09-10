@@ -10,11 +10,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Sakiko" />
+<meta name="author" content="Jen Richmond" />
 
 <meta name="date" content="2020-10-09" />
 
-<title>Week 1 blog</title>
+<title>git tips</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -386,8 +386,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Week 1 blog</h1>
-<h4 class="author">Sakiko</h4>
+<h1 class="title toc-ignore">git tips</h1>
+<h4 class="author">Jen Richmond</h4>
 <h4 class="date">10/09/2020</h4>
 
 </div>
@@ -539,7 +539,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/1_blog.Rmd</code>) and HTML (<code>docs/1_blog.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/git_tips.Rmd</code>) and HTML (<code>docs/git_tips.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -565,27 +565,10 @@ Message
 <tbody>
 <tr>
 <td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/555ddf0e26b04ad1dba6dacbb61026aa4d892aea/docs/1_blog.html" target="_blank">555ddf0</a>
-</td>
-<td>
-Your Name
-</td>
-<td>
-2020-09-10
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
 Rmd
 </td>
 <td>
-<a href="https://github.com/jenrichmond/sakiko_project/blob/46063fcb2127276416515300edb534d0af09473c/analysis/1_blog.Rmd" target="_blank">46063fc</a>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/05651150736fdbf192f78764973b9f74aa8d5dac/analysis/git_tips.Rmd" target="_blank">0565115</a>
 </td>
 <td>
 Your Name
@@ -594,7 +577,7 @@ Your Name
 2020-09-10
 </td>
 <td>
-first analysis files
+update git tips
 </td>
 </tr>
 </tbody>
@@ -604,61 +587,32 @@ first analysis files
 </div>
 </div>
 </div>
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>     speed           dist       
- Min.   : 4.0   Min.   :  2.00  
- 1st Qu.:12.0   1st Qu.: 26.00  
- Median :15.0   Median : 36.00  
- Mean   :15.4   Mean   : 42.98  
- 3rd Qu.:19.0   3rd Qu.: 56.00  
- Max.   :25.0   Max.   :120.00  </code></pre>
+<div id="git-tips-for-experts" class="section level1">
+<h1>Git tips for experts</h1>
+<p>The <code>workflowr</code> package is nice because the commands you type make sense and it gives you nice messages about what it is doing at each step of the way. When you get comfortable with this workflow, you might decide to work with git in the terminal.</p>
+<p>When you want to push things to git, just knit your documents (or use wflow_build() to knit everything that has changed) and then use these 3 commands in the TERMINAL to push the changes to git.</p>
+<div id="the-3-git-commands-you-need" class="section level3">
+<h3>The 3 git commands you need</h3>
+<blockquote>
+<p>git add .</p>
+</blockquote>
+<p>This says hey git, I want to add some stuff, in fact all things that have changed (aka .)</p>
+<blockquote>
+<p>git commit -m “a message that makes sense”</p>
+</blockquote>
+<p>This commits the changes and tags them with a message.</p>
+<blockquote>
+<p>git push</p>
+</blockquote>
 </div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="figure/1_blog.Rmd/pressure-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-pressure-1">
-Past versions of pressure-1.png
-</button>
-</p>
-<div id="fig-pressure-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/sakiko_project/blob/555ddf0e26b04ad1dba6dacbb61026aa4d892aea/docs/figure/1_blog.Rmd/pressure-1.png" target="_blank">555ddf0</a>
-</td>
-<td>
-Your Name
-</td>
-<td>
-2020-09-10
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+<div id="collaborating-with-git" class="section level3">
+<h3>Collaborating with git</h3>
+<p>When you are working on a repo with someone else, it is possible that your collaborator has pushed their changes to your repo since the last time your were working. You don’t want to change the same files they have and create merge conflicts, so it is good practice to start your work session by using</p>
+<blockquote>
+<p>git pull</p>
+</blockquote>
+<p>This pulls the latest version of the repo from git onto your local machine and makes it much less likely that you will create merge conflicts (aka clashes with your collaborators)</p>
+<p>Jenny Bryan who works for R-Studio has written a great site called <a href="www.happygitwithr.com">happygitwithr</a> which has lots of good tips and tricks if you are looking for more.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -691,6 +645,7 @@ loaded via a namespace (and not attached):
 [13] promises_1.1.1  whisker_0.4     rmarkdown_1.15  tools_3.5.1    
 [17] stringr_1.4.0   glue_1.4.1      httpuv_1.5.2    xfun_0.8       
 [21] yaml_2.2.1      compiler_3.5.1  htmltools_0.5.0 knitr_1.23     </code></pre>
+</div>
 </div>
 </div>
 
