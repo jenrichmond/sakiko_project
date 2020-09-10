@@ -1,7 +1,7 @@
-name: "sakiko_project"
+name: sakiko_project
 output_dir: ../docs
 navbar:
-  title: "sakiko_project"
+  title: sakiko_project
   left:
   - text: Home
     href: index.html
@@ -13,6 +13,10 @@ navbar:
     href: blog.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/jenrichmond/sakiko_project
 output:
   workflowr::wflow_html:
     toc: yes
