@@ -9,3 +9,16 @@ editor_options:
 ---
 
 Welcome to Sakiko's research website. This is where she will work on R code and blog about her experiences doing an internship in the Richmond Lab. 
+
+
+# Coding
+
+
+
+# Blog
+
+[Week 1 blog post](1_blog.html)
+
+
+
+# MTT project
