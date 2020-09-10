@@ -1,0 +1,67 @@
+---
+title: "blog instructions"
+author: "Jen Richmond"
+date: "10/09/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# How to blog using RMarkdown
+
+You can use this template to write your weekly blog post. Reflect on what you have learned, what you want to learn next, and how you will go about it. 
+
+Create headings in RMarkdown using hash. 
+
+# big heading
+
+## smaller heading
+
+### even smaller heading
+
+You can use asterik to get **bold** and *italics*
+
+You can insert an image from the internet by copying the url and using this notation. 
+
+![this is a cute kitten](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTIpe4du2PlTLzsacF1R066uoEvM-FlFIwBUg&usqp=CAU)
+
+You can insert an image from your computer, by copying it into the docs/assets folder and using this notation
+
+![these are cute puppies](assets/puppies.jpeg)
+
+You can even insert gifs using the same notation. 
+
+![thumbs up](https://media.giphy.com/media/l41lUjUgLLwWrz20w/giphy.gif)
+
+
+How to publish a new blog post? 
+
+1. Knit the blog Rmd and check that it looks how you want in the viewer. Save and close the Rmd. 
+2. Open the index.Rmd file and add a link to your new post 
+- to make a link put the text you want to appear in square brackets followed by the link to the html file in round brackets 
+
+This code in RMarkdown...
+```
+[Week 1 blog post](docs/1_blog_html)
+
+```
+... ends up looking like this in the knitted html file
+
+[Week 1 blog post](docs/1_blog_html)
+
+2. Knit the index file, save and close the Rmd.
+
+3. In the console, type wflow_build() and let it chug
+- this will reknit the Rmd files that have changed and will generate an html for each one in the docs folder. 
+
+4. In the console, type wflow_status()
+- this does a check of which files have been changed and which need to be committed and published (i.e pushed to git)
+
+5. In the console, type wflow_publish(). Put a list of the files that have been changed inside the brackets, along with a "commit" message. 
+
+```
+wflow_publish(files = c("analysis/blog_instructions.Rmd", "analysis/coding1.Rmd), "this is the commit message"))
+
+```
