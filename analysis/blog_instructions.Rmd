@@ -73,3 +73,28 @@ Wait a little bit, then go to your github repo. You should see your commit messa
 
 ![](https://media.giphy.com/media/1PMVNNKVIL8Ig/giphy.gif)
 
+# How to customise the look of your site
+
+The workflowr site theme is governed by the output settings in the `_site.yml` file in the analysis folder, which looks like this. 
+
+
+```
+output:
+  workflowr::wflow_html:
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+    highlight: textmate
+    
+```
+
+The default theme is cosmo. You can change the look and feel of your site by changing cosmo to another Bootstrap theme, [preview them here](https://bootswatch.com/). 
+
+Just replace cosmo with the name of another theme (flatly, lumen, spacelab, journal, darkly and many more), save the _site.yml file and then this command in the console to preview the change.
+
+```
+wflow_build("analysis/index.Rmd")
+
+```
+
+[Instructions for theme change from the workflowr site here](https://jdblischak.github.io/workflowr/articles/wflow-02-customization.html#changing-the-theme)
