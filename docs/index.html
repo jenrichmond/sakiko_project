@@ -321,7 +321,7 @@ $(document).ready(function () {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -330,7 +330,7 @@ $(document).ready(function () {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -339,10 +339,10 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-10
+<strong>Last updated:</strong> 2020-09-11
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>sakiko_project/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -358,28 +358,28 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree05651150736fdbf192f78764973b9f74aa8d5dactargetblank0565115a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/05651150736fdbf192f78764973b9f74aa8d5dac" target="_blank">0565115</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree0093034262801fee5ca22eae0217eac6aec92a64targetblank0093034a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/0093034262801fee5ca22eae0217eac6aec92a64" target="_blank">0093034</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree05651150736fdbf192f78764973b9f74aa8d5dactargetblank0565115a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree0093034262801fee5ca22eae0217eac6aec92a64targetblank0093034a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/05651150736fdbf192f78764973b9f74aa8d5dac" target="_blank">0565115</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/0093034262801fee5ca22eae0217eac6aec92a64" target="_blank">0093034</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -390,7 +390,17 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
+    Untracked:  data/1_Mehr2016.csv
+    Untracked:  data/2_Beall.csv
+    Untracked:  data/3_Atir2015.csv
+    Untracked:  data/4_Bastian2014.csv
+    Untracked:  data/5_Zhang2014.csv
+    Untracked:  output/coding1_solution.Rmd
     Untracked:  site_libs/
+
+Unstaged changes:
+    Modified:   analysis/coding1.Rmd
+    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -429,6 +439,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/0093034262801fee5ca22eae0217eac6aec92a64/docs/index.html" target="_blank">0093034</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-10
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -541,11 +568,11 @@ Start workflowr project.
 <p>Welcome to Sakiko’s research website. This is where she will work on R code and blog about her experiences doing an internship in the Richmond Lab.</p>
 <div id="coding" class="section level1">
 <h1>Coding</h1>
-<p>Links to weekly R coding practice exercises will go here</p>
+<p><a href="coding1.html">Coding 1</a> - In this exercise, you will wrangle and visualise data from a study testing whether infants associate people with familiar music. Pracitce making data long, computing summary stats and plotting column graphs with error bars. Ask questions about variability by plotting raw data too. You can read the original paper by <a href="https://journals.sagepub.com/doi/abs/10.1177/0956797615626691">Mehr et al., (2016) here.</a></p>
 </div>
 <div id="blog" class="section level1">
 <h1>Blog</h1>
-<p><a href="1_blog.html">Week 1 blog post</a></p>
+<p><a href="1_blog.html">Week 1 blog post</a> - this is a placeholder, edit this file to make your first post.</p>
 </div>
 <div id="mtt-project" class="section level1">
 <h1>MTT project</h1>

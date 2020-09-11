@@ -37,8 +37,8 @@ mehr <- read_csv(here("data", "1_Mehr2016.csv"))
 # familiarise yourself with the data
 Use glimpse() or names() or str() to get an idea what is included in the dataset
 
-```{r datastructure}
-
+```{r datastr}
+glimpse(mehr)
 ```
 
 
@@ -48,14 +48,19 @@ Use glimpse() or names() or str() to get an idea what is included in the dataset
 There are lots of variables in this data set that we wont need. Make a smaller data set that only includes id and the key dependent variables (baseline, familiarisation and test looking). 
 
 ```{r selectdata}
-
+mehr_select <- mehr %>%
+  select(id, Baseline_Proportion_Gaze_to_Singer, Familiarization_Gaze_to_Familiar, Familiarization_Gaze_to_Unfamiliar, Test_Proportion_Gaze_to_Singer)
 
 ```
 
 The key DV variables have unwieldy names. Rename them so they are easier to refer to in your code. 
 
 ```{r rename}
-
+mehr_rename <- mehr_select %>%
+  rename(bl_prop_singer = Baseline_Proportion_Gaze_to_Singer, 
+         fam_gaze_familiar = Familiarization_Gaze_to_Familiar, 
+         fam_gaze_unfamiliar = Familiarization_Gaze_to_Unfamiliar, 
+         test_prop_singer = Test_Proportion_Gaze_to_Singer)
 ```
 
 # Q1 familiarisation looking 
@@ -63,7 +68,11 @@ The key DV variables have unwieldy names. Rename them so they are easier to refe
 In this kind of experiment, it is important to confirm that infants looking at each kind of stimulus during the familiarisation phase is the same. Calculate the mean and sd for familiarisation looking at the familiar and unfamiliar stimulus. 
 
 ```{r summarystats}
-
+mehr_rename %>%
+  summarise(mean_fam = mean(fam_gaze_familiar),
+            sd_fam = sd(fam_gaze_familiar),
+            mean_unfam = mean(fam_gaze_unfamiliar),
+            sd_unfam = sd(fam_gaze_unfamiliar))
 ```
 
 Infants looked on average 501.71 ms at the familiar and 476.76 ms - it is hard to tell whether a difference of 25 ms will be  significantly different without plotting the data with standard error bars. 
@@ -71,7 +80,11 @@ Infants looked on average 501.71 ms at the familiar and 476.76 ms - it is hard t
 Make a new df that includes only id and the familiarisation data and use pivot_longer() to make the data into long format. You will end up with one column that has values of stimulus in it (familiar, unfamiliar) and one that has looking time values. 
 
 ```{r makedatalong}
-
+mehr_fam_long <- mehr_rename %>%
+  select(id, starts_with("fam")) %>%
+  pivot_longer(names_to = "stimulus", 
+               values_to = "looking_time", 
+               starts_with("fam"))
                
 ```
 
@@ -80,7 +93,12 @@ Great, now your dataframe has 192 observations intead of 96 observations.
 Use group_by and summarise to get a dataframe of summary stats, including mean, sd, n, stderror for each stimulus. 
 
 ```{r makesummarydf}
-
+mehr_fam_summary <- mehr_fam_long %>%
+  group_by(stimulus) %>%
+  summarise(mean = mean(looking_time), 
+            sd = sd(looking_time), 
+            n = n(), 
+            stderr = sd/sqrt(n))
 
 ```
 
@@ -93,9 +111,15 @@ Use the summary df to make a column graph plotting mean looking as a function of
   + theme_apa will make the bar float off the x axis. Use  scale_y_continuous(limits = c(0,600), expand = c(0,0)) to extend the y axis to 600ms and make the bars sit on the x axis at 0,0
 
 ```{r plotfamlooking}
- 
-
-
+mehr_fam_summary %>%
+  ggplot(aes(x = stimulus, y = mean, fill = stimulus)) +
+  geom_col() +
+  scale_y_continuous(limits = c(0,600), expand = c(0,0)) +
+  geom_errorbar(aes(ymin=mean-stderr, ymax=mean+stderr),
+                  size=.3,    # Thinner lines
+                    width=.2,
+                      position=position_dodge(.9)) +
+  theme_apa()
 ```
 
 Great! looks like the error bars overlap, so there is unlikely to be a significant difference in the amount of time that infants looked at familiar vs. unfamiliar during the familiarisation. 
@@ -117,13 +141,34 @@ Replicate the process above for the test data...
 
 ```{r alltestlooking}
 # make the data long
-
+mehr_test_long <- mehr_rename %>%
+  select(id, contains("prop")) %>%
+  pivot_longer(names_to = "test_time", 
+               values_to = "proportion_looking", 
+              contains("prop"))
 
 #make summary stats
 
+mehr_test_summary <- mehr_test_long %>%
+  group_by(test_time) %>%
+  summarise(mean = mean(proportion_looking), 
+            sd = sd(proportion_looking), 
+            n = n(), 
+            stderr = sd/sqrt(n))
 
-# plot            
-  
+mehr_test_summary %>%
+  ggplot(aes(x = test_time, y = mean, fill = test_time)) +
+  geom_col() +
+  scale_y_continuous(limits = c(0,0.6), expand = c(0,0)) +
+  geom_errorbar(aes(ymin=mean-stderr, ymax=mean+stderr),
+                  size=.3,    # Thinner lines
+                    width=.2,
+                      position=position_dodge(.9)) +
+  scale_fill_brewer(palette="Accent") +
+  theme_apa() + 
+  geom_hline(yintercept=0.5, linetype="dashed", color = "black") +
+  labs(title = "Proportion looking at singer associated with familiar song", subtitle = "baseline vs. test preferences", caption = "Data from Mehr et al., 2016 PsychSci") +
+  easy_remove_legend()
 
 ```
 
@@ -138,16 +183,29 @@ Try geom_jitter and geom_boxplot to visualise the raw proportion scores at basel
 #### geom_jitter
 
 ```{r jitter}
-
+mehr_test_long %>%
+  ggplot(aes(x = test_time, y = proportion_looking, colour = test_time)) +
+  geom_jitter(width = 0.1) + 
+  theme_apa() +
+  easy_remove_legend()
 ```
 
 #### geom_boxplot
 ```{r boxplot}
-
+mehr_test_long %>%
+  ggplot(aes(x = test_time, y = proportion_looking, colour = test_time)) +
+  geom_boxplot() + 
+  theme_apa() +
+  easy_remove_legend()
 ```
 
 #### geom_boxplot + geom_jitter
-```{r boxjitter}
-
+```{r}
+mehr_test_long %>%
+  ggplot(aes(x = test_time, y = proportion_looking, colour = test_time)) +
+  geom_boxplot() + 
+  geom_jitter(width = 0.1, alpha = 0.5) +
+  theme_apa() +
+  easy_remove_legend()
 ```
 

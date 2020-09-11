@@ -13,12 +13,13 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 
 # Coding
 
-Links to weekly R coding practice exercises will go here
+[Coding 1](coding1.html)
+- In this exercise, you will wrangle and visualise data from a study testing whether infants associate people with familiar music. Practice making data long, computing summary stats and plotting column graphs with error bars. Ask questions about variability by plotting raw data too. You can read the original paper by [Mehr et al., (2016) here.](https://journals.sagepub.com/doi/abs/10.1177/0956797615626691)
 
 
 # Blog
 
-[Week 1 blog post](1_blog.html)
+[Week 1 blog post](1_blog.html) - this is a placeholder, edit this file to make your first post. 
 
 
 
