@@ -13,6 +13,8 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 
 # Coding
 
+![art by @allison_horst](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/monster_support.jpg)
+
 [Coding 1](coding1.html)
 - In this exercise, you will wrangle and visualise data from a study testing whether infants associate people with familiar music. Practice making data long, computing summary stats and plotting column graphs with error bars. Ask questions about variability by plotting raw data too. You can read the original paper by [Mehr et al., (2016) here.](https://journals.sagepub.com/doi/abs/10.1177/0956797615626691)
 
