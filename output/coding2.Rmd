@@ -34,6 +34,7 @@ beall <- read_csv(here("data", "2_Beall.csv"))
 ```
 
 # familiarise yourself with the data
+
 Use glimpse() or names() or str() to get an idea what is included in the dataset
 
 ```{r datastructure}
