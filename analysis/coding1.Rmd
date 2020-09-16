@@ -20,7 +20,6 @@ Science, 27, 486-501.
 library(tidyverse)
 library(here)
 library(janitor)
-library(papaja)
 library(ggeasy)
 library(ggbeeswarm)
 library(RColorBrewer)
@@ -38,7 +37,7 @@ mehr <- read_csv(here("data", "1_Mehr2016.csv"))
 Use glimpse() or names() or str() to get an idea what is included in the dataset
 
 ```{r datastructure}
-
+glimpse(mehr)
 ```
 
 
@@ -48,14 +47,14 @@ Use glimpse() or names() or str() to get an idea what is included in the dataset
 There are lots of variables in this data set that we wont need. Make a smaller data set that only includes id and the key dependent variables (baseline, familiarisation and test looking). 
 
 ```{r selectdata}
-
+selectdata <- select(mehr, id, Baseline_Proportion_Gaze_to_Singer, Familiarization_Gaze_to_Familiar, Familiarization_Gaze_to_Unfamiliar, Test_Proportion_Gaze_to_Singer)
 
 ```
 
 The key DV variables have unwieldy names. Rename them so they are easier to refer to in your code. 
 
 ```{r rename}
-
+renamedata <- rename(mehr, baseline = Baseline_Proportion_Gaze_to_Singer, familiar = Familiarization_Gaze_to_Familiar, unfamiliar = Familiarization_Gaze_to_Unfamiliar, test = Test_Proportion_Gaze_to_Singer)
 ```
 
 # Q1 familiarisation looking 
@@ -63,6 +62,7 @@ The key DV variables have unwieldy names. Rename them so they are easier to refe
 In this kind of experiment, it is important to confirm that infants looking at each kind of stimulus during the familiarisation phase is the same. Calculate the mean and sd for familiarisation looking at the familiar and unfamiliar stimulus. 
 
 ```{r summarystats}
+summarise(renamedata, meanfamiliar = mean(familiar), sdfamiliar = sd(familiar), meanunfamiliar = mean(unfamiliar), sdunfamiliar = sd(unfamiliar))
 
 ```
 
@@ -71,7 +71,9 @@ Infants looked on average 501.71 ms at the familiar and 476.76 ms - it is hard t
 Make a new df that includes only id and the familiarisation data and use pivot_longer() to make the data into long format. You will end up with one column that has values of stimulus in it (familiar, unfamiliar) and one that has looking time values. 
 
 ```{r makedatalong}
-
+longdata <- renamedata %>%
+  select(id, familiar, unfamiliar) %>%
+  pivot_longer(names_to = "stimulus", values_to = "looking_time", "familiar":"unfamiliar")
                
 ```
 
