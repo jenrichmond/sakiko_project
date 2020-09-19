@@ -21,10 +21,7 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 
 # Blog
 
-[Week 1 blog post](1_blog.html) - this is a placeholder, edit this file to make your first post. 
-
-Sakiko has arrived at her project! 
-
+[Week 1 blog post](1_blog.html) 
 
 
 # MTT project
