@@ -1,6 +1,6 @@
 ---
 title: "Week 1 Blog"
-author: "Sakiko"
+author: "Sakiko Okayama"
 date: "19/09/2020"
 output: html_document
 ---
@@ -41,7 +41,7 @@ I learned a few new skills in R this week. I can now use `pivot_longer()` to cha
 
 ![Image Credit [Alison Hill](https://twitter.com/apreshill)](https://rladiessydney.org/img/longer_arguments.png)
 
-I also learned how to add error bars to column graphs, making sure to specify its width, so doesn't look ugly. 
+I also learned how to add error bars to column graphs, making sure to specify its width, so it doesn't look ugly. 
 
 `geom_errorbar(aes(x = test_time, ymin = mean-stderror, ymax = mean+stderror), width=.2)`
 
@@ -49,7 +49,7 @@ Finally, I learned about `theme_apa()` in the papaja package, which allows you t
 
 You can see the graphs I made and the full code [here](https://jenrichmond.github.io/sakiko_project/coding1.html). 
 
-To complete next week's coding exercise, I still need to learn how to make scatterplots. I'll learn this by watching [this video](https://www.youtube.com/watch?v=Ouoinu4ScPs&feature=emb_logo&ab_channel=RLadiesSydney) from the RYouWithMe resource.
+To complete next week's coding exercise, I still need to learn how to make scatterplots. I'll do this by watching [this video](https://www.youtube.com/watch?v=Ouoinu4ScPs&feature=emb_logo&ab_channel=RLadiesSydney) from the RYouWithMe resource.
 
 ## Reference
 Miloyan, B., & McFarlane, K. A. (2019). The measurement of episodic foresight: A systematic review of assessment instruments. *Cortex*, *117*, 351-370. https://doi.org/10.1016/j.cortex.2018.08.018

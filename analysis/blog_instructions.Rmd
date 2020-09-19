@@ -65,7 +65,7 @@ This code in RMarkdown...
 ```
 wflow_publish(files = c("analysis/blog_instructions.Rmd", "analysis/coding1.Rmd), "this is the commit message"))
 
-```
+<!-- ``` -->
 6. In the console, type wflow_git_push()
 - it will ask you for your github username and password
 
