@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Sakiko" />
 
-<meta name="date" content="2020-10-09" />
 
-<title>Week 1 blog</title>
+<title>Week 1 Blog</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -247,6 +245,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -275,6 +274,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -360,12 +365,6 @@ div.tocify {
   <a href="about.html">About</a>
 </li>
 <li>
-  <a href="coding.html">Coding</a>
-</li>
-<li>
-  <a href="blog.html">Blog</a>
-</li>
-<li>
   <a href="license.html">License</a>
 </li>
       </ul>
@@ -386,9 +385,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Week 1 blog</h1>
+<h1 class="title toc-ignore">Week 1 Blog</h1>
 <h4 class="author">Sakiko</h4>
-<h4 class="date">10/09/2020</h4>
+<h4 class="date">19/09/2020</h4>
 
 </div>
 
@@ -413,7 +412,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-10
+<strong>Last updated:</strong> 2020-09-19
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -461,7 +460,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongSeedstrongcodesetseed20200910code" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The command <code>set.seed(20200910)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+<p>The command <code>set.seed(20200910)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
 </div>
 </div>
 </div>
@@ -504,27 +503,30 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree05651150736fdbf192f78764973b9f74aa8d5dactargetblank0565115a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/05651150736fdbf192f78764973b9f74aa8d5dac" target="_blank">0565115</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree85da34a84e7e9293aa147bc54c3eb25cb56e5e8etargetblank85da34aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/85da34a84e7e9293aa147bc54c3eb25cb56e5e8e" target="_blank">85da34a</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree05651150736fdbf192f78764973b9f74aa8d5dactargetblank0565115a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree85da34a84e7e9293aa147bc54c3eb25cb56e5e8etargetblank85da34aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/05651150736fdbf192f78764973b9f74aa8d5dac" target="_blank">0565115</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/85da34a84e7e9293aa147bc54c3eb25cb56e5e8e" target="_blank">85da34a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .DS_Store
+    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  site_libs/
+    Untracked:  data/1_Mehr2016_plot_test.csv
+
+Unstaged changes:
+    Modified:   analysis/blog_instructions.Rmd
 
 </code></pre>
 <p>
@@ -563,6 +565,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/85da34a84e7e9293aa147bc54c3eb25cb56e5e8e/analysis/1_blog.Rmd" target="_blank">85da34a</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-09-19
+</td>
+<td>
+Week 1 Complete
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/0093034262801fee5ca22eae0217eac6aec92a64/docs/1_blog.html" target="_blank">0093034</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-10
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -604,61 +640,46 @@ first analysis files
 </div>
 </div>
 </div>
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>     speed           dist       
- Min.   : 4.0   Min.   :  2.00  
- 1st Qu.:12.0   1st Qu.: 26.00  
- Median :15.0   Median : 36.00  
- Mean   :15.4   Mean   : 42.98  
- 3rd Qu.:19.0   3rd Qu.: 56.00  
- Max.   :25.0   Max.   :120.00  </code></pre>
+<div id="mental-time-travel" class="section level2">
+<h2>Mental Time Travel</h2>
+<p>This week we read Miloyan and MacFarlane’s (2019) systematic review of the different instruments used to measure episodic foresight. Episodic foresight is a form of thinking about the future that allows people to use imagined events to guide their actions.</p>
+<p>Going into this project, I had no idea how qualitative interview responses are scored. This paper addressed this concern in a clearly structured way, so that someone like me could follow. It prompted me to think about important validity considerations, such as separating people’s ability to think about the future (i.e. episodic foresight) from their ability to think about their own thinking and report them on a scale (i.e. metacognition). With regards to our project, Jenny pointed out that perhaps people with anxiety think more about their thinking in general, compared to the wider population. This is definitely something to keep in mind.</p>
+<p>The paper also gave a good overview of the adapted Autobiographical Interview (AI), which was used in our project. In the adapted AI, participants generate actual past and imagined future events based on cue words (e.g. “boat”). The events must be episodic in nature, meaning that they happened, or could feasibly happen, within a period of minutes or hours.</p>
+<p>Individual details in each response are categorised as either internal (episodic) or external (non-episodic). Internal details are scored based on the following five subcategories:</p>
+<ul>
+<li>Event</li>
+<li>Place</li>
+<li>Time</li>
+<li>Perceptual</li>
+<li>Thought/ emotion</li>
+</ul>
+<p>External details are scored based on the following five subcategories:</p>
+<ul>
+<li>Semantic</li>
+<li>External episodic</li>
+<li>External generic</li>
+<li>Repetition</li>
+<li>Other</li>
+</ul>
+<p>Next week, I need to learn more about the adapted AI so that I have a deeper understanding about how our data was scored. I’ll start with Addis et al. (2008), which is where the adapted AI originated. I’ll also check out Williams et al. (1996), Baddeley and Wilson (1986), D’Argembeau et al. (2008), and Brown et al. (2013), to learn more about how episodic specificity should be measured.</p>
+<p>We’ll also be reading a paper about the semantic-episodic distinction next week. This should further clarify my understanding of the adapted AI.</p>
 </div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="figure/1_blog.Rmd/pressure-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-pressure-1">
-Past versions of pressure-1.png
-</button>
-</p>
-<div id="fig-pressure-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/sakiko_project/blob/555ddf0e26b04ad1dba6dacbb61026aa4d892aea/docs/figure/1_blog.Rmd/pressure-1.png" target="_blank">555ddf0</a>
-</td>
-<td>
-Your Name
-</td>
-<td>
-2020-09-10
-</td>
-</tr>
-</tbody>
-</table>
+<div id="r" class="section level2">
+<h2>R</h2>
+<p>I learned a few new skills in R this week. I can now use <code>pivot_longer()</code> to change data to a long format, so it can be plotted.</p>
+<div class="figure">
+<img src="https://rladiessydney.org/img/longer_arguments.png" alt="" />
+<p class="caption">Image Credit <a href="https://twitter.com/apreshill">Alison Hill</a></p>
 </div>
+<p>I also learned how to add error bars to column graphs, making sure to specify its width, so doesn’t look ugly.</p>
+<p><code>geom_errorbar(aes(x = test_time, ymin = mean-stderror, ymax = mean+stderror), width=.2)</code></p>
+<p>Finally, I learned about <code>theme_apa()</code> in the papaja package, which allows you to easily plot a graph in APA style. Note that this function makes your graph “float” off the x axis. To fix this, use <code>scale_y_continuous(expand = c(0,0))</code></p>
+<p>You can see the graphs I made and the full code <a href="https://jenrichmond.github.io/sakiko_project/coding1.html">here</a>.</p>
+<p>To complete next week’s coding exercise, I still need to learn how to make scatterplots. I’ll learn this by watching <a href="https://www.youtube.com/watch?v=Ouoinu4ScPs&amp;feature=emb_logo&amp;ab_channel=RLadiesSydney">this video</a> from the RYouWithMe resource.</p>
 </div>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+<div id="reference" class="section level2">
+<h2>Reference</h2>
+<p>Miloyan, B., &amp; McFarlane, K. A. (2019). The measurement of episodic foresight: A systematic review of assessment instruments. <em>Cortex</em>, <em>117</em>, 351-370. <a href="https://doi.org/10.1016/j.cortex.2018.08.018" class="uri">https://doi.org/10.1016/j.cortex.2018.08.018</a></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -667,16 +688,16 @@ Your Name
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.5.1 (2018-07-02)
-Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS Sierra 10.12.6
+<pre><code>R version 4.0.2 (2020-06-22)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19041)
 
 Matrix products: default
-BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 
 locale:
-[1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
+[1] LC_COLLATE=English_Australia.1252  LC_CTYPE=English_Australia.1252   
+[3] LC_MONETARY=English_Australia.1252 LC_NUMERIC=C                      
+[5] LC_TIME=English_Australia.1252    
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
@@ -685,12 +706,14 @@ other attached packages:
 [1] workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.5      rprojroot_1.3-2 digest_0.6.25   later_1.1.0.1  
- [5] R6_2.4.1        backports_1.1.8 git2r_0.27.1    magrittr_1.5   
- [9] evaluate_0.14   stringi_1.4.6   rlang_0.4.7     fs_1.4.1       
-[13] promises_1.1.1  whisker_0.4     rmarkdown_1.15  tools_3.5.1    
-[17] stringr_1.4.0   glue_1.4.1      httpuv_1.5.2    xfun_0.8       
-[21] yaml_2.2.1      compiler_3.5.1  htmltools_0.5.0 knitr_1.23     </code></pre>
+ [1] Rcpp_1.0.5      rstudioapi_0.11 whisker_0.4     knitr_1.29     
+ [5] magrittr_1.5    R6_2.4.1        rlang_0.4.7     stringr_1.4.0  
+ [9] tools_4.0.2     xfun_0.16       git2r_0.27.1    htmltools_0.5.0
+[13] ellipsis_0.3.1  rprojroot_1.3-2 yaml_2.2.1      digest_0.6.25  
+[17] tibble_3.0.3    lifecycle_0.2.0 crayon_1.3.4    later_1.1.0.1  
+[21] vctrs_0.3.2     promises_1.1.1  fs_1.5.0        glue_1.4.1     
+[25] evaluate_0.14   rmarkdown_2.3   stringi_1.4.6   compiler_4.0.2 
+[29] pillar_1.4.6    backports_1.1.7 httpuv_1.5.4    pkgconfig_2.0.3</code></pre>
 </div>
 </div>
 
@@ -756,7 +779,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

@@ -413,7 +413,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-16
+<strong>Last updated:</strong> 2020-09-19
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -504,16 +504,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree1a1fb7fbd43addb5f76ce2ccfa90d9d9a067161atargetblank1a1fb7fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/1a1fb7fbd43addb5f76ce2ccfa90d9d9a067161a" target="_blank">1a1fb7f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree85da34a84e7e9293aa147bc54c3eb25cb56e5e8etargetblank85da34aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/85da34a84e7e9293aa147bc54c3eb25cb56e5e8e" target="_blank">85da34a</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree1a1fb7fbd43addb5f76ce2ccfa90d9d9a067161atargetblank1a1fb7fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree85da34a84e7e9293aa147bc54c3eb25cb56e5e8etargetblank85da34aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/1a1fb7fbd43addb5f76ce2ccfa90d9d9a067161a" target="_blank">1a1fb7f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/85da34a84e7e9293aa147bc54c3eb25cb56e5e8e" target="_blank">85da34a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -522,6 +522,12 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  data/1_Mehr2016_plot_test.csv
+
+Unstaged changes:
+    Modified:   analysis/blog_instructions.Rmd
 
 </code></pre>
 <p>
@@ -560,6 +566,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/85da34a84e7e9293aa147bc54c3eb25cb56e5e8e/analysis/coding1.Rmd" target="_blank">85da34a</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-09-19
+</td>
+<td>
+Week 1 Complete
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/dc5334199eb007da36dcbe0244e2b773c9bf2b2b/docs/coding1.html" target="_blank">dc53341</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-09-16
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -678,7 +718,8 @@ library(here)
 library(janitor)
 library(ggeasy)
 library(ggbeeswarm)
-library(RColorBrewer)</code></pre>
+library(RColorBrewer)
+library(papaja)</code></pre>
 </div>
 <div id="read-in-the-data" class="section level1">
 <h1>read in the data</h1>
@@ -866,6 +907,9 @@ $ `filter_$`                         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
   pivot_longer(names_to = &quot;stimulus&quot;, values_to = &quot;looking_time&quot;, &quot;familiar&quot;:&quot;unfamiliar&quot;)</code></pre>
 <p>Great, now your dataframe has 192 observations intead of 96 observations.</p>
 <p>Use group_by and summarise to get a dataframe of summary stats, including mean, sd, n, stderror for each stimulus.</p>
+<pre class="r"><code>summarydata &lt;- longdata %&gt;%
+  group_by(stimulus)%&gt;%
+  summarise(mean = mean(looking_time), sd = sd(looking_time), n = n(), stderror = sd/sqrt(n))</code></pre>
 <p>Use the summary df to make a column graph plotting mean looking as a function of stimulus. Make it fancy by …</p>
 <ol style="list-style-type: decimal">
 <li>adding error bars (I look <a href="http://jenrichmond.rbind.io/post/apa-figures/">this post</a> up every time I do this)</li>
@@ -876,6 +920,19 @@ $ `filter_$`                         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 <li>hint- theme_apa() from the papaja package will be helpful</li>
 <li>theme_apa will make the bar float off the x axis. Use scale_y_continuous(limits = c(0,600), expand = c(0,0)) to extend the y axis to 600ms and make the bars sit on the x axis at 0,0</li>
 </ul>
+<pre class="r"><code> write_csv(summarydata, here(&quot;data&quot;, &quot;1_Mehr2016_plot.csv&quot;))
+plotdata &lt;- read_csv(here(&quot;data&quot;, &quot;1_Mehr2016_plot.csv&quot;))
+
+plotdata %&gt;%
+  ggplot(aes(x = stimulus, y = mean, fill = stimulus)) + 
+  geom_col() + 
+  geom_errorbar(aes(x = stimulus, ymin = mean-stderror, ymax = mean+stderror), 
+                size=.3, 
+                width=.2) +
+  theme_apa(base_size = 14) +  
+  scale_y_continuous(limits = c(0,600), expand = c(0,0)) + 
+  labs(x=&quot;Stimulus type&quot;, y=&quot;Mean looking time (s)&quot;)</code></pre>
+<p><img src="figure/coding1.Rmd/plotfamlooking-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Great! looks like the error bars overlap, so there is unlikely to be a significant difference in the amount of time that infants looked at familiar vs. unfamiliar during the familiarisation.</p>
 </div>
 <div id="q2-baseline-vs.-test-looking" class="section level1">
@@ -883,26 +940,68 @@ $ `filter_$`                         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 <p>The other DV in this experiment is the propootion of time that infants spend looking at the person who was associated with the familiar song. The authors expected infants not to show any preferneces at baseline and that looking time at the person who sung the familiar song would be about 0.50. At test, however, if infants associate people with familiar music, the authors expected infants to show a preference for the person who sung the song that was familiar to them i.e. to look &gt; 0.50.</p>
 <p>Replicate the process above for the test data… 1. start with the renamed df and select just id and the variables associated with the test 2. make the data long so you have one column with test time in it (baseline, test) and one with proportion scores 3. use group_by and summarise to make a df of summary stats (mean, sd, n, stderror) 4. plot the proportion scores as a function of test time, including error bars. Try some fancy things with this plot… + maybe add a dashed horizontal line at 0.5 + try a different colour palette with RColorBrewer, type display.brewer.all() in the console to see all the options + add a title to the plot, maybe a caption at the bottom + see if you can remove the legend, its not really necessary</p>
 <pre class="r"><code># make the data long
-
+longtest &lt;- renamedata %&gt;%
+  select(id, baseline, test) %&gt;%
+   pivot_longer(names_to = &quot;test_time&quot;, values_to = &quot;proportion_looking&quot;, &quot;baseline&quot;:&quot;test&quot;)
 
 #make summary stats
-
-
-# plot            </code></pre>
+summarytest &lt;- longtest %&gt;%
+  group_by(test_time)%&gt;%
+  summarise(mean = mean(proportion_looking), sd = sd(proportion_looking), n = n(), stderror = sd/sqrt(n))</code></pre>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre class="r"><code># plot
+write_csv(summarytest, here(&quot;data&quot;, &quot;1_Mehr2016_plot_test.csv&quot;))
+plottest &lt;- read_csv(here(&quot;data&quot;, &quot;1_Mehr2016_plot_test.csv&quot;))</code></pre>
+<pre><code>Parsed with column specification:
+cols(
+  test_time = col_character(),
+  mean = col_double(),
+  sd = col_double(),
+  n = col_double(),
+  stderror = col_double()
+)</code></pre>
+<pre class="r"><code>plottest %&gt;%
+  ggplot(aes(x = test_time, y = mean, fill = test_time)) + 
+  geom_col() + 
+  scale_y_continuous(limits = c(0,0.6), expand = c(0,0)) +
+  geom_errorbar(aes(x = test_time, ymin = mean-stderror, ymax = mean+stderror), 
+                width=.2) +
+  theme_apa(base_size = 14) +  
+  labs(x = &quot;Test time&quot;, y=&quot;Mean proportion&quot;,  title = &quot;Proportion looking at person singing familiar song&quot;, caption = &quot;Mehr et al., 2016&quot;) +
+  geom_hline(yintercept=0.5, linetype=&quot;dashed&quot;) +
+  scale_fill_brewer(palette=&quot;Set3&quot;) + 
+  easy_remove_legend()</code></pre>
+<p><img src="figure/coding1.Rmd/alltestlooking-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="other-questions" class="section level1">
 <h1>Other questions</h1>
 <div id="how-variable-are-infants-looking-preferences-in-this-task" class="section level3">
 <h3>How variable are infants looking preferences in this task?</h3>
-<p>Try geom_jitter and geom_boxplot to visualise the raw proportion scores at baseline and test. Try layering the jitter on top of the boxplot. You might want to make the point transperant using alpha = 0.5</p>
+<p>Try geom_jitter and geom_boxplot to visualise the raw proportion scores at baseline and test. Try layering the jitter on top of the boxplot. You might want to make the point transparent using alpha = 0.5</p>
 <div id="geom_jitter" class="section level4">
 <h4>geom_jitter</h4>
+<pre class="r"><code>longtest %&gt;%
+  ggplot(aes(x = test_time, y = proportion_looking, colour = test_time)) +
+  geom_jitter() + 
+  theme_apa()</code></pre>
+<p><img src="figure/coding1.Rmd/jitter-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="geom_boxplot" class="section level4">
 <h4>geom_boxplot</h4>
+<pre class="r"><code>longtest %&gt;%
+  ggplot(aes(x = test_time, y = proportion_looking, fill = test_time)) + 
+  geom_boxplot() + 
+  theme_apa()</code></pre>
+<p><img src="figure/coding1.Rmd/boxplot-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="geom_boxplot-geom_jitter" class="section level4">
 <h4>geom_boxplot + geom_jitter</h4>
+<pre class="r"><code>longtest %&gt;%
+  ggplot(aes(x = test_time, y = proportion_looking, colour = test_time)) +
+  geom_boxplot() + 
+  geom_jitter(alpha = 0.5) + 
+  theme_apa()</code></pre>
+<p><img src="figure/coding1.Rmd/boxjitter-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -926,27 +1025,28 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] RColorBrewer_1.1-2 ggbeeswarm_0.6.0   ggeasy_0.1.2       janitor_2.0.1     
- [5] here_0.1           forcats_0.5.0      stringr_1.4.0      dplyr_1.0.2       
- [9] purrr_0.3.4        readr_1.3.1        tidyr_1.1.1        tibble_3.0.3      
-[13] ggplot2_3.3.2      tidyverse_1.3.0    workflowr_1.6.2   
+ [1] papaja_0.1.0.9997  RColorBrewer_1.1-2 ggbeeswarm_0.6.0   ggeasy_0.1.2      
+ [5] janitor_2.0.1      here_0.1           forcats_0.5.0      stringr_1.4.0     
+ [9] dplyr_1.0.2        purrr_0.3.4        readr_1.3.1        tidyr_1.1.1       
+[13] tibble_3.0.3       ggplot2_3.3.2      tidyverse_1.3.0    workflowr_1.6.2   
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.5       lubridate_1.7.9  utf8_1.1.4       assertthat_0.2.1
  [5] rprojroot_1.3-2  digest_0.6.25    R6_2.4.1         cellranger_1.1.0
  [9] backports_1.1.7  reprex_0.3.0     evaluate_0.14    httr_1.4.2      
 [13] pillar_1.4.6     rlang_0.4.7      readxl_1.3.1     rstudioapi_0.11 
-[17] whisker_0.4      blob_1.2.1       rmarkdown_2.3    munsell_0.5.0   
-[21] broom_0.7.0      vipor_0.4.5      compiler_4.0.2   httpuv_1.5.4    
-[25] modelr_0.1.8     xfun_0.16        pkgconfig_2.0.3  htmltools_0.5.0 
-[29] tidyselect_1.1.0 fansi_0.4.1      crayon_1.3.4     dbplyr_1.4.4    
-[33] withr_2.2.0      later_1.1.0.1    grid_4.0.2       jsonlite_1.7.0  
-[37] gtable_0.3.0     lifecycle_0.2.0  DBI_1.1.0        git2r_0.27.1    
-[41] magrittr_1.5     scales_1.1.1     cli_2.0.2        stringi_1.4.6   
-[45] fs_1.5.0         promises_1.1.1   snakecase_0.11.0 xml2_1.3.2      
-[49] ellipsis_0.3.1   generics_0.0.2   vctrs_0.3.2      tools_4.0.2     
-[53] glue_1.4.1       beeswarm_0.2.3   hms_0.5.3        yaml_2.2.1      
-[57] colorspace_1.4-1 rvest_0.3.6      knitr_1.29       haven_2.3.1     </code></pre>
+[17] whisker_0.4      blob_1.2.1       rmarkdown_2.3    labeling_0.3    
+[21] munsell_0.5.0    broom_0.7.0.9001 vipor_0.4.5      compiler_4.0.2  
+[25] httpuv_1.5.4     modelr_0.1.8     xfun_0.16        pkgconfig_2.0.3 
+[29] htmltools_0.5.0  tidyselect_1.1.0 fansi_0.4.1      crayon_1.3.4    
+[33] dbplyr_1.4.4     withr_2.2.0      later_1.1.0.1    grid_4.0.2      
+[37] jsonlite_1.7.0   gtable_0.3.0     lifecycle_0.2.0  DBI_1.1.0       
+[41] git2r_0.27.1     magrittr_1.5     scales_1.1.1     cli_2.0.2       
+[45] stringi_1.4.6    farver_2.0.3     fs_1.5.0         promises_1.1.1  
+[49] snakecase_0.11.0 xml2_1.3.2       ellipsis_0.3.1   generics_0.0.2  
+[53] vctrs_0.3.2      tools_4.0.2      glue_1.4.1       beeswarm_0.2.3  
+[57] hms_0.5.3        yaml_2.2.1       colorspace_1.4-1 rvest_0.3.6     
+[61] knitr_1.29       haven_2.3.1     </code></pre>
 </div>
 </div>
 </div>
