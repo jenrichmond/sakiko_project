@@ -1,7 +1,7 @@
 ---
-title: "Week 1 blog"
-author: "Sakiko"
-date: "10/09/2020"
+title: "Week 1 Blog"
+author: "Sakiko Okayama"
+date: "19/09/2020"
 output: html_document
 ---
 
@@ -9,22 +9,47 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Mental Time Travel 
+This week we read Miloyan and MacFarlane's (2019) systematic review of the different instruments used to measure episodic foresight. Episodic foresight is a form of thinking about the future that allows people to use imagined events to guide their actions. 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Going into this project, I had no idea how qualitative interview responses are scored. This paper addressed this concern in a clearly structured way, so that someone like me could follow. It prompted me to think about important validity considerations, such as separating people's ability to think about the future (i.e. episodic foresight) from their ability to think about their own thinking and report them on a scale (i.e. metacognition). With regards to our project, Jenny pointed out that perhaps people with anxiety think more about their thinking in general, compared to the wider population. This is definitely something to keep in mind. 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+The paper also gave a good overview of the adapted Autobiographical Interview (AI), which was used in our project. In the adapted AI, participants generate actual past and imagined future events based on cue words (e.g. "boat"). The events must be episodic in nature, meaning that they happened, or could feasibly happen, within a period of minutes or hours. 
 
-```{r cars}
-summary(cars)
-```
+Individual details in each response are categorised as either internal (episodic) or external (non-episodic). Internal details are scored based on the following five subcategories: 
 
-## Including Plots
+- Event
+- Place
+- Time
+- Perceptual
+- Thought/ emotion
 
-You can also embed plots, for example:
+External details are scored based on the following five subcategories: 
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+- Semantic
+- External episodic
+- External generic
+- Repetition
+- Other 
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Next week, I need to learn more about the adapted AI so that I have a deeper understanding about how our data was scored. I'll start with Addis et al. (2008), which is where the adapted AI originated. I'll also check out Williams et al. (1996), Baddeley and Wilson (1986), D'Argembeau et al. (2008), and Brown et al. (2013), to learn more about how episodic specificity should be measured. 
+
+We'll also be reading a paper about the semantic-episodic distinction next week. This should further clarify my understanding of the adapted AI. 
+
+## R 
+I learned a few new skills in R this week. I can now use `pivot_longer()` to change data to a long format, so it can be plotted. 
+
+![Image Credit [Alison Hill](https://twitter.com/apreshill)](https://rladiessydney.org/img/longer_arguments.png)
+
+I also learned how to add error bars to column graphs, making sure to specify its width, so it doesn't look ugly. 
+
+`geom_errorbar(aes(x = test_time, ymin = mean-stderror, ymax = mean+stderror), width=.2)`
+
+Finally, I learned about `theme_apa()` in the papaja package, which allows you to easily plot a graph in APA style. Note that this function makes your graph "float" off the x axis. To fix this, use `scale_y_continuous(expand = c(0,0))`
+
+You can see the graphs I made and the full code [here](https://jenrichmond.github.io/sakiko_project/coding1.html). 
+
+To complete next week's coding exercise, I still need to learn how to make scatterplots. I'll do this by watching [this video](https://www.youtube.com/watch?v=Ouoinu4ScPs&feature=emb_logo&ab_channel=RLadiesSydney) from the RYouWithMe resource.
+
+## Reference
+Miloyan, B., & McFarlane, K. A. (2019). The measurement of episodic foresight: A systematic review of assessment instruments. *Cortex*, *117*, 351-370. https://doi.org/10.1016/j.cortex.2018.08.018

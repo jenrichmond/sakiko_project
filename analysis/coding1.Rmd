@@ -20,10 +20,10 @@ Science, 27, 486-501.
 library(tidyverse)
 library(here)
 library(janitor)
-library(papaja)
 library(ggeasy)
 library(ggbeeswarm)
 library(RColorBrewer)
+library(papaja)
 
 ```
 
@@ -38,7 +38,7 @@ mehr <- read_csv(here("data", "1_Mehr2016.csv"))
 Use glimpse() or names() or str() to get an idea what is included in the dataset
 
 ```{r datastructure}
-
+glimpse(mehr)
 ```
 
 
@@ -48,14 +48,14 @@ Use glimpse() or names() or str() to get an idea what is included in the dataset
 There are lots of variables in this data set that we wont need. Make a smaller data set that only includes id and the key dependent variables (baseline, familiarisation and test looking). 
 
 ```{r selectdata}
-
+selectdata <- select(mehr, id, Baseline_Proportion_Gaze_to_Singer, Familiarization_Gaze_to_Familiar, Familiarization_Gaze_to_Unfamiliar, Test_Proportion_Gaze_to_Singer)
 
 ```
 
 The key DV variables have unwieldy names. Rename them so they are easier to refer to in your code. 
 
 ```{r rename}
-
+renamedata <- rename(mehr, baseline = Baseline_Proportion_Gaze_to_Singer, familiar = Familiarization_Gaze_to_Familiar, unfamiliar = Familiarization_Gaze_to_Unfamiliar, test = Test_Proportion_Gaze_to_Singer)
 ```
 
 # Q1 familiarisation looking 
@@ -63,6 +63,7 @@ The key DV variables have unwieldy names. Rename them so they are easier to refe
 In this kind of experiment, it is important to confirm that infants looking at each kind of stimulus during the familiarisation phase is the same. Calculate the mean and sd for familiarisation looking at the familiar and unfamiliar stimulus. 
 
 ```{r summarystats}
+summarise(renamedata, meanfamiliar = mean(familiar), sdfamiliar = sd(familiar), meanunfamiliar = mean(unfamiliar), sdunfamiliar = sd(unfamiliar))
 
 ```
 
@@ -71,7 +72,9 @@ Infants looked on average 501.71 ms at the familiar and 476.76 ms - it is hard t
 Make a new df that includes only id and the familiarisation data and use pivot_longer() to make the data into long format. You will end up with one column that has values of stimulus in it (familiar, unfamiliar) and one that has looking time values. 
 
 ```{r makedatalong}
-
+longdata <- renamedata %>%
+  select(id, familiar, unfamiliar) %>%
+  pivot_longer(names_to = "stimulus", values_to = "looking_time", "familiar":"unfamiliar")
                
 ```
 
@@ -79,9 +82,11 @@ Great, now your dataframe has 192 observations intead of 96 observations.
 
 Use group_by and summarise to get a dataframe of summary stats, including mean, sd, n, stderror for each stimulus. 
 
-```{r makesummarydf}
-
-
+```{r makesummarydf, message=FALSE, warning=FALSE}
+summarydata <- longdata %>%
+  group_by(stimulus)%>%
+  summarise(mean = mean(looking_time), sd = sd(looking_time), n = n(), stderror = sd/sqrt(n))
+            
 ```
 
 Use the summary df to make a column graph plotting mean looking as a function of stimulus. Make it fancy by ...
@@ -92,8 +97,20 @@ Use the summary df to make a column graph plotting mean looking as a function of
   + hint- theme_apa() from the papaja package will be helpful
   + theme_apa will make the bar float off the x axis. Use  scale_y_continuous(limits = c(0,600), expand = c(0,0)) to extend the y axis to 600ms and make the bars sit on the x axis at 0,0
 
-```{r plotfamlooking}
- 
+```{r plotfamlooking, message=FALSE, warning=FALSE}
+ write_csv(summarydata, here("data", "1_Mehr2016_plot.csv"))
+plotdata <- read_csv(here("data", "1_Mehr2016_plot.csv"))
+
+plotdata %>%
+  ggplot(aes(x = stimulus, y = mean, fill = stimulus)) + 
+  geom_col() + 
+  geom_errorbar(aes(x = stimulus, ymin = mean-stderror, ymax = mean+stderror), 
+                size=.3, 
+                width=.2) +
+  theme_apa(base_size = 14) +  
+  scale_y_continuous(limits = c(0,600), expand = c(0,0)) + 
+  labs(x="Stimulus type", y="Mean looking time (s)")
+  
 
 
 ```
@@ -117,14 +134,30 @@ Replicate the process above for the test data...
 
 ```{r alltestlooking}
 # make the data long
-
+longtest <- renamedata %>%
+  select(id, baseline, test) %>%
+   pivot_longer(names_to = "test_time", values_to = "proportion_looking", "baseline":"test")
 
 #make summary stats
+summarytest <- longtest %>%
+  group_by(test_time)%>%
+  summarise(mean = mean(proportion_looking), sd = sd(proportion_looking), n = n(), stderror = sd/sqrt(n))
 
+# plot
+write_csv(summarytest, here("data", "1_Mehr2016_plot_test.csv"))
+plottest <- read_csv(here("data", "1_Mehr2016_plot_test.csv"))
 
-# plot            
-  
-
+plottest %>%
+  ggplot(aes(x = test_time, y = mean, fill = test_time)) + 
+  geom_col() + 
+  scale_y_continuous(limits = c(0,0.6), expand = c(0,0)) +
+  geom_errorbar(aes(x = test_time, ymin = mean-stderror, ymax = mean+stderror), 
+                width=.2) +
+  theme_apa(base_size = 14) +  
+  labs(x = "Test time", y="Mean proportion",  title = "Proportion looking at person singing familiar song", caption = "Mehr et al., 2016") +
+  geom_hline(yintercept=0.5, linetype="dashed") +
+  scale_fill_brewer(palette="Set3") + 
+  easy_remove_legend()
 ```
 
 
@@ -132,22 +165,32 @@ Replicate the process above for the test data...
 
 ### How variable are infants looking preferences in this task? 
 
-Try geom_jitter and geom_boxplot to visualise the raw proportion scores at baseline and test. Try layering the jitter on top of the boxplot. You might want to make the point transperant using alpha = 0.5
+Try geom_jitter and geom_boxplot to visualise the raw proportion scores at baseline and test. Try layering the jitter on top of the boxplot. You might want to make the point transparent using alpha = 0.5
 
 
 #### geom_jitter
 
 ```{r jitter}
-
+longtest %>%
+  ggplot(aes(x = test_time, y = proportion_looking, colour = test_time)) +
+  geom_jitter() + 
+  theme_apa()
 ```
 
 #### geom_boxplot
 ```{r boxplot}
-
+longtest %>%
+  ggplot(aes(x = test_time, y = proportion_looking, fill = test_time)) + 
+  geom_boxplot() + 
+  theme_apa()
 ```
 
 #### geom_boxplot + geom_jitter
 ```{r boxjitter}
-
+longtest %>%
+  ggplot(aes(x = test_time, y = proportion_looking, colour = test_time)) +
+  geom_boxplot() + 
+  geom_jitter(alpha = 0.5) + 
+  theme_apa()
 ```
 

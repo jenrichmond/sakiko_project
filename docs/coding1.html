@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -247,6 +246,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -275,6 +275,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -360,12 +366,6 @@ div.tocify {
   <a href="about.html">About</a>
 </li>
 <li>
-  <a href="coding.html">Coding</a>
-</li>
-<li>
-  <a href="blog.html">Blog</a>
-</li>
-<li>
   <a href="license.html">License</a>
 </li>
       </ul>
@@ -395,7 +395,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -404,7 +404,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -413,10 +413,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-11
+<strong>Last updated:</strong> 2020-09-19
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>sakiko_project/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -432,12 +432,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -461,7 +461,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongSeedstrongcodesetseed20200910code" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The command <code>set.seed(20200910)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+<p>The command <code>set.seed(20200910)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
 </div>
 </div>
 </div>
@@ -504,36 +504,30 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree0093034262801fee5ca22eae0217eac6aec92a64targetblank0093034a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/0093034262801fee5ca22eae0217eac6aec92a64" target="_blank">0093034</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree85da34a84e7e9293aa147bc54c3eb25cb56e5e8etargetblank85da34aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/85da34a84e7e9293aa147bc54c3eb25cb56e5e8e" target="_blank">85da34a</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree0093034262801fee5ca22eae0217eac6aec92a64targetblank0093034a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree85da34a84e7e9293aa147bc54c3eb25cb56e5e8etargetblank85da34aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/0093034262801fee5ca22eae0217eac6aec92a64" target="_blank">0093034</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/85da34a84e7e9293aa147bc54c3eb25cb56e5e8e" target="_blank">85da34a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .DS_Store
+    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  data/1_Mehr2016.csv
-    Untracked:  data/2_Beall.csv
-    Untracked:  data/3_Atir2015.csv
-    Untracked:  data/4_Bastian2014.csv
-    Untracked:  data/5_Zhang2014.csv
-    Untracked:  output/coding1_solution.Rmd
-    Untracked:  site_libs/
+    Untracked:  data/1_Mehr2016_plot_test.csv
 
 Unstaged changes:
-    Modified:   analysis/coding1.Rmd
+    Modified:   analysis/blog_instructions.Rmd
 
 </code></pre>
 <p>
@@ -572,6 +566,91 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/85da34a84e7e9293aa147bc54c3eb25cb56e5e8e/analysis/coding1.Rmd" target="_blank">85da34a</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-09-19
+</td>
+<td>
+Week 1 Complete
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/dc5334199eb007da36dcbe0244e2b773c9bf2b2b/docs/coding1.html" target="_blank">dc53341</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-09-16
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/1a1fb7fbd43addb5f76ce2ccfa90d9d9a067161a/analysis/coding1.Rmd" target="_blank">1a1fb7f</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-09-16
+</td>
+<td>
+coding1 progress
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/7d3eb379cc5058ae6d6e452af8581f647188aa8a/analysis/coding1.Rmd" target="_blank">7d3eb37</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-11
+</td>
+<td>
+adding coding 1
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/7d3eb379cc5058ae6d6e452af8581f647188aa8a/docs/coding1.html" target="_blank">7d3eb37</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-11
+</td>
+<td>
+adding coding 1
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -637,10 +716,10 @@ blog instructions
 <pre class="r"><code>library(tidyverse)
 library(here)
 library(janitor)
-library(papaja)
 library(ggeasy)
 library(ggbeeswarm)
-library(RColorBrewer)</code></pre>
+library(RColorBrewer)
+library(papaja)</code></pre>
 </div>
 <div id="read-in-the-data" class="section level1">
 <h1>read in the data</h1>
@@ -649,19 +728,188 @@ library(RColorBrewer)</code></pre>
 <div id="familiarise-yourself-with-the-data" class="section level1">
 <h1>familiarise yourself with the data</h1>
 <p>Use glimpse() or names() or str() to get an idea what is included in the dataset</p>
+<pre class="r"><code>glimpse(mehr)</code></pre>
+<pre><code>Rows: 96
+Columns: 153
+$ id                                 &lt;dbl&gt; 101, 102, 103, 104, 105, 106, 10...
+$ study_code                         &lt;chr&gt; &quot;\&quot;LUL\&quot;&quot;, &quot;\&quot;LUL\&quot;&quot;, &quot;\&quot;LUL\&quot;&quot;,...
+$ exp1                               &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,...
+$ exp2                               &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...
+$ exp3                               &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...
+$ exp4                               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ exp5                               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ dob                                &lt;chr&gt; &quot;09oct2012&quot;, &quot;16nov2012&quot;, &quot;26nov...
+$ dot1                               &lt;chr&gt; &quot;29mar2013&quot;, &quot;10may2013&quot;, &quot;11may...
+$ dot2                               &lt;chr&gt; &quot;05apr2013&quot;, &quot;17may2013&quot;, &quot;20may...
+$ dot3                               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ female                             &lt;dbl&gt; 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1,...
+$ dad                                &lt;dbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,...
+$ train                              &lt;dbl&gt; 2, 1, 1, 2, 2, 2, 1, 1, 2, 1, 2,...
+$ Baseline_Proportion_Gaze_to_Singer &lt;dbl&gt; 0.4371257, 0.4125326, 0.7544910,...
+$ Familiarization_Gaze_to_Familiar   &lt;dbl&gt; 248, 406, 154, 502, 311, 639, 28...
+$ Familiarization_Gaze_to_Unfamiliar &lt;dbl&gt; 419, 307, 218, 666, 245, 533, 46...
+$ Test_Proportion_Gaze_to_Singer     &lt;dbl&gt; 0.6027398, 0.6830266, 0.7241379,...
+$ Difference_in_Proportion_Looking   &lt;dbl&gt; 0.1656140, 0.2704940, -0.0303531...
+$ Estimated_Total_Number_of_Song     &lt;dbl&gt; 35.00000, 239.00000, 102.00000, ...
+$ totskypesing                       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ stim                               &lt;chr&gt; &quot;\&quot;C1\&quot;&quot;, &quot;\&quot;C1\&quot;&quot;, &quot;\&quot;C2\&quot;&quot;, &quot;\...
+$ othersing                          &lt;dbl&gt; 0, 1, 0, 1, 0, 0, 2, 2, 0, 0, 1,...
+$ comply_no                          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ module                             &lt;chr&gt; &quot;\&quot;\&quot;&quot;, &quot;\&quot;\&quot;&quot;, &quot;\&quot;\&quot;&quot;, &quot;\&quot;\&quot;&quot;, ...
+$ skype_before                       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ ammat                              &lt;dbl&gt; 17, 27, 31, 25, 29, 33, 28, 30, ...
+$ ammar                              &lt;dbl&gt; 26, 28, 34, 24, 28, 33, 33, 28, ...
+$ ammatot                            &lt;dbl&gt; 43, 55, 65, 49, 57, 66, 61, 58, ...
+$ ammapr                             &lt;dbl&gt; 26, 62, 84, 44, 68, 86, 76, 70, ...
+$ ipad_num                           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ famtot_6                           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ unfamtot_6                         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ totprac                            &lt;dbl&gt; 15.4941600, 5.4214220, 5.4510660...
+$ totw                               &lt;dbl&gt; 793.392000, 153.788900, 0.000000...
+$ totnw                              &lt;dbl&gt; 0.00000, 0.00000, 223.84700, 0.0...
+$ age                                &lt;dbl&gt; 5.848049, 5.979466, 5.749486, 5....
+$ length                             &lt;dbl&gt; 7, 7, 9, 7, 14, 13, 12, 14, 9, 7...
+$ delay                              &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ mtotsing                           &lt;dbl&gt; 5.000000, 34.142860, 11.333330, ...
+$ mbabylike                          &lt;dbl&gt; 3.000000, 2.142857, 1.333333, 3....
+$ msingcomf                          &lt;dbl&gt; 3.857143, 4.000000, 3.000000, 2....
+$ mtotrecord                         &lt;dbl&gt; 0.5714286, 22.2857200, 0.0000000...
+$ m_othersong                        &lt;dbl&gt; 3.2857140, 1.7142860, 0.0000000,...
+$ pright                             &lt;dbl&gt; 0.80, 0.80, 0.96, 1.00, 1.00, 0....
+$ diarymissing                       &lt;dbl&gt; 0, 0, 3, 0, 0, 0, 3, 5, 0, 0, 2,...
+$ comply_fup                         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,...
+$ survey_completion                  &lt;dbl&gt; 1.0000000, 1.0000000, 0.6666667,...
+$ smsingrate                         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ smtalkrate                         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ gzsingrate                         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ gztalkrate                         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ famtot                             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ unfamtot                           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ totsing1                           &lt;dbl&gt; 7, 6, 8, 3, 8, 9, 12, 5, 5, 15, ...
+$ babylike1                          &lt;dbl&gt; 3, 2, 2, 4, 2, 4, 3, 3, 2, 5, 3,...
+$ singcomf1                          &lt;dbl&gt; 3, 4, 3, 2, 3, 4, 3, 3, 2, 4, 4,...
+$ totrecord1                         &lt;dbl&gt; 0, 20, 0, 0, 2, 20, 2, 10, 4, 4,...
+$ othersong1                         &lt;dbl&gt; 6, 0, 0, 0, 0, 0, 8, 0, 16, 0, 0...
+$ dtword1                            &lt;dbl&gt; 293.022600, 55.807070, 24.555000...
+$ dtnoword1                          &lt;dbl&gt; 91.928550, 25.287440, 78.630000,...
+$ totsing2                           &lt;dbl&gt; 5, 25, 25, 6, 5, 12, 8, 7, 10, 1...
+$ babylike2                          &lt;dbl&gt; 3, 2, 1, 3, 3, 4, 3, 3, 3, 4, 4,...
+$ singcomf2                          &lt;dbl&gt; 4, 4, 4, 3, 4, 5, 4, 4, 2, 5, 4,...
+$ totrecord2                         &lt;dbl&gt; 0, 50, 0, 2, 0, 6, 4, 15, 0, 2, ...
+$ othersong2                         &lt;dbl&gt; 8, 12, 0, 0, 0, 0, 7, 0, 15, 17,...
+$ dtword2                            &lt;dbl&gt; 53.27683, 24.16411, 24.55500, 38...
+$ dtnoword2                          &lt;dbl&gt; 25.58346, 0.00000, 145.21700, 0....
+$ totsing3                           &lt;dbl&gt; 5, 50, 8, 6, 6, 10, 16, 4, 5, 10...
+$ babylike3                          &lt;dbl&gt; 3, 3, 2, 4, 3, 3, 4, 4, 3, 4, 4,...
+$ singcomf3                          &lt;dbl&gt; 4, 4, 3, 3, 4, 4, 4, 4, 3, 5, 4,...
+$ totrecord3                         &lt;dbl&gt; 0, 30, 0, 0, 0, 0, 5, 20, 3, 3, ...
+$ othersong3                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0...
+$ dtword3                            &lt;dbl&gt; 79.91525, 0.00000, 0.00000, 185....
+$ dtnoword3                          &lt;dbl&gt; 0.00000, 0.00000, 0.00000, 100.5...
+$ totsing4                           &lt;dbl&gt; 5, 30, 15, 0, 6, 9, 10, 4, 4, 5,...
+$ babylike4                          &lt;dbl&gt; 3, 2, 1, 3, 3, 4, 2, 4, 3, 4, 4,...
+$ singcomf4                          &lt;dbl&gt; 4, 4, 2, 2, 4, 5, 3, 3, 3, 5, 5,...
+$ totrecord4                         &lt;dbl&gt; 0, 16, 0, 0, 12, 8, 0, 2, 2, 0, ...
+$ othersong4                         &lt;dbl&gt; 9, 0, 0, 0, 0, 0, 21, 0, 12, 0, ...
+$ dtword4                            &lt;dbl&gt; 159.60610, 0.00000, 23.96200, 32...
+$ dtnoword4                          &lt;dbl&gt; 18.745650, 0.000000, 0.000000, 0...
+$ totsing5                           &lt;dbl&gt; 4, 40, 6, 4, 5, 8, 12, 3, 4, 5, ...
+$ babylike5                          &lt;dbl&gt; 3, 2, 1, 3, 4, 4, 2, 4, 4, 4, 4,...
+$ singcomf5                          &lt;dbl&gt; 4, 4, 3, 3, 5, 5, 4, 3, 4, 5, 5,...
+$ totrecord5                         &lt;dbl&gt; 2, 30, 0, 0, 10, 0, 0, 3, 0, 3, ...
+$ othersong5                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0...
+$ dtword5                            &lt;dbl&gt; 78.93342, 0.00000, 0.00000, 26.4...
+$ dtnoword5                          &lt;dbl&gt; 0.00000, 0.00000, 0.00000, 0.000...
+$ totsing6                           &lt;dbl&gt; 5, 50, 6, 4, 6, 7, 10, 4, 4, 5, ...
+$ babylike6                          &lt;dbl&gt; 3, 2, 1, 3, 4, 4, 3, 4, 4, 4, 5,...
+$ singcomf6                          &lt;dbl&gt; 4, 4, 3, 2, 5, 4, 5, 4, 4, 5, 5,...
+$ totrecord6                         &lt;dbl&gt; 2, 5, 0, 1, 0, 0, 5, 3, 0, 3, 2,...
+$ othersong6                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 9, 0, 12, 0, 0...
+$ dtword6                            &lt;dbl&gt; 76.71582, 24.73150, 0.00000, 79....
+$ dtnoword6                          &lt;dbl&gt; 0.00000, 0.00000, 0.00000, 0.000...
+$ totsing7                           &lt;dbl&gt; 4, 38, NA, 4, 4, 10, 6, 4, 3, 5,...
+$ babylike7                          &lt;dbl&gt; 3, 2, NA, 4, 4, 4, 3, 5, 3, 4, 5...
+$ singcomf7                          &lt;dbl&gt; 4, 4, NA, 2, 4, 4, 4, 4, 4, 5, 5...
+$ totrecord7                         &lt;dbl&gt; 0, 5, NA, 0, 3, 1, 2, 6, 0, 5, 0...
+$ othersong7                         &lt;dbl&gt; 0, 0, NA, 0, 0, 0, 10, 0, 0, 0, ...
+$ dtword7                            &lt;dbl&gt; 0.00000, 49.08626, 30.14500, 106...
+$ dtnoword7                          &lt;dbl&gt; 0.00000, 146.20900, 0.00000, 0.0...
+$ totsing8                           &lt;dbl&gt; NA, NA, NA, NA, 3, 7, 15, 5, 4, ...
+$ babylike8                          &lt;dbl&gt; NA, NA, NA, NA, 3, 4, 3, 4, 3, N...
+$ singcomf8                          &lt;dbl&gt; NA, NA, NA, NA, 4, 5, 5, 4, 4, N...
+$ totrecord8                         &lt;dbl&gt; NA, NA, NA, NA, 4, 0, 5, 3, 5, N...
+$ othersong8                         &lt;dbl&gt; NA, NA, NA, NA, 0, 0, 10, 0, 0, ...
+$ dtword8                            &lt;dbl&gt; 51.92201, 0.00000, 0.00000, 45.7...
+$ dtnoword8                          &lt;dbl&gt; 0.00000, 0.00000, 0.00000, 0.000...
+$ totsing9                           &lt;dbl&gt; NA, NA, NA, NA, 4, 16, 12, 5, 5,...
+$ babylike9                          &lt;dbl&gt; NA, NA, NA, NA, 3, 4, 3, 4, 3, N...
+$ singcomf9                          &lt;dbl&gt; NA, NA, NA, NA, 4, 5, 5, 4, 3, N...
+$ totrecord9                         &lt;dbl&gt; NA, NA, NA, NA, 0, 12, 4, 10, 6,...
+$ othersong9                         &lt;dbl&gt; NA, NA, NA, NA, 0, 0, 7, 0, 0, N...
+$ dtword9                            &lt;dbl&gt; 0.0000, 0.0000, 0.0000, 0.0000, ...
+$ dtnoword9                          &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...
+$ totsing10                          &lt;dbl&gt; NA, NA, NA, NA, 3, 8, NA, NA, NA...
+$ babylike10                         &lt;dbl&gt; NA, NA, NA, NA, 3, 4, NA, NA, NA...
+$ singcomf10                         &lt;dbl&gt; NA, NA, NA, NA, 4, 4, NA, NA, NA...
+$ totrecord10                        &lt;dbl&gt; NA, NA, NA, NA, 6, 0, NA, NA, NA...
+$ othersong10                        &lt;dbl&gt; NA, NA, NA, NA, 0, 0, NA, NA, NA...
+$ dtword10                           &lt;dbl&gt; 0.0000, 0.0000, 0.0000, 0.0000, ...
+$ dtnoword10                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...
+$ totsing11                          &lt;dbl&gt; NA, NA, NA, NA, 4, 12, NA, NA, N...
+$ babylike11                         &lt;dbl&gt; NA, NA, NA, NA, 3, 4, NA, NA, NA...
+$ singcomf11                         &lt;dbl&gt; NA, NA, NA, NA, 4, 5, NA, NA, NA...
+$ totrecord11                        &lt;dbl&gt; NA, NA, NA, NA, 6, 0, NA, NA, NA...
+$ othersong11                        &lt;dbl&gt; NA, NA, NA, NA, 0, 28, NA, NA, N...
+$ dtword11                           &lt;dbl&gt; 0.00000, 0.00000, 0.00000, 0.000...
+$ dtnoword11                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...
+$ totsing12                          &lt;dbl&gt; NA, NA, NA, NA, 2, 8, NA, NA, NA...
+$ babylike12                         &lt;dbl&gt; NA, NA, NA, NA, 3, 4, NA, NA, NA...
+$ singcomf12                         &lt;dbl&gt; NA, NA, NA, NA, 4, 5, NA, NA, NA...
+$ totrecord12                        &lt;dbl&gt; NA, NA, NA, NA, 4, 2, NA, NA, NA...
+$ othersong12                        &lt;dbl&gt; NA, NA, NA, NA, 0, 0, NA, NA, NA...
+$ dtword12                           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...
+$ dtnoword12                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...
+$ totsing13                          &lt;dbl&gt; NA, NA, NA, NA, 0, 10, NA, NA, N...
+$ babylike13                         &lt;dbl&gt; NA, NA, NA, NA, 3, 4, NA, NA, NA...
+$ singcomf13                         &lt;dbl&gt; NA, NA, NA, NA, 4, 5, NA, NA, NA...
+$ totrecord13                        &lt;dbl&gt; NA, NA, NA, NA, 15, 0, NA, NA, N...
+$ othersong13                        &lt;dbl&gt; NA, NA, NA, NA, 0, 0, NA, NA, NA...
+$ dtword13                           &lt;dbl&gt; 0.00000, 0.00000, 0.00000, 0.000...
+$ dtnoword13                         &lt;dbl&gt; 0.0000, 0.0000, 0.0000, 0.0000, ...
+$ totsing14                          &lt;dbl&gt; NA, NA, NA, NA, 4, NA, NA, NA, N...
+$ babylike14                         &lt;dbl&gt; NA, NA, NA, NA, 3, NA, NA, NA, N...
+$ singcomf14                         &lt;dbl&gt; NA, NA, NA, NA, 4, NA, NA, NA, N...
+$ totrecord14                        &lt;dbl&gt; NA, NA, NA, NA, 0, NA, NA, NA, N...
+$ othersong14                        &lt;dbl&gt; NA, NA, NA, NA, 0, NA, NA, NA, N...
+$ dtword14                           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...
+$ dtnoword14                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...
+$ `filter_$`                         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,...</code></pre>
 </div>
 <div id="clean-up-the-data" class="section level1">
 <h1>clean up the data</h1>
 <p>There are lots of variables in this data set that we wont need. Make a smaller data set that only includes id and the key dependent variables (baseline, familiarisation and test looking).</p>
+<pre class="r"><code>selectdata &lt;- select(mehr, id, Baseline_Proportion_Gaze_to_Singer, Familiarization_Gaze_to_Familiar, Familiarization_Gaze_to_Unfamiliar, Test_Proportion_Gaze_to_Singer)</code></pre>
 <p>The key DV variables have unwieldy names. Rename them so they are easier to refer to in your code.</p>
+<pre class="r"><code>renamedata &lt;- rename(mehr, baseline = Baseline_Proportion_Gaze_to_Singer, familiar = Familiarization_Gaze_to_Familiar, unfamiliar = Familiarization_Gaze_to_Unfamiliar, test = Test_Proportion_Gaze_to_Singer)</code></pre>
 </div>
 <div id="q1-familiarisation-looking" class="section level1">
 <h1>Q1 familiarisation looking</h1>
 <p>In this kind of experiment, it is important to confirm that infants looking at each kind of stimulus during the familiarisation phase is the same. Calculate the mean and sd for familiarisation looking at the familiar and unfamiliar stimulus.</p>
+<pre class="r"><code>summarise(renamedata, meanfamiliar = mean(familiar), sdfamiliar = sd(familiar), meanunfamiliar = mean(unfamiliar), sdunfamiliar = sd(unfamiliar))</code></pre>
+<pre><code># A tibble: 1 x 4
+  meanfamiliar sdfamiliar meanunfamiliar sdunfamiliar
+         &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;
+1         502.       153.           477.         169.</code></pre>
 <p>Infants looked on average 501.71 ms at the familiar and 476.76 ms - it is hard to tell whether a difference of 25 ms will be significantly different without plotting the data with standard error bars.</p>
 <p>Make a new df that includes only id and the familiarisation data and use pivot_longer() to make the data into long format. You will end up with one column that has values of stimulus in it (familiar, unfamiliar) and one that has looking time values.</p>
+<pre class="r"><code>longdata &lt;- renamedata %&gt;%
+  select(id, familiar, unfamiliar) %&gt;%
+  pivot_longer(names_to = &quot;stimulus&quot;, values_to = &quot;looking_time&quot;, &quot;familiar&quot;:&quot;unfamiliar&quot;)</code></pre>
 <p>Great, now your dataframe has 192 observations intead of 96 observations.</p>
 <p>Use group_by and summarise to get a dataframe of summary stats, including mean, sd, n, stderror for each stimulus.</p>
+<pre class="r"><code>summarydata &lt;- longdata %&gt;%
+  group_by(stimulus)%&gt;%
+  summarise(mean = mean(looking_time), sd = sd(looking_time), n = n(), stderror = sd/sqrt(n))</code></pre>
 <p>Use the summary df to make a column graph plotting mean looking as a function of stimulus. Make it fancy by …</p>
 <ol style="list-style-type: decimal">
 <li>adding error bars (I look <a href="http://jenrichmond.rbind.io/post/apa-figures/">this post</a> up every time I do this)</li>
@@ -672,33 +920,88 @@ library(RColorBrewer)</code></pre>
 <li>hint- theme_apa() from the papaja package will be helpful</li>
 <li>theme_apa will make the bar float off the x axis. Use scale_y_continuous(limits = c(0,600), expand = c(0,0)) to extend the y axis to 600ms and make the bars sit on the x axis at 0,0</li>
 </ul>
+<pre class="r"><code> write_csv(summarydata, here(&quot;data&quot;, &quot;1_Mehr2016_plot.csv&quot;))
+plotdata &lt;- read_csv(here(&quot;data&quot;, &quot;1_Mehr2016_plot.csv&quot;))
+
+plotdata %&gt;%
+  ggplot(aes(x = stimulus, y = mean, fill = stimulus)) + 
+  geom_col() + 
+  geom_errorbar(aes(x = stimulus, ymin = mean-stderror, ymax = mean+stderror), 
+                size=.3, 
+                width=.2) +
+  theme_apa(base_size = 14) +  
+  scale_y_continuous(limits = c(0,600), expand = c(0,0)) + 
+  labs(x=&quot;Stimulus type&quot;, y=&quot;Mean looking time (s)&quot;)</code></pre>
+<p><img src="figure/coding1.Rmd/plotfamlooking-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Great! looks like the error bars overlap, so there is unlikely to be a significant difference in the amount of time that infants looked at familiar vs. unfamiliar during the familiarisation.</p>
 </div>
-<div id="q2-baseline-vs.test-looking" class="section level1">
+<div id="q2-baseline-vs.-test-looking" class="section level1">
 <h1>Q2 baseline vs. test looking</h1>
 <p>The other DV in this experiment is the propootion of time that infants spend looking at the person who was associated with the familiar song. The authors expected infants not to show any preferneces at baseline and that looking time at the person who sung the familiar song would be about 0.50. At test, however, if infants associate people with familiar music, the authors expected infants to show a preference for the person who sung the song that was familiar to them i.e. to look &gt; 0.50.</p>
 <p>Replicate the process above for the test data… 1. start with the renamed df and select just id and the variables associated with the test 2. make the data long so you have one column with test time in it (baseline, test) and one with proportion scores 3. use group_by and summarise to make a df of summary stats (mean, sd, n, stderror) 4. plot the proportion scores as a function of test time, including error bars. Try some fancy things with this plot… + maybe add a dashed horizontal line at 0.5 + try a different colour palette with RColorBrewer, type display.brewer.all() in the console to see all the options + add a title to the plot, maybe a caption at the bottom + see if you can remove the legend, its not really necessary</p>
 <pre class="r"><code># make the data long
-
+longtest &lt;- renamedata %&gt;%
+  select(id, baseline, test) %&gt;%
+   pivot_longer(names_to = &quot;test_time&quot;, values_to = &quot;proportion_looking&quot;, &quot;baseline&quot;:&quot;test&quot;)
 
 #make summary stats
-
-
-# plot            </code></pre>
+summarytest &lt;- longtest %&gt;%
+  group_by(test_time)%&gt;%
+  summarise(mean = mean(proportion_looking), sd = sd(proportion_looking), n = n(), stderror = sd/sqrt(n))</code></pre>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre class="r"><code># plot
+write_csv(summarytest, here(&quot;data&quot;, &quot;1_Mehr2016_plot_test.csv&quot;))
+plottest &lt;- read_csv(here(&quot;data&quot;, &quot;1_Mehr2016_plot_test.csv&quot;))</code></pre>
+<pre><code>Parsed with column specification:
+cols(
+  test_time = col_character(),
+  mean = col_double(),
+  sd = col_double(),
+  n = col_double(),
+  stderror = col_double()
+)</code></pre>
+<pre class="r"><code>plottest %&gt;%
+  ggplot(aes(x = test_time, y = mean, fill = test_time)) + 
+  geom_col() + 
+  scale_y_continuous(limits = c(0,0.6), expand = c(0,0)) +
+  geom_errorbar(aes(x = test_time, ymin = mean-stderror, ymax = mean+stderror), 
+                width=.2) +
+  theme_apa(base_size = 14) +  
+  labs(x = &quot;Test time&quot;, y=&quot;Mean proportion&quot;,  title = &quot;Proportion looking at person singing familiar song&quot;, caption = &quot;Mehr et al., 2016&quot;) +
+  geom_hline(yintercept=0.5, linetype=&quot;dashed&quot;) +
+  scale_fill_brewer(palette=&quot;Set3&quot;) + 
+  easy_remove_legend()</code></pre>
+<p><img src="figure/coding1.Rmd/alltestlooking-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="other-questions" class="section level1">
 <h1>Other questions</h1>
 <div id="how-variable-are-infants-looking-preferences-in-this-task" class="section level3">
 <h3>How variable are infants looking preferences in this task?</h3>
-<p>Try geom_jitter and geom_boxplot to visualise the raw proportion scores at baseline and test. Try layering the jitter on top of the boxplot. You might want to make the point transperant using alpha = 0.5</p>
+<p>Try geom_jitter and geom_boxplot to visualise the raw proportion scores at baseline and test. Try layering the jitter on top of the boxplot. You might want to make the point transparent using alpha = 0.5</p>
 <div id="geom_jitter" class="section level4">
 <h4>geom_jitter</h4>
+<pre class="r"><code>longtest %&gt;%
+  ggplot(aes(x = test_time, y = proportion_looking, colour = test_time)) +
+  geom_jitter() + 
+  theme_apa()</code></pre>
+<p><img src="figure/coding1.Rmd/jitter-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="geom_boxplot" class="section level4">
 <h4>geom_boxplot</h4>
+<pre class="r"><code>longtest %&gt;%
+  ggplot(aes(x = test_time, y = proportion_looking, fill = test_time)) + 
+  geom_boxplot() + 
+  theme_apa()</code></pre>
+<p><img src="figure/coding1.Rmd/boxplot-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="geom_boxplot-geom_jitter" class="section level4">
 <h4>geom_boxplot + geom_jitter</h4>
+<pre class="r"><code>longtest %&gt;%
+  ggplot(aes(x = test_time, y = proportion_looking, colour = test_time)) +
+  geom_boxplot() + 
+  geom_jitter(alpha = 0.5) + 
+  theme_apa()</code></pre>
+<p><img src="figure/coding1.Rmd/boxjitter-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -707,48 +1010,43 @@ library(RColorBrewer)</code></pre>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.5.1 (2018-07-02)
-Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS Sierra 10.12.6
+<pre><code>R version 4.0.2 (2020-06-22)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19041)
 
 Matrix products: default
-BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 
 locale:
-[1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
+[1] LC_COLLATE=English_Australia.1252  LC_CTYPE=English_Australia.1252   
+[3] LC_MONETARY=English_Australia.1252 LC_NUMERIC=C                      
+[5] LC_TIME=English_Australia.1252    
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] RColorBrewer_1.1-2 ggbeeswarm_0.6.0   ggeasy_0.1.2      
- [4] papaja_0.1.0.9842  janitor_1.2.0      here_0.1          
- [7] forcats_0.5.0      stringr_1.4.0      dplyr_1.0.1       
-[10] purrr_0.3.3        readr_1.3.1        tidyr_1.1.0       
-[13] tibble_3.0.3       ggplot2_3.3.2      tidyverse_1.3.0   
+ [1] papaja_0.1.0.9997  RColorBrewer_1.1-2 ggbeeswarm_0.6.0   ggeasy_0.1.2      
+ [5] janitor_2.0.1      here_0.1           forcats_0.5.0      stringr_1.4.0     
+ [9] dplyr_1.0.2        purrr_0.3.4        readr_1.3.1        tidyr_1.1.1       
+[13] tibble_3.0.3       ggplot2_3.3.2      tidyverse_1.3.0    workflowr_1.6.2   
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.5             lubridate_1.7.4        assertthat_0.2.1      
- [4] rprojroot_1.3-2        digest_0.6.25          R6_2.4.1              
- [7] cellranger_1.1.0       backports_1.1.8        reprex_0.3.0          
-[10] evaluate_0.14          httr_1.4.1             pillar_1.4.6          
-[13] rlang_0.4.7            readxl_1.3.1           rstudioapi_0.11.0-9000
-[16] whisker_0.4            blob_1.2.1             rmarkdown_1.15        
-[19] munsell_0.5.0          broom_0.7.0            compiler_3.5.1        
-[22] httpuv_1.5.2           vipor_0.4.5            modelr_0.1.8          
-[25] xfun_0.8               pkgconfig_2.0.3        htmltools_0.5.0       
-[28] tidyselect_1.1.0       workflowr_1.6.2        fansi_0.4.1           
-[31] crayon_1.3.4           dbplyr_1.4.4           withr_2.2.0           
-[34] later_1.1.0.1          grid_3.5.1             jsonlite_1.7.0        
-[37] gtable_0.3.0           lifecycle_0.2.0        DBI_1.0.0             
-[40] git2r_0.27.1           magrittr_1.5           scales_1.1.1          
-[43] cli_2.0.2              stringi_1.4.6          fs_1.4.1              
-[46] promises_1.1.1         xml2_1.3.2             ellipsis_0.3.1        
-[49] generics_0.0.2         vctrs_0.3.2            tools_3.5.1           
-[52] glue_1.4.1             beeswarm_0.2.3         hms_0.5.3             
-[55] yaml_2.2.1             colorspace_1.4-1       rvest_0.3.6           
-[58] knitr_1.23             haven_2.3.1           </code></pre>
+ [1] Rcpp_1.0.5       lubridate_1.7.9  utf8_1.1.4       assertthat_0.2.1
+ [5] rprojroot_1.3-2  digest_0.6.25    R6_2.4.1         cellranger_1.1.0
+ [9] backports_1.1.7  reprex_0.3.0     evaluate_0.14    httr_1.4.2      
+[13] pillar_1.4.6     rlang_0.4.7      readxl_1.3.1     rstudioapi_0.11 
+[17] whisker_0.4      blob_1.2.1       rmarkdown_2.3    labeling_0.3    
+[21] munsell_0.5.0    broom_0.7.0.9001 vipor_0.4.5      compiler_4.0.2  
+[25] httpuv_1.5.4     modelr_0.1.8     xfun_0.16        pkgconfig_2.0.3 
+[29] htmltools_0.5.0  tidyselect_1.1.0 fansi_0.4.1      crayon_1.3.4    
+[33] dbplyr_1.4.4     withr_2.2.0      later_1.1.0.1    grid_4.0.2      
+[37] jsonlite_1.7.0   gtable_0.3.0     lifecycle_0.2.0  DBI_1.1.0       
+[41] git2r_0.27.1     magrittr_1.5     scales_1.1.1     cli_2.0.2       
+[45] stringi_1.4.6    farver_2.0.3     fs_1.5.0         promises_1.1.1  
+[49] snakecase_0.11.0 xml2_1.3.2       ellipsis_0.3.1   generics_0.0.2  
+[53] vctrs_0.3.2      tools_4.0.2      glue_1.4.1       beeswarm_0.2.3  
+[57] hms_0.5.3        yaml_2.2.1       colorspace_1.4-1 rvest_0.3.6     
+[61] knitr_1.29       haven_2.3.1     </code></pre>
 </div>
 </div>
 </div>
@@ -816,7 +1114,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
