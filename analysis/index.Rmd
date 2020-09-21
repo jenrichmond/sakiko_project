@@ -18,10 +18,18 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 [Coding 1](coding1.html)
 - In this exercise, you will wrangle and visualise data from a study testing whether infants associate people with familiar music. Practice making data long, computing summary stats and plotting column graphs with error bars. Ask questions about variability by plotting raw data too. You can read the original paper by [Mehr et al., (2016) here.](https://journals.sagepub.com/doi/abs/10.1177/0956797615626691)
 
+[Coding 2](coding2.html)
+- Did the Ebola outbreak impact the US election? Do they have enough data in this study to say it did? Practice clean_names, slice, and making scatterplots using geom_point. Learn about the ggpubr package to get correlation coefficients on plots and the naniar package for visualising missing data. 
+
+
 
 # Blog
 
 [Week 1 blog post](1_blog.html) 
+
+[Week 2 blog post](2_blog.html) 
+
+[Week 3 blog post](3_blog.html) 
 
 
 # MTT project

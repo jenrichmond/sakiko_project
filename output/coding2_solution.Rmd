@@ -11,8 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 In this coding exercise, you will work with data from a study published in Psychological Science. 
 
-Beall, A. T., Hofer, M. K., & Shaller, M. (2016). Infections and elections: Did an Ebola outbreak influence
-the 2014 U.S. federal elections (and if so, how)? Psychological Science, 27, 595-605.
+Beall, A. T., Hofer, M. K., & Shaller, M. (2016). Infections and elections: Did an Ebola outbreak influence the 2014 U.S. federal elections (and if so, how)? Psychological Science, 27, 595-605.
 
 # load packages
 
@@ -23,6 +22,7 @@ library(janitor)
 library(papaja)
 library(naniar) # re missing data
 library(RColorBrewer)
+library(ggpubr)
 
 ```
 
@@ -54,7 +54,7 @@ beall_clean <- beall %>%
 
 The first couple of rows are also filled with NA (no data). Use slice(3:n()) to slice the data from row 3 until the end (n()). (you will end up with 65 obs)
 
-```{r}
+```{r slice}
 
 beall_sliced <- beall_clean %>%
   slice(3:n())
@@ -71,19 +71,38 @@ beall_select <- beall_sliced %>%
 ```
 
 
-# Q1 Is there a relation between voter intention and ebola?
+# Is there a correlation between voter intention and ebola?
 
 Use geom_point to make a scatter plot the relation between voter intention and ebola. Use theme_apa and add an informative title. 
+
 
 ```{r scatterplot}
 beall_select %>%
   ggplot(aes(x = voter_intention_index, y = ebola_search_volume_index)) +
   geom_point() +
-  theme_apa()
+  scale_x_continuous(limits = c(-1, 3)) +
+  theme_apa() 
 
 ```
 
-```{r}
+Have a look at the `ggpubr` package and stat_cor() and see if you can get a correlation coefficient to display on the plot
+```{r withcorrelation}
+beall_select %>%
+  ggplot(aes(x = voter_intention_index, y = ebola_search_volume_index)) +
+  geom_point() +
+  scale_x_continuous(limits = c(-1, 3)) +
+  theme_apa() +
+  stat_cor(method = "pearson", 
+           label.x = -1, 
+           label.y = 60)
+```
+
+# Plot timeframes
+
+### just two weeks prior
+
+Restrict the data to only 2 weeks prior to the outbreak and plot again. 
+```{r twoweeks}
 beall_select %>%
   filter(two_weeks_prior_to_outbreak_only == 1) %>%
   ggplot(aes(x = voter_intention_index, y = ebola_search_volume_index)) +
@@ -92,8 +111,11 @@ beall_select %>%
 
 ```
 
-# Month of september
-```{r}
+### september
+
+Restrict to just the month of september and plot date againest voter intention
+
+```{r sept}
 # whole month
 
 beall_select %>%
@@ -102,6 +124,11 @@ beall_select %>%
   geom_point() +
   theme_apa()
 
+```
+
+Restrict to just the last week september and plot date againest voter intention
+
+```{r weeksept}
 # last week 
 beall_select %>%
   filter(month == 9) %>%
@@ -111,8 +138,10 @@ beall_select %>%
   theme_apa()
 ```
 
-# Month of October
-```{r}
+### october
+
+Restrict to just October and plot date against voter intention
+```{r oct}
 # whole month
 
 beall_select %>%
@@ -120,7 +149,10 @@ beall_select %>%
   ggplot(aes(x = date, y = voter_intention_index)) +
   geom_point() +
   theme_apa()
+```
+Resrict to just the first week of October and plot date againest voter intention
 
+```{r weekoct}
 # last week 
 beall_select %>%
   filter(month == 10) %>%
@@ -133,11 +165,27 @@ beall_select %>%
 
 # Missing data
 
-There is so much missing data in the voter intention index. Take your data and select just the voter intention index and pipe it into naniar::vis_mis() to plot how much data is missing.  
+There is so much missing data in the voter intention index. Take your data and select just the voter intention index and pipe it into naniar::vis_miss() to plot how much data is missing.  63% missing!!
 
-```{r}
+```{r vismiss}
 beall_select %>%
   select(voter_intention_index) %>%
   vis_miss()
 ```
 
+Is there that much missing data for Sept?  
+
+```{r sept_vismiss}
+beall_select %>%
+  filter(month == 9) %>%
+  select(voter_intention_index) %>%
+  vis_miss()
+```
+
+What about October?
+```{r oct_vismiss}
+
+```
+
+
+Look up the original paper and see whether they were analysing voter intention with correlation, or whether the analysis involved more variables. 

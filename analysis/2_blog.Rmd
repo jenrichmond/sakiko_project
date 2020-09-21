@@ -1,0 +1,12 @@
+---
+title: "2_blog"
+author: "Sakiko"
+date: "21/09/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Week 2

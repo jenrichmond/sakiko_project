@@ -1,0 +1,149 @@
+---
+title: "Coding exercise 2"
+author: "Jen Richmond"
+date: "10/09/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this coding exercise, you will work with data from a study published in Psychological Science. 
+
+Beall, A. T., Hofer, M. K., & Shaller, M. (2016). Infections and elections: Did an Ebola outbreak influence the 2014 U.S. federal elections (and if so, how)? Psychological Science, 27, 595-605.
+
+# load packages
+
+```{r loadpackages, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+library(janitor)
+library(papaja)
+library(naniar) # re missing data
+library(RColorBrewer)
+library(ggpubr)
+
+```
+
+
+# read in the data
+
+```{r readdata, message=FALSE, warning=FALSE}
+beall <- read_csv(here("data", "2_Beall.csv"))
+```
+
+# familiarise yourself with the data
+
+Use glimpse() or names() or str() to get an idea what is included in the dataset
+
+```{r datastructure}
+
+```
+
+
+# clean up the data
+
+The variables are inconsistently named (upper, lower, .). Use clean_names() to make them consistent. 
+
+```{r cleannames}
+
+```
+
+
+The first couple of rows are also filled with NA (no data). Use slice(3:n()) to slice the data from row 3 until the end (n()). (you will end up with 65 obs)
+
+```{r slice}
+
+
+```
+
+
+There are lots of variables in this data set that we wont need. Make a smaller data set that only includes month, day, two_weeks, voter_intention_index, and ebola_search_volume_index. 
+
+```{r selectdata}
+
+
+
+```
+
+
+# Is there a correlation between voter intention and ebola?
+
+Use geom_point to make a scatter plot the relation between voter intention and ebola. Use theme_apa and add an informative title. 
+
+
+```{r scatterplot}
+
+
+```
+
+Have a look at the `ggpubr` package and stat_cor() and see if you can get a correlation coefficient to display on the plot
+```{r withcorrelation}
+
+```
+
+# Plot timeframes
+
+### just two weeks prior
+
+Restrict the data to only 2 weeks prior to the outbreak and plot again. 
+```{r twoweeks}
+
+
+```
+
+### september
+
+Restrict to just the month of september and plot date againest voter intention
+
+```{r sept}
+# whole month
+
+
+
+```
+
+Restrict to just the last week september and plot date againest voter intention
+
+```{r weeksept}
+
+```
+
+### october
+
+Restrict to just October and plot date against voter intention
+```{r oct}
+# whole month
+
+
+```
+Resrict to just the first week of October and plot date againest voter intention
+
+```{r weekoct}
+# first week 
+
+```
+
+
+# Missing data
+
+There is so much missing data in the voter intention index.  Take your data and select just the voter intention index and pipe it into naniar::vis_miss() to plot how much data is missing.  63% missing!!
+
+```{r vismiss}
+
+```
+
+Is there that much missing data for Sept?  
+
+```{r sept_vismiss}
+
+```
+
+What about October?
+```{r oct_vismiss}
+
+```
+
+
+Look up the original paper and see whether they were analysing voter intention with correlation, or whether the analysis involved more variables. 
