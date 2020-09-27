@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Sakiko" />
+<meta name="author" content="Sakiko Okayama" />
 
 
-<title>2_blog</title>
+<title>Week 2 Blog</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -246,6 +245,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -274,6 +274,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -379,16 +385,16 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">2_blog</h1>
-<h4 class="author">Sakiko</h4>
-<h4 class="date">21/09/2020</h4>
+<h1 class="title toc-ignore">Week 2 Blog</h1>
+<h4 class="author">Sakiko Okayama</h4>
+<h4 class="date">27/09/2020</h4>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -397,7 +403,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -406,10 +412,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-21
+<strong>Last updated:</strong> 2020-09-27
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>sakiko_project/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -425,12 +431,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -454,7 +460,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongSeedstrongcodesetseed20200910code" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The command <code>set.seed(20200910)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+<p>The command <code>set.seed(20200910)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
 </div>
 </div>
 </div>
@@ -497,35 +503,24 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree1bac78ac49e3b6a83df4096659d6fee11ab6c67btargetblank1bac78aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/1bac78ac49e3b6a83df4096659d6fee11ab6c67b" target="_blank">1bac78a</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree131a3a814077b56488864ee91db1c028ec085115targetblank131a3a8a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/131a3a814077b56488864ee91db1c028ec085115" target="_blank">131a3a8</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree1bac78ac49e3b6a83df4096659d6fee11ab6c67btargetblank1bac78aa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree131a3a814077b56488864ee91db1c028ec085115targetblank131a3a8a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/1bac78ac49e3b6a83df4096659d6fee11ab6c67b" target="_blank">1bac78a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/131a3a814077b56488864ee91db1c028ec085115" target="_blank">131a3a8</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Untracked files:
-    Untracked:  analysis/2_blog.Rmd
-    Untracked:  analysis/3_blog.Rmd
-    Untracked:  analysis/coding2.Rmd
-    Untracked:  output/coding2_solution.Rmd
-
-Unstaged changes:
-    Modified:   analysis/index.Rmd
-    Deleted:    output/coding2.Rmd
 
 </code></pre>
 <p>
@@ -538,15 +533,119 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/2_blog.Rmd</code>) and HTML (<code>docs/2_blog.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/131a3a814077b56488864ee91db1c028ec085115/analysis/2_blog.Rmd" target="_blank">131a3a8</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-09-27
+</td>
+<td>
+week 2 complete
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/effc9929c9e2ccc869c4f6284028bf4ed276ce5f/analysis/2_blog.Rmd" target="_blank">effc992</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-21
+</td>
+<td>
+coding 2 jenny
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/effc9929c9e2ccc869c4f6284028bf4ed276ce5f/docs/2_blog.html" target="_blank">effc992</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-21
+</td>
+<td>
+coding 2 jenny
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
 </div>
-<div id="week-2" class="section level1">
-<h1>Week 2</h1>
+<div id="mental-time-travel" class="section level2">
+<h2>Mental Time Travel</h2>
+<p>This week we read Renoult et al.’s (2019) paper about the semantic-episodic distinction. The authors argued that there is a significant overlap between episodic and semantic memory, considering both behavioural and neurological perspectives. To illustrate, when we recount a past event, we might include semantic details that are personal (e.g. likes and dislikes) or general (e.g. facts about a place). So we are recounting not just the event itself, but also the “conceptual processing” that we experienced at the time.</p>
+<p>When explaining the results of our study, it will be important to acknowledge the interrelations between episodic and semantic memory. It will also be interesting to consider what kind of semantic details respondents included, and whether there were characteristic differences between anxious and non-anxious groups.</p>
+<p>This week, I also read more on the methodology of our study. The procedure used to rate the specificity of the responses on a scale of 0-3 came from Williams et al. (1996). However, the authors’ explanation of the scoring procedure was quite vague. In particular, they didn’t clearly explain the difference between a score of 1 (general response) and 0 (omission).</p>
+<p>This was somewhat problematic, because subsequent studies interpreted Williams et al.’s measure in different ways. For example, Brown et al. (2013) only gave a score of 0 if the participant did not generate a response. Whereas D’Argembeau et al. (2008) gave a score of 0 if participants did not respond, <em>or</em> if they gave a response that did not refer to any event.</p>
+<p>The procedure used to score the details of responses that were specific came from Addis et al.’s (2008) adapted Autobiographical Interview (which was in turn adapted from Levine et al. (2002)). I learned that only episodic details of the central event should be coded as internal details. The central event is the event that is described in the most detail, as well as occurring within a relatively brief time frame of half a day or less. Episodic details from events other than the central event are coded as <em>external episodic</em> details.</p>
+<p>I also learned that internal and external AI scores for the events within each condition should be averaged. Although summing them would be more or less mathematically equivalent.</p>
+<p>I feel like I have now wrapped my head around the methodology of our study, which gives me some confidence, because it is quite complex! But now it’s time for me to get stuck into the literature review. To guide and narrow my research, I will read with the purpose to:</p>
+<ol style="list-style-type: decimal">
+<li>Understand the importance of episodic future thinking in clinical contexts (especially re anxiety)</li>
+<li>Understand what we do and don’t know about episodic future thinking in clinical contexts (especially re anxiety) - specific findings and overarching theories</li>
+<li>Identify exactly how our study fills the gaps in literature, both in terms of the questions we are asking, and the methodology that we used</li>
+</ol>
+</div>
+<div id="r" class="section level2">
+<h2>R</h2>
+<p>In R, I learned how to make scatter plots with <code>geom_point()</code>. I can also add a Pearson correlation coefficient to my plot, using <code>stat_cor(method = "pearson")</code>. Finally, I learned how to use <code>vis_miss()</code> in the naniar package to examine the proportion of missing values in my data. Remember to first <code>select()</code> the variable you want to examine.</p>
+<p>You can see my plots and the full code <a href="https://jenrichmond.github.io/sakiko_project/coding2.html">here</a>.</p>
+<p>I’m not exactly sure what I want to learn in R next week. However, between the coding exercise and the ggplot challenge lab meeting, I’m sure I’ll learn a lot!</p>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<p>Addis, D. R., Wong, A. T., &amp; Schacter, D. L. (2008). Age-related changes in the episodic simulation of future events. <em>Psychological Science</em>, <em>19</em>(1), 33-41. <a href="https://doi.org/10.1111/j.1467-9280.2008.02043.x" class="uri">https://doi.org/10.1111/j.1467-9280.2008.02043.x</a></p>
+<p>Brown, A. D., Root, J. C., Romano, T. A., Chang, L. J., Bryant, R. A., &amp; Hirst, W. (2013). Overgeneralized autobiographical memory and future thinking in combat veterans with posttraumatic stress disorder. <em>Journal of Behavior Therapy and Experimental Psychiatry</em>, <em>44</em>(1), 1-6. <a href="https://doi.org/10.1016/j.jbtep.2011.11.004" class="uri">https://doi.org/10.1016/j.jbtep.2011.11.004</a></p>
+<p>D’Argembeau, A., Raffard, S., &amp; Van der Linden, M. (2008). Remembering the past and imagining the future in schizophrenia. <em>Journal of Abnormal Psychology</em>, <em>117</em>(1), 247-251.https://doi.org/10.1037/0021-843X.117.1.247</p>
+<p>Levine, B., Svoboda, E., Hay, J. F., Winocur, G., &amp; Moscovitch, M. (2002). Aging and autobiographical memory: Dissociating episodic from semantic retrieval. <em>Psychology and Aging</em>, <em>17</em>(4), 677-689. <a href="https://doi.org/10.1037/0882-7974.17.4.677" class="uri">https://doi.org/10.1037/0882-7974.17.4.677</a></p>
+<p>Renoult, L., Irish, M., Moscovitch, M., &amp; Rugg, M. D. (2019). From knowing to remembering: the semantic–episodic distinction. <em>Trends in Cognitive Sciences</em>, <em>23</em>(12), 1041-1057. <a href="https://doi.org/10.1080/09658211.2019.1595660" class="uri">https://doi.org/10.1080/09658211.2019.1595660</a></p>
+<p>Williams, J. M. G., Ellis, N. C., Tyers, C., Healy, H., Rose, G., &amp; Macleod, A. K. (1996). The specificity of autobiographical memory and imageability of the future. <em>Memory &amp; Cognition</em>, <em>24</em>(1), 116-125. <a href="https://doi.org/10.3758/BF03197278" class="uri">https://doi.org/10.3758/BF03197278</a></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -555,16 +654,16 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.5.1 (2018-07-02)
-Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS Sierra 10.12.6
+<pre><code>R version 4.0.2 (2020-06-22)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19041)
 
 Matrix products: default
-BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 
 locale:
-[1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
+[1] LC_COLLATE=English_Australia.1252  LC_CTYPE=English_Australia.1252   
+[3] LC_MONETARY=English_Australia.1252 LC_NUMERIC=C                      
+[5] LC_TIME=English_Australia.1252    
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
@@ -573,12 +672,14 @@ other attached packages:
 [1] workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.5      rprojroot_1.3-2 digest_0.6.25   later_1.1.0.1  
- [5] R6_2.4.1        backports_1.1.8 git2r_0.27.1    magrittr_1.5   
- [9] evaluate_0.14   stringi_1.4.6   rlang_0.4.7     fs_1.4.1       
-[13] promises_1.1.1  rmarkdown_1.15  tools_3.5.1     stringr_1.4.0  
-[17] glue_1.4.1      httpuv_1.5.2    xfun_0.8        yaml_2.2.1     
-[21] compiler_3.5.1  htmltools_0.5.0 knitr_1.23     </code></pre>
+ [1] Rcpp_1.0.5      rstudioapi_0.11 whisker_0.4     knitr_1.29     
+ [5] magrittr_1.5    R6_2.4.1        rlang_0.4.7     stringr_1.4.0  
+ [9] tools_4.0.2     xfun_0.16       git2r_0.27.1    htmltools_0.5.0
+[13] ellipsis_0.3.1  rprojroot_1.3-2 yaml_2.2.1      digest_0.6.25  
+[17] tibble_3.0.3    lifecycle_0.2.0 crayon_1.3.4    later_1.1.0.1  
+[21] vctrs_0.3.2     promises_1.1.1  fs_1.5.0        glue_1.4.1     
+[25] evaluate_0.14   rmarkdown_2.3   stringi_1.4.6   compiler_4.0.2 
+[29] pillar_1.4.6    backports_1.1.7 httpuv_1.5.4    pkgconfig_2.0.3</code></pre>
 </div>
 </div>
 
@@ -644,7 +745,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

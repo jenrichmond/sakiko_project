@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -247,6 +246,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -275,6 +275,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -389,7 +395,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -398,7 +404,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -407,10 +413,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-21
+<strong>Last updated:</strong> 2020-09-27
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>sakiko_project/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -426,12 +432,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -455,7 +461,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongSeedstrongcodesetseed20200910code" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The command <code>set.seed(20200910)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+<p>The command <code>set.seed(20200910)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
 </div>
 </div>
 </div>
@@ -498,35 +504,24 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree1bac78ac49e3b6a83df4096659d6fee11ab6c67btargetblank1bac78aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/1bac78ac49e3b6a83df4096659d6fee11ab6c67b" target="_blank">1bac78a</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree131a3a814077b56488864ee91db1c028ec085115targetblank131a3a8a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/131a3a814077b56488864ee91db1c028ec085115" target="_blank">131a3a8</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree1bac78ac49e3b6a83df4096659d6fee11ab6c67btargetblank1bac78aa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree131a3a814077b56488864ee91db1c028ec085115targetblank131a3a8a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/1bac78ac49e3b6a83df4096659d6fee11ab6c67b" target="_blank">1bac78a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/131a3a814077b56488864ee91db1c028ec085115" target="_blank">131a3a8</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Untracked files:
-    Untracked:  analysis/2_blog.Rmd
-    Untracked:  analysis/3_blog.Rmd
-    Untracked:  analysis/coding2.Rmd
-    Untracked:  output/coding2_solution.Rmd
-
-Unstaged changes:
-    Modified:   analysis/index.Rmd
-    Deleted:    output/coding2.Rmd
 
 </code></pre>
 <p>
@@ -565,6 +560,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/131a3a814077b56488864ee91db1c028ec085115/analysis/coding2.Rmd" target="_blank">131a3a8</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-09-27
+</td>
+<td>
+week 2 complete
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/effc9929c9e2ccc869c4f6284028bf4ed276ce5f/analysis/coding2.Rmd" target="_blank">effc992</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-21
+</td>
+<td>
+coding 2 jenny
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/effc9929c9e2ccc869c4f6284028bf4ed276ce5f/docs/coding2.html" target="_blank">effc992</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-21
+</td>
+<td>
+coding 2 jenny
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -659,44 +705,135 @@ library(ggpubr)</code></pre>
 <div id="familiarise-yourself-with-the-data" class="section level1">
 <h1>familiarise yourself with the data</h1>
 <p>Use glimpse() or names() or str() to get an idea what is included in the dataset</p>
+<pre class="r"><code>glimpse(beall)</code></pre>
+<pre><code>Rows: 67
+Columns: 15
+$ Month                            &lt;dbl&gt; NA, NA, 9, 9, 9, 9, 9, 9, 9, 9, 9,...
+$ Date                             &lt;dbl&gt; NA, NA, 1, 2, 3, 4, 5, 6, 7, 8, 9,...
+$ Two.weeks.prior.to.outbreak.only &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0...
+$ Nationwide.Republican.Support    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 43...
+$ Nationwide.Democratic.Support    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 42...
+$ Voter.Intention.Index            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1....
+$ Voter.Intention.Change.Index     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA...
+$ Daily.Ebola.Search.Volume        &lt;dbl&gt; NA, NA, 3, 5, 6, 4, 4, 3, 3, 3, 4,...
+$ Ebola.Search.Volume.Index        &lt;dbl&gt; NA, NA, 2.86, 3.14, 3.57, 3.71, 3....
+$ Daily.ISIS.Search.Volume         &lt;dbl&gt; NA, NA, 14, 37, 48, 37, 27, 23, 24...
+$ ISIS.Search.Volume.Index         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 30...
+$ DJIA                             &lt;dbl&gt; NA, NA, NA, 17067.56, 17078.28, 17...
+$ LexisNexisNewsVolume             &lt;dbl&gt; NA, NA, 23, 38, 52, 50, 51, 31, 23...
+$ LexisNexisNewsVolumeWeek         &lt;dbl&gt; NA, NA, 37.57, 34.86, 36.43, 37.14...
+$ `filter_$`                       &lt;dbl&gt; NA, NA, 1, 1, 1, 1, 1, 1, 1, 1, 1,...</code></pre>
 </div>
 <div id="clean-up-the-data" class="section level1">
 <h1>clean up the data</h1>
 <p>The variables are inconsistently named (upper, lower, .). Use clean_names() to make them consistent.</p>
+<pre class="r"><code>cleanbeall &lt;- clean_names(beall)</code></pre>
 <p>The first couple of rows are also filled with NA (no data). Use slice(3:n()) to slice the data from row 3 until the end (n()). (you will end up with 65 obs)</p>
+<pre class="r"><code>slicebeall &lt;- cleanbeall %&gt;% slice(3:n())</code></pre>
 <p>There are lots of variables in this data set that we wont need. Make a smaller data set that only includes month, day, two_weeks, voter_intention_index, and ebola_search_volume_index.</p>
+<pre class="r"><code>selectbeall &lt;- select(slicebeall, month, date, two_weeks_prior_to_outbreak_only, voter_intention_index, ebola_search_volume_index)</code></pre>
 </div>
 <div id="is-there-a-correlation-between-voter-intention-and-ebola" class="section level1">
 <h1>Is there a correlation between voter intention and ebola?</h1>
 <p>Use geom_point to make a scatter plot the relation between voter intention and ebola. Use theme_apa and add an informative title.</p>
+<pre class="r"><code>selectbeall %&gt;%
+  na.omit() %&gt;%
+  ggplot(aes(x = voter_intention_index, y = ebola_search_volume_index)) + 
+  geom_point() + 
+  theme_apa() + 
+  labs(title = &quot;Relationship between internet search activity for the term “Ebola” \nand voting intentions&quot;) # Use \n to wrap title </code></pre>
+<p><img src="figure/coding2.Rmd/scatterplot-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Have a look at the <code>ggpubr</code> package and stat_cor() and see if you can get a correlation coefficient to display on the plot</p>
+<pre class="r"><code>selectbeall %&gt;%
+  na.omit() %&gt;%
+  ggplot(aes(x = voter_intention_index, y = ebola_search_volume_index)) + 
+  geom_point() +
+  theme_apa() + 
+  stat_cor(method = &quot;pearson&quot;)</code></pre>
+<p><img src="figure/coding2.Rmd/withcorrelation-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="plot-timeframes" class="section level1">
 <h1>Plot timeframes</h1>
 <div id="just-two-weeks-prior" class="section level3">
 <h3>just two weeks prior</h3>
 <p>Restrict the data to only 2 weeks prior to the outbreak and plot again.</p>
+<pre class="r"><code>selectbeall %&gt;%
+  filter(two_weeks_prior_to_outbreak_only == 1) %&gt;%
+  na.omit() %&gt;%
+  ggplot(aes(x = voter_intention_index, y = ebola_search_volume_index)) + 
+  geom_point() +
+  theme_apa() + 
+  stat_cor(method = &quot;pearson&quot;)</code></pre>
+<p><img src="figure/coding2.Rmd/twoweeks-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="september" class="section level3">
 <h3>september</h3>
-<p>Restrict to just the month of september and plot date againest voter intention</p>
-<pre class="r"><code># whole month</code></pre>
-<p>Restrict to just the last week september and plot date againest voter intention</p>
+<p>Restrict to just the month of september and plot date against voter intention</p>
+<pre class="r"><code># whole month
+selectbeall %&gt;%
+  filter(month == 9) %&gt;%
+  na.omit() %&gt;%
+  ggplot(aes(x = date, y = voter_intention_index)) + 
+  geom_point() +
+  theme_apa() +
+  stat_cor(method = &quot;pearson&quot;)</code></pre>
+<p><img src="figure/coding2.Rmd/sept-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Restrict to just the last week september and plot date against voter intention</p>
+<pre class="r"><code>selectbeall %&gt;%
+  filter(month == 9, date &gt; 23) %&gt;%
+  na.omit() %&gt;%
+  ggplot(aes(x = date, y = voter_intention_index)) + 
+  geom_point() +
+  theme_apa() +
+  stat_cor(method = &quot;pearson&quot;)</code></pre>
+<p><img src="figure/coding2.Rmd/weeksept-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="october" class="section level3">
 <h3>october</h3>
 <p>Restrict to just October and plot date against voter intention</p>
-<pre class="r"><code># whole month</code></pre>
-<p>Resrict to just the first week of October and plot date againest voter intention</p>
-<pre class="r"><code># first week </code></pre>
+<pre class="r"><code># whole month
+selectbeall %&gt;%
+  filter(month == 10) %&gt;%
+  na.omit() %&gt;%
+  ggplot(aes(x = date, y = voter_intention_index)) + 
+  geom_point() +
+  theme_apa() +
+  stat_cor(method = &quot;pearson&quot;)</code></pre>
+<p><img src="figure/coding2.Rmd/oct-1.png" width="672" style="display: block; margin: auto;" /> Restrict to just the first week of October and plot date against voter intention</p>
+<pre class="r"><code># first week 
+selectbeall %&gt;%
+  filter(month == 10, date &lt; 8) %&gt;%
+  na.omit() %&gt;%
+  ggplot(aes(x = date, y = voter_intention_index)) + 
+  geom_point() +
+  theme_apa() +
+  stat_cor(method = &quot;pearson&quot;)</code></pre>
+<p><img src="figure/coding2.Rmd/weekoct-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="missing-data" class="section level1">
 <h1>Missing data</h1>
 <p>There is so much missing data in the voter intention index. Take your data and select just the voter intention index and pipe it into naniar::vis_miss() to plot how much data is missing. 63% missing!!</p>
+<pre class="r"><code>selectbeall %&gt;%
+  select(voter_intention_index) %&gt;%
+  vis_miss()</code></pre>
+<p><img src="figure/coding2.Rmd/vismiss-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Is there that much missing data for Sept?</p>
+<p><em>70% missing!</em></p>
+<pre class="r"><code>selectbeall %&gt;%
+  filter(month == 9) %&gt;%
+  select(voter_intention_index) %&gt;%
+  vis_miss()</code></pre>
+<p><img src="figure/coding2.Rmd/sept_vismiss-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>What about October?</p>
+<p><em>Only 54.8% missing.</em></p>
+<pre class="r"><code>selectbeall %&gt;%
+  filter(month == 10) %&gt;%
+  select(voter_intention_index) %&gt;%
+  vis_miss()</code></pre>
+<p><img src="figure/coding2.Rmd/oct_vismiss-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Look up the original paper and see whether they were analysing voter intention with correlation, or whether the analysis involved more variables.</p>
+<p><em>They also examined whether the volume of Ebola-related Internet searches mediated the relationship between pre- and post- outbreak time periods and voter intention.</em></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -705,49 +842,45 @@ library(ggpubr)</code></pre>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.5.1 (2018-07-02)
-Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS Sierra 10.12.6
+<pre><code>R version 4.0.2 (2020-06-22)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19041)
 
 Matrix products: default
-BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 
 locale:
-[1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
+[1] LC_COLLATE=English_Australia.1252  LC_CTYPE=English_Australia.1252   
+[3] LC_MONETARY=English_Australia.1252 LC_NUMERIC=C                      
+[5] LC_TIME=English_Australia.1252    
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] ggpubr_0.2.4       magrittr_1.5       RColorBrewer_1.1-2
- [4] naniar_0.4.1       papaja_0.1.0.9842  janitor_1.2.0     
- [7] here_0.1           forcats_0.5.0      stringr_1.4.0     
-[10] dplyr_1.0.1        purrr_0.3.3        readr_1.3.1       
-[13] tidyr_1.1.0        tibble_3.0.3       ggplot2_3.3.2     
-[16] tidyverse_1.3.0   
+ [1] ggpubr_0.4.0       RColorBrewer_1.1-2 naniar_0.6.0       papaja_0.1.0.9997 
+ [5] janitor_2.0.1      here_0.1           forcats_0.5.0      stringr_1.4.0     
+ [9] dplyr_1.0.2        purrr_0.3.4        readr_1.3.1        tidyr_1.1.1       
+[13] tibble_3.0.3       ggplot2_3.3.2      tidyverse_1.3.0    workflowr_1.6.2   
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.5             lubridate_1.7.4        assertthat_0.2.1      
- [4] rprojroot_1.3-2        digest_0.6.25          R6_2.4.1              
- [7] cellranger_1.1.0       backports_1.1.8        reprex_0.3.0          
-[10] visdat_0.5.2           evaluate_0.14          httr_1.4.1            
-[13] pillar_1.4.6           rlang_0.4.7            readxl_1.3.1          
-[16] rstudioapi_0.11.0-9000 whisker_0.4            blob_1.2.1            
-[19] rmarkdown_1.15         munsell_0.5.0          broom_0.7.0           
-[22] compiler_3.5.1         httpuv_1.5.2           modelr_0.1.8          
-[25] xfun_0.8               pkgconfig_2.0.3        htmltools_0.5.0       
-[28] tidyselect_1.1.0       workflowr_1.6.2        fansi_0.4.1           
-[31] crayon_1.3.4           dbplyr_1.4.4           withr_2.2.0           
-[34] later_1.1.0.1          grid_3.5.1             jsonlite_1.7.0        
-[37] gtable_0.3.0           lifecycle_0.2.0        DBI_1.0.0             
-[40] git2r_0.27.1           scales_1.1.1           cli_2.0.2             
-[43] stringi_1.4.6          ggsignif_0.4.0         fs_1.4.1              
-[46] promises_1.1.1         xml2_1.3.2             ellipsis_0.3.1        
-[49] generics_0.0.2         vctrs_0.3.2            tools_3.5.1           
-[52] glue_1.4.1             hms_0.5.3              yaml_2.2.1            
-[55] colorspace_1.4-1       rvest_0.3.6            knitr_1.23            
-[58] haven_2.3.1           </code></pre>
+ [1] httr_1.4.2        jsonlite_1.7.0    carData_3.0-4     modelr_0.1.8     
+ [5] assertthat_0.2.1  blob_1.2.1        cellranger_1.1.0  yaml_2.2.1       
+ [9] pillar_1.4.6      backports_1.1.7   glue_1.4.1        visdat_0.5.3     
+[13] digest_0.6.25     promises_1.1.1    ggsignif_0.6.0    rvest_0.3.6      
+[17] snakecase_0.11.0  colorspace_1.4-1  htmltools_0.5.0   httpuv_1.5.4     
+[21] pkgconfig_2.0.3   broom_0.7.0.9001  haven_2.3.1       scales_1.1.1     
+[25] whisker_0.4       openxlsx_4.2.2    later_1.1.0.1     rio_0.5.16       
+[29] git2r_0.27.1      farver_2.0.3      generics_0.0.2    car_3.0-9        
+[33] ellipsis_0.3.1    withr_2.2.0       cli_2.0.2         magrittr_1.5     
+[37] crayon_1.3.4      readxl_1.3.1      evaluate_0.14     fs_1.5.0         
+[41] fansi_0.4.1       rstatix_0.6.0     xml2_1.3.2        foreign_0.8-80   
+[45] tools_4.0.2       data.table_1.13.0 hms_0.5.3         lifecycle_0.2.0  
+[49] munsell_0.5.0     reprex_0.3.0      zip_2.1.1         compiler_4.0.2   
+[53] rlang_0.4.7       grid_4.0.2        rstudioapi_0.11   labeling_0.3     
+[57] rmarkdown_2.3     gtable_0.3.0      abind_1.4-5       DBI_1.1.0        
+[61] curl_4.3          R6_2.4.1          lubridate_1.7.9   knitr_1.29       
+[65] utf8_1.1.4        rprojroot_1.3-2   stringi_1.4.6     Rcpp_1.0.5       
+[69] vctrs_0.3.2       dbplyr_1.4.4      tidyselect_1.1.0  xfun_0.16        </code></pre>
 </div>
 </div>
 
@@ -813,7 +946,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
