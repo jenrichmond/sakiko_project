@@ -1,7 +1,7 @@
 ---
-title: "2_blog"
-author: "Sakiko"
-date: "21/09/2020"
+title: "Week 2 Blog"
+author: "Sakiko Okayama"
+date: "27/09/2020"
 output: html_document
 ---
 
@@ -9,4 +9,42 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Week 2
+## Mental Time Travel
+This week we read Renoult et al.'s (2019) paper about the semantic-episodic distinction. The authors argued that there is a significant overlap between episodic and semantic memory, considering both behavioural and neurological perspectives. To illustrate, when we recount a past event, we might include semantic details that are personal (e.g. likes and dislikes) or general (e.g. facts about a place). So we are recounting not just the event itself, but also the "conceptual processing" that we experienced at the time. 
+
+When explaining the results of our study, it will be important to acknowledge the interrelations between episodic and semantic memory. It will also be interesting to consider what kind of semantic details respondents included, and whether there were characteristic differences between anxious and non-anxious groups. 
+
+This week, I also read more on the methodology of our study. The procedure used to rate the specificity of the responses on a scale of 0-3 came from Williams et al. (1996). However, the authors' explanation of the scoring procedure was quite vague. In particular, they didn't clearly explain the difference between a score of 1 (general response) and 0 (omission).
+
+This was somewhat problematic, because subsequent studies interpreted Williams et al.'s measure in different ways. For example, Brown et al. (2013) only gave a score of 0 if the participant did not generate a response. Whereas D'Argembeau et al. (2008) gave a score of 0 if participants did not respond, *or* if they gave a response that did not refer to any event.
+
+The procedure used to score the details of responses that were specific came from Addis et al.'s (2008) adapted Autobiographical Interview (which was in turn adapted from Levine et al. (2002)). I learned that only episodic details of the central event should be coded as internal details. The central event is the event that is described in the most detail, as well as occurring within a relatively brief time frame of half a day or less. Episodic details from events other than the central event are coded as *external episodic* details.
+
+I also learned that internal and external AI scores for the events within each condition should be averaged. Although summing them would be more or less mathematically equivalent. 
+
+I feel like I have now wrapped my head around the methodology of our study, which gives me some confidence, because it is quite complex! But now it's time for me to get stuck into the literature review. To guide and narrow my research, I will read with the purpose to: 
+
+1. Understand the importance of episodic future thinking in clinical contexts (especially re anxiety)
+2. Understand what we do and don't know about episodic future thinking in clinical contexts (especially re anxiety) - specific findings and overarching theories 
+3. Identify exactly how our study fills the gaps in literature, both in terms of the questions we are asking, and the methodology that we used
+
+
+## R 
+In R, I learned how to make scatter plots with `geom_point()`. I can also add a Pearson correlation coefficient to my plot, using `stat_cor(method = "pearson")`. Finally, I learned how to use `vis_miss()` in the naniar package to examine the proportion of missing values in my data. Remember to first `select()` the variable you want to examine. 
+
+You can see my plots and the full code [here](https://jenrichmond.github.io/sakiko_project/coding2.html). 
+
+I'm not exactly sure what I want to learn in R next week. However, between the coding exercise and the ggplot challenge lab meeting, I'm sure I'll learn a lot!  
+
+## References
+Addis, D. R., Wong, A. T., & Schacter, D. L. (2008). Age-related changes in the episodic simulation of future events. *Psychological Science*, *19*(1), 33-41. https://doi.org/10.1111/j.1467-9280.2008.02043.x 
+
+Brown, A. D., Root, J. C., Romano, T. A., Chang, L. J., Bryant, R. A., & Hirst, W. (2013). Overgeneralized autobiographical memory and future thinking in combat veterans with posttraumatic stress disorder. *Journal of Behavior Therapy and Experimental Psychiatry*, *44*(1), 1-6. https://doi.org/10.1016/j.jbtep.2011.11.004 
+
+D'Argembeau, A., Raffard, S., & Van der Linden, M. (2008). Remembering the past and imagining the future in schizophrenia. *Journal of Abnormal Psychology*, *117*(1), 247-251.https://doi.org/10.1037/0021-843X.117.1.247
+
+Levine, B., Svoboda, E., Hay, J. F., Winocur, G., & Moscovitch, M. (2002). Aging and autobiographical memory: Dissociating episodic from semantic retrieval. *Psychology and Aging*, *17*(4), 677-689. https://doi.org/10.1037/0882-7974.17.4.677 
+
+Renoult, L., Irish, M., Moscovitch, M., & Rugg, M. D. (2019). From knowing to remembering: the semantic–episodic distinction. *Trends in Cognitive Sciences*, *23*(12), 1041-1057. https://doi.org/10.1080/09658211.2019.1595660
+
+Williams, J. M. G., Ellis, N. C., Tyers, C., Healy, H., Rose, G., & Macleod, A. K. (1996). The specificity of autobiographical memory and imageability of the future. *Memory & Cognition*, *24*(1), 116-125. https://doi.org/10.3758/BF03197278 
