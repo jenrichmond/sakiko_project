@@ -19,8 +19,18 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 - In this exercise, you will wrangle and visualise data from a study testing whether infants associate people with familiar music. Practice making data long, computing summary stats and plotting column graphs with error bars. Ask questions about variability by plotting raw data too. You can read the original paper by [Mehr et al., (2016) here.](https://journals.sagepub.com/doi/abs/10.1177/0956797615626691)
 
 [Coding 2](coding2.html)
-- Did the Ebola outbreak impact the US election? Do they have enough data in this study to say it did? Practice clean_names, slice, and making scatterplots using geom_point. Learn about the ggpubr package to get correlation coefficients on plots and the naniar package for visualising missing data. 
+- Did the Ebola outbreak impact the US election? Do they have enough data in this study to say it did? Practice clean_names, slice, and making scatterplots using geom_point. Learn about the `ggpubr` package to get correlation coefficients on plots and the `naniar` package for visualising missing data. You can read the original paper by [Beall et al.,here.](https://journals.sagepub.com/doi/abs/10.1177/0956797617718183)
 
+[Coding 3](coding3.html)
+- We often overestimate our own knowledge, going as far as claiming knowledge of concepts that don't exist. Is our tendency to "overclaim" related to how much we think we know about a particular topic? Practice getting summary stats and plotting in this exercise. Use geom_jitter and geom_boxplot to look at variability in scores; geom_point will help with scatter plots. Play with displaying tables in different formats using `kableExtra` and `apaTables`. You can read the original paper by [Atir et al.here.](https://journals.sagepub.com/doi/abs/10.1177/0956797615588195)
+
+
+[Coding 4](coding4.html)
+- placeholder for exercise 4
+
+
+[Coding 5](coding5.html)
+- placeholder for exercise 5
 
 
 # Blog
@@ -30,6 +40,8 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 [Week 2 blog post](2_blog.html) 
 
 [Week 3 blog post](3_blog.html) 
+
+[Week 4 blog post](4_blog.html) 
 
 
 # MTT project

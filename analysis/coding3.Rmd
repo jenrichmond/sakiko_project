@@ -1,0 +1,146 @@
+---
+title: "coding3"
+author: "Jen Richmond"
+date: "02/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this coding exercise, you will work with data from a study published in Psychological Science. 
+
+Atir, S., Rosenzweig, E., & Dunning, D. (2015). When knowledge knows no bounds: Self-perceived expertise predicts claims of impossible knowledge. Psychological Science, 26, 1295-1303.
+
+# load packages
+
+```{r loadpackages, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+library(janitor)
+library(ggeasy)
+library(ggbeeswarm)
+library(RColorBrewer)
+library(papaja)
+
+```
+
+# read in the data
+
+```{r readdata, message=FALSE, warning=FALSE}
+atir <- read_csv(here("data", "3_Atir2015.csv"))   
+```
+
+# familiarise yourself with the data
+
+Use glimpse() or names() or str() to get an idea what is included in the dataset
+
+```{r datastructure}
+
+```
+
+In this study, participants completed the following tasks: 
+1. a self perceived knowledge measure
+- people rating their general knowledge of personal finance
+  + how knowledgeable d you think you are about personal finance
+  + how would your knowledge compare to average american?
+
+2. an overclaiming task
+- 15 terms related to finance, including 3 that don't exist, rate how much they know about each one (1- never heard of it, 7 very knowledgeable)
+- participants overclaim if they say they know about terms that are fictional (false alarm rate = proportion of nonexistent terms they claimed knowledge of)
+
+3. financial literacy test FINRA (measuring actual knowledge)
+
+# summary stats
+
+## calculate M and SD for overclaiming
+
+Create a table of summary statistics including mean scores and standard deviation. 
+
+```{r}
+
+```
+
+### play with table formatting
+
+There are lots of options for table formatting in RMarkdown. Play with different table formats using knitr::kable and the kableExtra package
+
+Have a go at formatting your table in APA style using the `apaTables` package. 
+
+https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
+
+```{r}
+
+```
+
+What about apa style tables? Have a go at making the summary stats table display in apa format using the `apaTables` package
+
+https://cran.r-project.org/web/packages/apaTables/vignettes/apaTables.html
+
+```{r}
+
+```
+
+# Plot overclaiming scores 
+
+What is the variability in overclaiming scores like? Use geom_jitter or geom_boxplot (or both!) to look at individual differences in overclaiming task performance. 
+
+```{r}
+
+```
+
+# Is overclaiming related to self perceived knowledge?
+
+Atir and colleagues used regression to predict overclaiming from self perceived knowledge and accuracy. Make a scatterplot to visualise the relation between overclaiming and self perceived knowledge. Use ggpubr to add an correlation coefficient.  
+
+```{r}
+
+```
+
+Can you capture accuracy in the plot too? maybe with colour or shape? maybe with facet_wrap()? 
+
+```{r}
+
+```
+
+# does task order make a difference to overclaiming performance?
+
+In this study, the authors counterbalanced the order in which participants did the overclaiming and perceived knowledge tasks. Did that make a difference to overclaiming performance? Calculate means/sd/standard error separately for each order. 
+
+```{r}
+
+```
+
+Use geom_col() to plot overclaiming scores by order; include standard error bars and format according to APA style. 
+
+```{r}
+
+```
+
+
+# How does actual knowledge play into this??
+
+The FINRA task is a measure of actual knowledge. Make a table that summarises means and sd for FINRA scores
+
+```{r}
+
+```
+
+Use geom_jitter or boxplot to visualise the variability in actual knowledge scores
+
+```{r}
+
+```
+
+Is there a relation between perceived knowledge and actual knowledge? Use geom_point to make a scatterplot. Include a correlation coefficient. 
+
+```{r}
+
+```
+
+# What other questions to you have about this dataset?
+
+Have a look at the published paper. Are there other plots that you can try replicating? What other questions about perceived knowledge, overclaiming and actual knowledge can you answer by visualising this dataset in different ways?
+
+Surprise me !
