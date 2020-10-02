@@ -1,0 +1,116 @@
+---
+title: "coding4"
+author: "Jen Richmond"
+date: "02/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this coding exercise, you will work with data from a study published in Psychological Science. 
+
+Bastian, B., Jetten, J., & Ferris, L. F. (2014). Pain as social glue: Shared pain increases cooperation. Psychological Science, 25, 2079-2085.
+
+# load packages
+
+```{r loadpackages, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+library(janitor)
+library(ggeasy)
+library(ggbeeswarm)
+library(RColorBrewer)
+library(papaja)
+
+```
+
+# read in the data
+
+```{r readdata, message=FALSE, warning=FALSE}
+bastian <- read_csv(here("data", "4_Bastian2014.csv"))
+```
+
+In this experiment, participants were randomly assigned to the pain condition or the no pain condition. After completing painful (cold pressor, wall squat) or non painful tasks (getting balls or of a container), they completed a number of measures of cooperation and trust.
+
+The measures included...
+- positive and negative affect
+- challenge and thread response
+- rating level of bonding (7 difereent tems) with other participants on 7 point scales
+
+The manipulation checks included assessing the intensity and unpleasantness of the painful vs nonpainful tasks. 
+
+
+# familiarise yourself with the data
+
+Use glimpse() or names() or str() to get an idea what is included in the dataset
+
+```{r datastructure}
+
+```
+
+# make the variable name formatting consistent
+
+```{r}
+
+```
+
+
+# make the data problem smaller
+
+There are lots of variables that you wont need. Select just the variables related to participant id, group, PANAS scores, threat and challenge means, ratings of task intensity and pleasantness, and the 7 ratings to group bonding.
+
+```{r}
+
+```
+
+
+# Q1; did the pain manipulation work?
+
+Select just  the ppid and condition variables along with those that relate to the manipulation check (unpleasantness and intensity), make them long so you have a single column called rating type (unpleasantness, intensity) and another with ratings.
+
+The condition values are 0 and 1, make them a factor so your plot will display properly. 
+
+```{r}
+
+```
+
+Get some summary stats by group and plot the intensity and unpleasantness scores separately for participants in the pain vs no pain group
+
+```{r}
+
+
+```
+
+# Q2: did the pain manipulation result in group differences in pos and neg affect scores? 
+
+Select just ppid, condition and PANAS, make the data long, and plot group differences. Include standard error bars. 
+
+```{r}
+
+
+```
+
+# Q3: Was the pain manipulation more threatening/challenging than the control task? 
+
+
+Select just ppid, condition and threat challenge scores, make the data long, and plot group differences. Include standard error bars. 
+
+```{r}
+
+
+```
+
+# Q4: did the pain manipulation result in differences in group bonding
+
+Select variables related to ppid, condition, and group ratings. Make the group ratings long, and group_by participant and condition to get a mean rating score across the 7 bonding variables.  Plot mean  bonding scores as a function of group. 
+
+```{r}
+
+```
+
+# extra challenge
+
+This dataset included all the raw ratings as well as summarised scores for the PANAS and threat/challenge scores. Look up the published paper and see if you can match the variables in the dataset to questionnaire items.  Use your wrangling skills to verify that the summary scores for pos and neg and threat/challenge were calculated accurately. 
+

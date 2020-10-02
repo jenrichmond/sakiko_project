@@ -1,5 +1,5 @@
 ---
-title: "coding3"
+title: "codingtemplate"
 author: "Jen Richmond"
 date: "02/10/2020"
 output: html_document
