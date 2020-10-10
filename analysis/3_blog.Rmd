@@ -1,7 +1,7 @@
 ---
-title: "3_blog"
-author: "Sakiko"
-date: "21/09/2020"
+title: "Week 3 Blog"
+author: "Sakiko Okayama"
+date: "04/10/2020"
 output: html_document
 ---
 
@@ -9,4 +9,39 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Week 3
+## Mental Time Travel
+This week we read Kellogg et al.'s (2020) paper, which argues that Mental Time Travel should be considered from an ensemble perspective. Specifically, mental time travel in anxiety and depression should be examined in tandem with interpreter biases and executive attention.
+
+This idea makes intuitive sense. For example, a negativity bias in remembering past events could be attributed to a person's general ability to re-experience a past event (mental time travel). But it could also be attributed to a tendency to explain events negatively (interpreter bias), or an inability to focus attention on positive aspects of an event (executive attention). 
+
+I realised that while we are looking at mental time travel, there are also other variables contributing to the phenomena we are studying. This paper will be useful in my general discussion, when I'm suggesting areas for future research. 
+
+I also read several papers on psychopathology and mental time travel this week. Hallford et al.'s (2018) systematic review found that people with psychiatric disorders have significantly reduced episodic future thinking (EFT) specificity and detail, compared to controls. The authors also recognised that EFT in many clinical disorders (including anxiety disorders) is understudied.  
+
+Specific to anxiety, Wu et al. (2015) found that EFT was less detailed in people with generalised anxiety disorder, compared to controls. The study also found a negativity bias in EFT for people with generalised anxiety disorder. However, this study used a subjective, self-report measure of EFT detail. 
+
+MacLeod et al. (1997) used a fluency paradigm. The authors found that panic disorder was associated with generating more negative experiences but not more positive experiences, compared to controls. This result is consistent with the view that anxiety is associated with higher negative affect, but not lower positive affect (Clark & Wells, 1991).  Moreover, MacLeod et al.'s (1997) pattern of results was consistent across past and future thinking. This aligns with the broader literature that indicates that EFT is contingent on episodic memory. 
+
+It's important to keep in mind the significant heterogeneity in the methods used to study EFT and anxiety. People study different aspects of EFT (e.g., fluency, specificity), use different measures (e.g., phenomenological, examination), and use different types of samples (e.g., subclinical vs diagnosed, transdiagnostic approaches vs diagnosis of a specific anxiety disorder). 
+
+Next week, I hope to read more of the papers I found about mental time travel and anxiety, which will help me fill out my literature review. I would also like to read more about the rationale behind transdiagnostic approaches to studying the factors contributing to psychopathology, as this was the approach that our study took. 
+
+## R 
+In the coding task, I learned how to make an APA style table using the `apaTables` package. For example, use `apa.1way.table(iv, dv, data)` to create a table of means and SD. 
+
+The coding task also allowed me to ask my own questions about a dataset. This process reaffirmed that plotting data in R is a really quick and useful way to gauge patterns in data. I also realised that `facet_wrap()` is very useful if I want to see if there may be an effect of one variable on another independently of a third variable.
+
+You can find my coding exercise from this week [here](https://jenrichmond.github.io/sakiko_project/coding3.html).  
+
+Next week's coding looks pretty familiar, except for the extra challenge at the end. I think it will mainly involve calculating summary stats. However, I may still need to learn extra data wrangling skills to complete it. 
+
+## References
+Clark, L. A., & Watson, D. (1991). Tripartite model of anxiety and depression: Psychometric evidence and taxonomic implications. *Journal of Abnormal Psychology*, *100*(3), 316-336. https://doi.org/10.1037%2F0021-843X.100.3.316 
+
+Hallford, D. J., Austin, D. W., Takano, K., & Raes, F. (2018). Psychopathology and episodic future thinking: A systematic review and meta-analysis of specificity and episodic detail. *Behaviour Research and Therapy*, *102*, 42-51. https://doi.org/https://doi.org/10.1016/j.brat.2018.01.003 
+
+Kellogg, R. T., Chirino, C. A., & Gfeller, J. D. (2020). The complex role of mental time travel in depressive and anxiety disorders: An ensemble perspective. *Frontiers in Psychology*, *11*(1465). https://doi.org/10.3389/fpsyg.2020.01465 
+
+MacLeod, A. K., Tata, P., Kentish, J., & Jacobsen, H. (1997). Retrospective and prospective cognitions in anxiety and depression. *Cognition and Emotion*, *11*(4), 467-479. https://doi.org/10.1080/026999397379881 
+
+Wu, J. Q., Szpunar, K. K., Godovich, S. A., Schacter, D. L., & Hofmann, S. G. (2015). Episodic future thinking in generalized anxiety disorder. *Journal of Anxiety Disorders*, *36*, 1-8. https://doi.org/https://doi.org/10.1016/j.janxdis.2015.09.005 

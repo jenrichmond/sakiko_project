@@ -1,7 +1,7 @@
 ---
-title: "4_blog"
-author: "Sakiko"
-date: "21/09/2020"
+title: "Week 4 Blog"
+author: "Sakiko Okayama"
+date: "10/10/2020"
 output: html_document
 ---
 
@@ -9,4 +9,40 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Week 4
+## Mental Time Travel
+This week I researched why transdiagnostic approaches are important for studying psychopathology and anxiety. Transdiagnostic factors are mechanisms that contribute to multiple mental disorders (McLaughlin & Nolen-Hoeksema, 2011). Many mental disorders are highly comborbid. It's important to identify transdiagnostic factors because they may help explain these comorbidities. There is also a large interest in using transdiagnostic factors to develop treatments that can be used for multiple mental disorders. 
+
+There are many tendencies that are common across anxiety disorders, such as overestimating and avoiding threat, interpreting ambiguous information as threatening, and expecting negative events to occur (McManus et al., 2010). Taken together, these points provide a pretty strong rationale for why our study takes a transdiagnostic approach. 
+
+One such transdiagnostic factor in anxiety and depression that is relevant to our study is rumination. Rumination refers to repetitive and intrusive negative thinking. McLaughlin and Nolen-Hoeksema (2011) found that rumination fully mediated the relationship between depression and anxiety in adolescents. Impairments in retrieval-induced forgetting (RIF) has been linked to greater recall of negative autobiographical memories (Storm & Jobe, 2012), and may therefore play a role in rumination.
+
+RIF is a mechanism whereby retrieving one memory trace results in a competing memory trace being forgotten (Anderson et al, 1994). Marsh et al. (2019) found that reduced RIF was associated with reduced memory specificity, increased anxiety and depression levels, and increased rumination. Importantly, with regards to positively-valenced thoughts, anxiety was correlated with impaired future thinking but not impaired memory. 
+
+I have examined the topic of episodic future thinking and episodic memory in anxiety from many thought-provoking perspectives in the last few weeks. Next week, I need to focus on distilling this all down to what it means for our current study. One pattern I've noticed is that many studies that are similiar to ours use a fluency paradigm, rather than a specificity paradigm. Therefore, I'd like to read and ponder more about why it's important to study specificity. That is, why is episodic specificity significant in terms of the aetiology, maintenance, and treatment of anxiety? 
+
+## R
+This week I learned about some [useful features](https://dplyr.tidyverse.org/reference/select.html#value) in the `select()` function in `dplyr`. For example, use `starts_with()` to select all variables that start with a particular prefix. Or use `!` to take the complement of a set of variables. 
+
+The coding exercise was a little difficult because I had to plot more than one IV. It took me a while to realise that I can `group_by()` more than one variable - I need to remember this for the future. 
+
+I learned that to make a clustered column graph, I need to:
+
+- specify `position = "dodge"` inside `geom_col()`
+- use `facet_wrap()` to separate the clusters that I want 
+
+You can find my coding exercise from this week [here](https://jenrichmond.github.io/sakiko_project/coding4.html)
+
+Next week I think I am starting data analysis, which will probably involve doing hypothesis tests within R. So I am excited to learn that! 
+
+## References
+dynamics in long-term memory. Journal of Experimental Psychology: Learning, Memory, and Cognition, 20(5), 1063-1087. https://doi.org/https://doi.org/10.1037/0278-7393.20.5.1063 
+
+Marsh, L., Edginton, T., Conway, M. A., & Loveday, C. (2018). Positivity bias in past and future episodic thinking: Relationship with anxiety, depression, and retrieval-induced forgetting. *Quarterly Journal of Experimental Psychology*, *72*(3), 508-522. https://doi.org/10.1177/1747021818758620 
+
+McLaughlin, K. A., & Nolen-Hoeksema, S. (2011). Rumination as a transdiagnostic factor in depression and anxiety. *Behaviour Research and Therapy*, *49*(3), 186-193. https://doi.org/10.1016/j.brat.2010.12.006 
+
+McManus, F., Shafran, R., & Cooper, Z. (2010). What does a transdiagnostic approach have to offer the treatment of anxiety disorders? *British Journal of Clinical Psychology*, *49*, 491-505. https://doi.org/10.1348/014466509x476567 
+
+Storm, B. C., & Jobe, T. A. (2012). Retrieval-induced forgetting predicts failure to recall negative autobiographical memories. *Psychological Science*, *23*(11), 1356-1363. https://doi.org/10.1177/0956797612443837 
+
+

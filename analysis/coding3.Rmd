@@ -1,5 +1,5 @@
 ---
-title: "coding3"
+title: "Coding exercise 3"
 author: "Jen Richmond"
 date: "02/10/2020"
 output: html_document
@@ -23,7 +23,9 @@ library(ggeasy)
 library(ggbeeswarm)
 library(RColorBrewer)
 library(papaja)
-
+library(kableExtra)
+library(apaTables)
+library(ggpubr)
 ```
 
 # read in the data
@@ -37,7 +39,7 @@ atir <- read_csv(here("data", "3_Atir2015.csv"))
 Use glimpse() or names() or str() to get an idea what is included in the dataset
 
 ```{r datastructure}
-
+glimpse(atir)
 ```
 
 In this study, participants completed the following tasks: 
@@ -59,7 +61,8 @@ In this study, participants completed the following tasks:
 Create a table of summary statistics including mean scores and standard deviation. 
 
 ```{r}
-
+summary_overclaiming_atir <- 
+summarise(atir, mean = mean(overclaiming_proportion), sd = sd(overclaiming_proportion)) 
 ```
 
 ### play with table formatting
@@ -70,7 +73,11 @@ Have a go at formatting your table in APA style using the `apaTables` package.
 
 https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
 
-```{r}
+```{r message=FALSE, warning=FALSE}
+summary_overclaiming_atir %>%
+  `rownames<-`("Overclaiming proportion") %>%
+  kbl() %>%
+  kable_minimal()
 
 ```
 
@@ -79,6 +86,7 @@ What about apa style tables? Have a go at making the summary stats table display
 https://cran.r-project.org/web/packages/apaTables/vignettes/apaTables.html
 
 ```{r}
+apa.1way.table(iv = order_of_tasks, dv = overclaiming_proportion, data = atir)
 
 ```
 
@@ -87,7 +95,10 @@ https://cran.r-project.org/web/packages/apaTables/vignettes/apaTables.html
 What is the variability in overclaiming scores like? Use geom_jitter or geom_boxplot (or both!) to look at individual differences in overclaiming task performance. 
 
 ```{r}
-
+atir %>%
+  ggplot(aes(x = id, y = overclaiming_proportion)) + 
+  geom_jitter() + 
+  theme_apa()
 ```
 
 # Is overclaiming related to self perceived knowledge?
@@ -95,27 +106,48 @@ What is the variability in overclaiming scores like? Use geom_jitter or geom_box
 Atir and colleagues used regression to predict overclaiming from self perceived knowledge and accuracy. Make a scatterplot to visualise the relation between overclaiming and self perceived knowledge. Use ggpubr to add an correlation coefficient.  
 
 ```{r}
-
+atir %>%
+  ggplot(aes(x = self_perceived_knowledge, y = overclaiming_proportion)) +
+  geom_point() + 
+  stat_cor(method = "pearson") + 
+  theme_apa()
 ```
 
 Can you capture accuracy in the plot too? maybe with colour or shape? maybe with facet_wrap()? 
 
 ```{r}
-
+atir %>%
+  ggplot(aes(x = self_perceived_knowledge, y = overclaiming_proportion, colour = self_perceived_knowledge)) +
+  geom_point() + 
+  stat_cor(method = "pearson") + 
+  theme_apa() + 
+  easy_remove_legend()
 ```
 
 # does task order make a difference to overclaiming performance?
 
 In this study, the authors counterbalanced the order in which participants did the overclaiming and perceived knowledge tasks. Did that make a difference to overclaiming performance? Calculate means/sd/standard error separately for each order. 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
+grouped_overclaiming_atir <- atir %>%
+  group_by(order_of_tasks) %>%
+  summarise(mean = mean(overclaiming_proportion), sd = sd(overclaiming_proportion), n = n(), stderror = sd/sqrt(n)) %>%
+  mutate(order_of_tasks = as.factor(order_of_tasks)) 
 
 ```
 
 Use geom_col() to plot overclaiming scores by order; include standard error bars and format according to APA style. 
 
 ```{r}
-
+grouped_overclaiming_atir %>%
+  ggplot(aes(x = order_of_tasks, y = mean, fill = order_of_tasks)) + 
+  geom_col() + 
+  scale_y_continuous(limits = c(0,0.4), expand = c(0,0)) + 
+  geom_errorbar(aes(x = order_of_tasks, ymin = mean-stderror, ymax = mean+stderror), 
+                width=.2) + 
+  theme_apa() + 
+  labs(x = "Order of tasks", y="Mean proportion", caption = "Atir et al., 2015") + 
+  easy_remove_legend()
 ```
 
 
@@ -123,19 +155,33 @@ Use geom_col() to plot overclaiming scores by order; include standard error bars
 
 The FINRA task is a measure of actual knowledge. Make a table that summarises means and sd for FINRA scores
 
-```{r}
+```{r message=FALSE, warning=FALSE}
+summary_finra_atir <- summarise(atir, mean = mean(FINRA_score), sd = sd(FINRA_score)) 
 
+summary_finra_atir %>%
+  `rownames<-`("FINRA scores") %>%
+  kbl() %>%
+  kable_minimal()
 ```
 
 Use geom_jitter or boxplot to visualise the variability in actual knowledge scores
 
 ```{r}
-
+atir %>%
+  ggplot(aes(x = id, y = FINRA_score)) + 
+  geom_jitter() + 
+  theme_apa()
 ```
 
 Is there a relation between perceived knowledge and actual knowledge? Use geom_point to make a scatterplot. Include a correlation coefficient. 
 
 ```{r}
+atir %>%
+  ggplot(aes(x = FINRA_score, y = self_perceived_knowledge, colour = FINRA_score)) +
+  geom_point() + 
+  stat_cor(method = "pearson") + 
+  theme_apa() + 
+  easy_remove_legend()
 
 ```
 
@@ -144,3 +190,26 @@ Is there a relation between perceived knowledge and actual knowledge? Use geom_p
 Have a look at the published paper. Are there other plots that you can try replicating? What other questions about perceived knowledge, overclaiming and actual knowledge can you answer by visualising this dataset in different ways?
 
 Surprise me !
+
+## Is there a relationship between overclaiming and self-perceived knowledge when controlling for actual knowledge?
+I used facet_wrap() to plot overclaiming against self-perceived knowledge according to people's FINRA scores. 
+```{r}
+atir %>%
+  ggplot(aes(x = self_perceived_knowledge, y = overclaiming_proportion)) +
+  geom_point() + 
+  facet_wrap(~ FINRA_score) + 
+  stat_cor(method = "pearson") + 
+  theme_apa()
+
+```
+
+## Is there a relationship between actual knowledge and overclaiming? 
+```{r}
+atir %>%
+  ggplot(aes(x = FINRA_score, y = overclaiming_proportion, colour = FINRA_score)) +
+  geom_point() + 
+  stat_cor(method = "pearson") + 
+  theme_apa() + 
+  easy_remove_legend()
+```
+

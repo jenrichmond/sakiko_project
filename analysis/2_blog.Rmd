@@ -30,7 +30,7 @@ I feel like I have now wrapped my head around the methodology of our study, whic
 
 
 ## R 
-In R, I learned how to make scatter plots with `geom_point()`. I can also add a Pearson correlation coefficient to my plot, using `stat_cor(method = "pearson")`. Finally, I learned how to use `vis_miss()` in the naniar package to examine the proportion of missing values in my data. Remember to first `select()` the variable you want to examine. 
+In R, I learned how to make scatter plots with `geom_point()`. I can also add a Pearson correlation coefficient to my plot, using `stat_cor(method = "pearson")` in the ggpubr package. Finally, I learned how to use `vis_miss()` in the naniar package to examine the proportion of missing values in my data. Remember to first `select()` the variable you want to examine. 
 
 You can see my plots and the full code [here](https://jenrichmond.github.io/sakiko_project/coding2.html). 
 

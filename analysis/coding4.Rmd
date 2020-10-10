@@ -1,5 +1,5 @@
 ---
-title: "coding4"
+title: "Coding exercise 4"
 author: "Jen Richmond"
 date: "02/10/2020"
 output: html_document
@@ -47,12 +47,15 @@ The manipulation checks included assessing the intensity and unpleasantness of t
 Use glimpse() or names() or str() to get an idea what is included in the dataset
 
 ```{r datastructure}
-
+glimpse(bastian)
 ```
 
 # make the variable name formatting consistent
 
 ```{r}
+clean_bastian <- bastian %>%
+  clean_names() %>%
+  rename(sub_id = subid, group_number = groupnumber, group_size = groupsize, sub_number = subnumber, sub_age = subage, sub_gender = subgender, gender_coded = gendercoded, sub_born_aus = subbornaus, sub_born_loc = subbornloc, sub_aus_years = subausyears, sub_efl = subefl, pain_1_secs = pain1secs, pain_2_secs = pain2secs)
 
 ```
 
@@ -62,24 +65,39 @@ Use glimpse() or names() or str() to get an idea what is included in the dataset
 There are lots of variables that you wont need. Select just the variables related to participant id, group, PANAS scores, threat and challenge means, ratings of task intensity and pleasantness, and the 7 ratings to group bonding.
 
 ```{r}
+select_bastian <- select(clean_bastian, sub_id, condition, pos_panas, neg_panas, threat_mean, challenge_mean, task_intensity, task_unpleasantness, starts_with("group10"))
 
 ```
 
 
-# Q1; did the pain manipulation work?
+# Q1: did the pain manipulation work?
 
 Select just  the ppid and condition variables along with those that relate to the manipulation check (unpleasantness and intensity), make them long so you have a single column called rating type (unpleasantness, intensity) and another with ratings.
 
 The condition values are 0 and 1, make them a factor so your plot will display properly. 
 
 ```{r}
-
+long_manipulation_check <- select_bastian %>%
+  select(sub_id, condition,task_intensity, task_unpleasantness)%>%
+  pivot_longer(names_to = "rating_type", values_to = "ratings", task_unpleasantness:task_intensity) %>%
+  mutate(condition = as.factor(condition))
 ```
 
 Get some summary stats by group and plot the intensity and unpleasantness scores separately for participants in the pain vs no pain group
 
-```{r}
+```{r message=FALSE, warning=FALSE}
+summary_manipulation_check <- long_manipulation_check %>%
+  group_by(condition, rating_type) %>% 
+  summarise(mean = mean(ratings), sd = sd(ratings), n = n(), stderror = sd/sqrt(n)) 
 
+summary_manipulation_check %>%
+  ggplot(aes(x = condition, y = mean, fill = condition)) + 
+  geom_col(position = "dodge") +
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0))+ 
+  easy_remove_legend()
 
 ```
 
@@ -87,30 +105,126 @@ Get some summary stats by group and plot the intensity and unpleasantness scores
 
 Select just ppid, condition and PANAS, make the data long, and plot group differences. Include standard error bars. 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
+long_panas <- select_bastian %>%
+  select(sub_id, condition, pos_panas, neg_panas) %>%
+  pivot_longer(names_to = "rating_type", values_to = "ratings", pos_panas:neg_panas) %>%
+  mutate(condition = as.factor(condition))
 
+summary_panas <- long_panas %>%
+  group_by(condition, rating_type) %>% 
+  summarise(mean = mean(ratings), sd = sd(ratings), n = n(), stderror = sd/sqrt(n)) 
+
+summary_panas %>%
+  ggplot(aes(x = condition, y = mean, fill = condition)) + 
+  geom_col(position = "dodge") +
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0))+ 
+  easy_remove_legend()
 
 ```
 
-# Q3: Was the pain manipulation more threatening/challenging than the control task? 
+# Q3: was the pain manipulation more threatening/challenging than the control task? 
 
 
 Select just ppid, condition and threat challenge scores, make the data long, and plot group differences. Include standard error bars. 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
+long_threat_challenge <- select_bastian %>%
+  select(sub_id, condition, threat_mean, challenge_mean) %>%
+  pivot_longer(names_to = "rating_type", values_to = "ratings", threat_mean:challenge_mean) %>%
+  mutate(condition = as.factor(condition))
 
+summary_threat_challenge <- long_threat_challenge %>%
+  group_by(condition, rating_type) %>% 
+  summarise(mean = mean(ratings), sd = sd(ratings), n = n(), stderror = sd/sqrt(n)) 
+
+summary_threat_challenge %>%
+  ggplot(aes(x = condition, y = mean, fill = condition)) + 
+  geom_col(position = "dodge") +
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0))+ 
+  easy_remove_legend()
 
 ```
 
-# Q4: did the pain manipulation result in differences in group bonding
+# Q4: did the pain manipulation result in differences in group bonding?
 
 Select variables related to ppid, condition, and group ratings. Make the group ratings long, and group_by participant and condition to get a mean rating score across the 7 bonding variables.  Plot mean  bonding scores as a function of group. 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
+long_bonding <- select_bastian %>%
+  select(sub_id, condition,starts_with("group10")) %>%
+  pivot_longer(names_to = "rating_type", values_to = "ratings", group101:group107)%>%
+  mutate(condition = as.factor(condition))
 
+summary_bonding <- long_bonding %>%
+  group_by(condition)%>%
+  summarise(mean = mean(ratings), sd = sd(ratings), n = n(), stderror = sd/sqrt(n)) 
+
+summary_bonding %>%
+  ggplot(aes(x = condition, y = mean, fill = condition)) + 
+  geom_col() + 
+  geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0))+ 
+  easy_remove_legend() + 
+  labs(y = "mean bonding score")
 ```
 
 # extra challenge
 
 This dataset included all the raw ratings as well as summarised scores for the PANAS and threat/challenge scores. Look up the published paper and see if you can match the variables in the dataset to questionnaire items.  Use your wrangling skills to verify that the summary scores for pos and neg and threat/challenge were calculated accurately. 
 
+### verify pos scores
+
+```{r message=FALSE, warning=FALSE}
+long_pos <- clean_bastian %>% 
+  select(sub_id, condition, feel_attentive, feel_active, feel_alert, feel_excited, feel_enthusiastic, feel_determined, feel_inspired, feel_proud, feel_interested, feel_strong) %>%
+    pivot_longer(names_to = "rating_type", values_to = "ratings", feel_attentive:feel_strong)%>%
+    mutate(condition = as.factor(condition))
+
+summary_pos <- long_pos %>%
+  group_by(condition)%>%
+  summarise(mean = mean(ratings), sd = sd(ratings))
+```
+### verify neg scores
+
+```{r message=FALSE, warning=FALSE}
+long_neg <- clean_bastian %>% 
+  select(sub_id, condition, feel_hostile, feel_irritable, feel_ashamed, feel_guilty, feel_distressed, feel_upset, feel_scared, feel_afraid, feel_jittery, feel_nervous) %>%
+    pivot_longer(names_to = "rating_type", values_to = "ratings", feel_hostile:feel_nervous)%>%
+    mutate(condition = as.factor(condition))
+
+summary_neg <- long_neg %>%
+  group_by(condition)%>%
+  summarise(mean = mean(ratings), sd = sd(ratings))
+```
+### verify threat scores
+
+```{r message=FALSE, warning=FALSE}
+long_threat <- clean_bastian %>% 
+  select(sub_id, condition, task_fearful, task_worrying, task_hostile, task_threatening, task_frightening, task_terrifying) %>%
+    pivot_longer(names_to = "rating_type", values_to = "ratings", task_fearful:task_terrifying) %>%    mutate(condition = as.factor(condition))
+
+summary_threat <- long_threat %>%
+  group_by(condition)%>%
+  summarise(mean = mean(ratings), sd = sd(ratings))
+```
+
+### verify challenge scores
+
+```{r message=FALSE, warning=FALSE}
+long_challenge <- clean_bastian %>% 
+  select(sub_id, condition, task_enjoyable, task_stimulating, task_exciting, task_exhilarating, task_informative, task_challenging) %>%
+    pivot_longer(names_to = "rating_type", values_to = "ratings", task_enjoyable:task_challenging) %>%    mutate(condition = as.factor(condition))
+
+summary_challenge <- long_challenge %>%
+  group_by(condition)%>%
+  summarise(mean = mean(ratings), sd = sd(ratings))
+```
+The mean for condition 0 is incorrectly rounded down here. 
