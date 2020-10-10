@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Sakiko" />
+<meta name="author" content="Sakiko Okayama" />
 
+<meta name="date" content="2020-04-10" />
 
-<title>3_blog</title>
+<title>Week 3 Blog</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -246,6 +246,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -274,6 +275,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -379,16 +386,16 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">3_blog</h1>
-<h4 class="author">Sakiko</h4>
-<h4 class="date">21/09/2020</h4>
+<h1 class="title toc-ignore">Week 3 Blog</h1>
+<h4 class="author">Sakiko Okayama</h4>
+<h4 class="date">04/10/2020</h4>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -397,7 +404,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -406,10 +413,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-21
+<strong>Last updated:</strong> 2020-10-10
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>sakiko_project/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -425,12 +432,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -454,7 +461,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongSeedstrongcodesetseed20200910code" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The command <code>set.seed(20200910)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+<p>The command <code>set.seed(20200910)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
 </div>
 </div>
 </div>
@@ -497,35 +504,24 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree1bac78ac49e3b6a83df4096659d6fee11ab6c67btargetblank1bac78aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/1bac78ac49e3b6a83df4096659d6fee11ab6c67b" target="_blank">1bac78a</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreea05cf7f83390e11975c8c9ca9b03851fdf7c7409targetblanka05cf7fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/a05cf7f83390e11975c8c9ca9b03851fdf7c7409" target="_blank">a05cf7f</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree1bac78ac49e3b6a83df4096659d6fee11ab6c67btargetblank1bac78aa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreea05cf7f83390e11975c8c9ca9b03851fdf7c7409targetblanka05cf7fa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/1bac78ac49e3b6a83df4096659d6fee11ab6c67b" target="_blank">1bac78a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/a05cf7f83390e11975c8c9ca9b03851fdf7c7409" target="_blank">a05cf7f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Untracked files:
-    Untracked:  analysis/2_blog.Rmd
-    Untracked:  analysis/3_blog.Rmd
-    Untracked:  analysis/coding2.Rmd
-    Untracked:  output/coding2_solution.Rmd
-
-Unstaged changes:
-    Modified:   analysis/index.Rmd
-    Deleted:    output/coding2.Rmd
 
 </code></pre>
 <p>
@@ -538,15 +534,115 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/3_blog.Rmd</code>) and HTML (<code>docs/3_blog.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/a05cf7f83390e11975c8c9ca9b03851fdf7c7409/analysis/3_blog.Rmd" target="_blank">a05cf7f</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-10-10
+</td>
+<td>
+week 3 and 4 complete
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/effc9929c9e2ccc869c4f6284028bf4ed276ce5f/analysis/3_blog.Rmd" target="_blank">effc992</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-21
+</td>
+<td>
+coding 2 jenny
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/effc9929c9e2ccc869c4f6284028bf4ed276ce5f/docs/3_blog.html" target="_blank">effc992</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-21
+</td>
+<td>
+coding 2 jenny
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
 </div>
-<div id="week-3" class="section level1">
-<h1>Week 3</h1>
+<div id="mental-time-travel" class="section level2">
+<h2>Mental Time Travel</h2>
+<p>This week we read Kellogg et al.’s (2020) paper, which argues that Mental Time Travel should be considered from an ensemble perspective. Specifically, mental time travel in anxiety and depression should be examined in tandem with interpreter biases and executive attention.</p>
+<p>This idea makes intuitive sense. For example, a negativity bias in remembering past events could be attributed to a person’s general ability to re-experience a past event (mental time travel). But it could also be attributed to a tendency to explain events negatively (interpreter bias), or an inability to focus attention on positive aspects of an event (executive attention).</p>
+<p>I realised that while we are looking at mental time travel, there are also other variables contributing to the phenomena we are studying. This paper will be useful in my general discussion, when I’m suggesting areas for future research.</p>
+<p>I also read several papers on psychopathology and mental time travel this week. Hallford et al.’s (2018) systematic review found that people with psychiatric disorders have significantly reduced episodic future thinking (EFT) specificity and detail, compared to controls. The authors also recognised that EFT in many clinical disorders (including anxiety disorders) is understudied.</p>
+<p>Specific to anxiety, Wu et al. (2015) found that EFT was less detailed in people with generalised anxiety disorder, compared to controls. The study also found a negativity bias in EFT for people with generalised anxiety disorder. However, this study used a subjective, self-report measure of EFT detail.</p>
+<p>MacLeod et al. (1997) used a fluency paradigm. The authors found that panic disorder was associated with generating more negative experiences but not more positive experiences, compared to controls. This result is consistent with the view that anxiety is associated with higher negative affect, but not lower positive affect (Clark &amp; Wells, 1991). Moreover, MacLeod et al.’s (1997) pattern of results was consistent across past and future thinking. This aligns with the broader literature that indicates that EFT is contingent on episodic memory.</p>
+<p>It’s important to keep in mind the significant heterogeneity in the methods used to study EFT and anxiety. People study different aspects of EFT (e.g., fluency, specificity), use different measures (e.g., phenomenological, examination), and use different types of samples (e.g., subclinical vs diagnosed, transdiagnostic approaches vs diagnosis of a specific anxiety disorder).</p>
+<p>Next week, I hope to read more of the papers I found about mental time travel and anxiety, which will help me fill out my literature review. I would also like to read more about the rationale behind transdiagnostic approaches to studying the factors contributing to psychopathology, as this was the approach that our study took.</p>
+</div>
+<div id="r" class="section level2">
+<h2>R</h2>
+<p>In the coding task, I learned how to make an APA style table using the <code>apaTables</code> package. For example, use <code>apa.1way.table(iv, dv, data)</code> to create a table of means and SD.</p>
+<p>The coding task also allowed me to ask my own questions about a dataset. This process reaffirmed that plotting data in R is a really quick and useful way to gauge patterns in data. I also realised that <code>facet_wrap()</code> is very useful if I want to see if there may be an effect of one variable on another independently of a third variable.</p>
+<p>You can find my coding exercise from this week <a href="https://jenrichmond.github.io/sakiko_project/coding3.html">here</a>.</p>
+<p>Next week’s coding looks pretty familiar, except for the extra challenge at the end. I think it will mainly involve calculating summary stats. However, I may still need to learn extra data wrangling skills to complete it.</p>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<p>Clark, L. A., &amp; Watson, D. (1991). Tripartite model of anxiety and depression: Psychometric evidence and taxonomic implications. <em>Journal of Abnormal Psychology</em>, <em>100</em>(3), 316-336. <a href="https://doi.org/10.1037%2F0021-843X.100.3.316" class="uri">https://doi.org/10.1037%2F0021-843X.100.3.316</a></p>
+<p>Hallford, D. J., Austin, D. W., Takano, K., &amp; Raes, F. (2018). Psychopathology and episodic future thinking: A systematic review and meta-analysis of specificity and episodic detail. <em>Behaviour Research and Therapy</em>, <em>102</em>, 42-51. <a href="https://doi.org/https://doi.org/10.1016/j.brat.2018.01.003" class="uri">https://doi.org/https://doi.org/10.1016/j.brat.2018.01.003</a></p>
+<p>Kellogg, R. T., Chirino, C. A., &amp; Gfeller, J. D. (2020). The complex role of mental time travel in depressive and anxiety disorders: An ensemble perspective. <em>Frontiers in Psychology</em>, <em>11</em>(1465). <a href="https://doi.org/10.3389/fpsyg.2020.01465" class="uri">https://doi.org/10.3389/fpsyg.2020.01465</a></p>
+<p>MacLeod, A. K., Tata, P., Kentish, J., &amp; Jacobsen, H. (1997). Retrospective and prospective cognitions in anxiety and depression. <em>Cognition and Emotion</em>, <em>11</em>(4), 467-479. <a href="https://doi.org/10.1080/026999397379881" class="uri">https://doi.org/10.1080/026999397379881</a></p>
+<p>Wu, J. Q., Szpunar, K. K., Godovich, S. A., Schacter, D. L., &amp; Hofmann, S. G. (2015). Episodic future thinking in generalized anxiety disorder. <em>Journal of Anxiety Disorders</em>, <em>36</em>, 1-8. <a href="https://doi.org/https://doi.org/10.1016/j.janxdis.2015.09.005" class="uri">https://doi.org/https://doi.org/10.1016/j.janxdis.2015.09.005</a></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -555,16 +651,16 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.5.1 (2018-07-02)
-Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS Sierra 10.12.6
+<pre><code>R version 4.0.2 (2020-06-22)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19041)
 
 Matrix products: default
-BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 
 locale:
-[1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
+[1] LC_COLLATE=English_Australia.1252  LC_CTYPE=English_Australia.1252   
+[3] LC_MONETARY=English_Australia.1252 LC_NUMERIC=C                      
+[5] LC_TIME=English_Australia.1252    
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
@@ -573,12 +669,14 @@ other attached packages:
 [1] workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.5      rprojroot_1.3-2 digest_0.6.25   later_1.1.0.1  
- [5] R6_2.4.1        backports_1.1.8 git2r_0.27.1    magrittr_1.5   
- [9] evaluate_0.14   stringi_1.4.6   rlang_0.4.7     fs_1.4.1       
-[13] promises_1.1.1  rmarkdown_1.15  tools_3.5.1     stringr_1.4.0  
-[17] glue_1.4.1      httpuv_1.5.2    xfun_0.8        yaml_2.2.1     
-[21] compiler_3.5.1  htmltools_0.5.0 knitr_1.23     </code></pre>
+ [1] Rcpp_1.0.5      rstudioapi_0.11 whisker_0.4     knitr_1.29     
+ [5] magrittr_1.5    R6_2.4.1        rlang_0.4.7     stringr_1.4.0  
+ [9] tools_4.0.2     xfun_0.16       git2r_0.27.1    htmltools_0.5.0
+[13] ellipsis_0.3.1  rprojroot_1.3-2 yaml_2.2.1      digest_0.6.25  
+[17] tibble_3.0.3    lifecycle_0.2.0 crayon_1.3.4    later_1.1.0.1  
+[21] vctrs_0.3.2     promises_1.1.1  fs_1.5.0        glue_1.4.1     
+[25] evaluate_0.14   rmarkdown_2.3   stringi_1.4.6   compiler_4.0.2 
+[29] pillar_1.4.6    backports_1.1.7 httpuv_1.5.4    pkgconfig_2.0.3</code></pre>
 </div>
 </div>
 
@@ -644,7 +742,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

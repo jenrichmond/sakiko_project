@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -14,7 +13,7 @@
 
 <meta name="date" content="2020-02-10" />
 
-<title>coding4</title>
+<title>Coding exercise 4</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -38,8 +37,6 @@ div.section {
   padding-top: 12px;
 }
 </style>
-
-
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -249,6 +246,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -277,6 +275,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -382,7 +386,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">coding4</h1>
+<h1 class="title toc-ignore">Coding exercise 4</h1>
 <h4 class="author">Jen Richmond</h4>
 <h4 class="date">02/10/2020</h4>
 
@@ -391,7 +395,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -400,7 +404,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -409,10 +413,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-10-02
+<strong>Last updated:</strong> 2020-10-10
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>sakiko_project/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -428,12 +432,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -500,31 +504,24 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree6287f90ef91e481f961ef062d684d4f3ff6c457dtargetblank6287f90a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/6287f90ef91e481f961ef062d684d4f3ff6c457d" target="_blank">6287f90</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreea05cf7f83390e11975c8c9ca9b03851fdf7c7409targetblanka05cf7fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/a05cf7f83390e11975c8c9ca9b03851fdf7c7409" target="_blank">a05cf7f</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree6287f90ef91e481f961ef062d684d4f3ff6c457dtargetblank6287f90a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreea05cf7f83390e11975c8c9ca9b03851fdf7c7409targetblanka05cf7fa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/6287f90ef91e481f961ef062d684d4f3ff6c457d" target="_blank">6287f90</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/a05cf7f83390e11975c8c9ca9b03851fdf7c7409" target="_blank">a05cf7f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Untracked files:
-    Untracked:  analysis/coding4.Rmd
-
-Unstaged changes:
-    Modified:   analysis/codingtemplate.Rmd
 
 </code></pre>
 <p>
@@ -537,9 +534,86 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/coding4.Rmd</code>) and HTML (<code>docs/coding4.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/a05cf7f83390e11975c8c9ca9b03851fdf7c7409/analysis/coding4.Rmd" target="_blank">a05cf7f</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-10-10
+</td>
+<td>
+week 3 and 4 complete
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/40ebea5f8a78bbb084c3911b4255f23ad4794c40/analysis/coding4.Rmd" target="_blank">40ebea5</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-10-02
+</td>
+<td>
+add coding4
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/40ebea5f8a78bbb084c3911b4255f23ad4794c40/docs/coding4.html" target="_blank">40ebea5</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-10-02
+</td>
+<td>
+add coding4
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -566,35 +640,218 @@ library(papaja)</code></pre>
 <div id="familiarise-yourself-with-the-data" class="section level1">
 <h1>familiarise yourself with the data</h1>
 <p>Use glimpse() or names() or str() to get an idea what is included in the dataset</p>
+<pre class="r"><code>glimpse(bastian)</code></pre>
+<pre><code>Rows: 54
+Columns: 63
+$ subid               &lt;dbl&gt; 6.1, 6.2, 6.3, 7.1, 7.2, 7.4, 7.5, 8.1, 8.2, 8....
+$ CONDITION           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...
+$ groupnumber         &lt;dbl&gt; 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 10, 10, 14, 14...
+$ groupsize           &lt;dbl&gt; 3, 3, 3, 5, 5, 5, 5, 4, 4, 4, 4, 2, 2, 3, 3, 2,...
+$ subnumber           &lt;dbl&gt; 1, 2, 3, 1, 2, 4, 5, 1, 2, 3, 4, 1, 2, 1, 2, 1,...
+$ subage              &lt;dbl&gt; 20, 25, 22, 23, 26, 26, 23, 20, 24, 21, 22, 22,...
+$ subgender           &lt;dbl&gt; 1, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1,...
+$ gendercoded         &lt;dbl&gt; 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1,...
+$ subbornaus          &lt;dbl&gt; 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0,...
+$ subbornloc          &lt;chr&gt; &quot;Vietnam&quot;, &quot;Brunei&quot;, &quot;Malaysia&quot;, &quot;Malaysia&quot;, &quot;S...
+$ subausyears         &lt;dbl&gt; 2.00, 2.00, 2.50, 1.50, 4.00, NA, NA, 0.30, 4.0...
+$ subefl              &lt;dbl&gt; 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1,...
+$ pain1secs           &lt;dbl&gt; 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90,...
+$ pain2secs           &lt;dbl&gt; 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90,...
+$ feel_interested     &lt;dbl&gt; 4, 4, 3, 4, 4, 3, 4, 4, 3, 3, 2, 4, 4, 4, 2, 2,...
+$ feel_distressed     &lt;dbl&gt; 1, 5, 2, 1, 2, 1, 1, 1, 1, 4, 1, 1, 1, 4, 1, 1,...
+$ feel_excited        &lt;dbl&gt; 4, 4, 2, 4, 5, 2, 2, 2, 3, 3, 1, 3, 1, 4, 2, 1,...
+$ feel_upset          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,...
+$ feel_strong         &lt;dbl&gt; 2, 5, 3, 5, 3, 2, 2, 3, 2, 3, 2, 2, 1, 3, 1, 2,...
+$ feel_guilty         &lt;dbl&gt; 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1,...
+$ feel_scared         &lt;dbl&gt; 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1,...
+$ feel_hostile        &lt;dbl&gt; 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1,...
+$ feel_enthusiastic   &lt;dbl&gt; 2, 4, 2, 4, 5, 3, 2, 3, 3, 3, 1, 3, 2, 3, 2, 2,...
+$ feel_proud          &lt;dbl&gt; 3, 4, 2, 4, 5, 2, 2, 2, 3, 2, 1, 2, 1, 2, 1, 2,...
+$ feel_irritable      &lt;dbl&gt; 1, 2, 2, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 2, 1, 1,...
+$ feel_alert          &lt;dbl&gt; 1, 5, 2, 5, 4, 3, 4, 4, 2, 4, 2, 3, 3, 4, 3, 4,...
+$ feel_ashamed        &lt;dbl&gt; 1, 1, 1, 1, 3, 1, 1, 1, 2, 1, 1, 1, 3, 1, 1, 1,...
+$ feel_inspired       &lt;dbl&gt; 2, 4, 2, 2, 5, 1, 3, 1, 2, 2, 1, 2, 1, 2, 1, 1,...
+$ feel_nervous        &lt;dbl&gt; 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 1, 2, 2, 1, 2,...
+$ feel_determined     &lt;dbl&gt; 1, 3, 2, 5, 4, 2, 2, 3, 3, 4, 2, 2, 3, 3, 1, 3,...
+$ feel_attentive      &lt;dbl&gt; 2, 3, 2, 4, 4, 2, 3, 4, 2, 4, 2, 3, 3, 4, 4, 4,...
+$ feel_jittery        &lt;dbl&gt; 1, 2, 1, 1, 5, 1, 1, 2, 2, 2, 1, 1, 2, 4, 2, 1,...
+$ feel_active         &lt;dbl&gt; 3, 4, 2, 4, 4, 3, 2, 4, 3, 4, 2, 2, 2, 2, 3, 3,...
+$ feel_afraid         &lt;dbl&gt; 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1,...
+$ task_threatening    &lt;dbl&gt; 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,...
+$ task_fearful        &lt;dbl&gt; 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,...
+$ task_enjoyable      &lt;dbl&gt; 3, 4, 3, 4, 5, 2, 4, 3, 2, 2, 1, 3, 3, 3, 2, 2,...
+$ task_worrying       &lt;dbl&gt; 1, 4, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1,...
+$ task_hostile        &lt;dbl&gt; 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1,...
+$ task_challenging    &lt;dbl&gt; 3, 4, 2, 3, 5, 3, 2, 2, 2, 3, 1, 2, 4, 2, 1, 3,...
+$ task_stimulating    &lt;dbl&gt; 3, 3, 2, 3, 5, 2, 3, 1, 3, 3, 2, 3, 4, 4, 2, 2,...
+$ task_exhilarating   &lt;dbl&gt; 1, 5, 2, 3, 5, 1, 1, 1, 1, 1, 1, 1, 2, 4, 1, 1,...
+$ task_painful        &lt;dbl&gt; 1, 1, 1, 1, 2, 1, 1, 1, 2, 2, 1, 1, 1, 2, 1, 2,...
+$ task_depressing     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1,...
+$ task_pitiful        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,...
+$ task_informative    &lt;dbl&gt; 1, 4, 1, 1, 4, 1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 1,...
+$ task_exciting       &lt;dbl&gt; 3, 5, 2, 4, 5, 2, 2, 1, 3, 3, 1, 2, 3, 3, 2, 1,...
+$ task_frightening    &lt;dbl&gt; 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,...
+$ task_terrifying     &lt;dbl&gt; 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,...
+$ task_intolerable    &lt;dbl&gt; 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,...
+$ group101            &lt;dbl&gt; 3, 5, 3, 3, 4, 4, 4, 5, 4, 5, 3, 3, 2, 4, 2, 5,...
+$ group102            &lt;dbl&gt; 5, 6, 2, 2, 2, 3, 3, 3, 4, 3, 3, 3, 4, 4, 2, 2,...
+$ group103            &lt;dbl&gt; 3, 5, 1, 2, 5, 5, 5, 3, 5, 4, 3, 3, 5, 5, 2, 4,...
+$ group104            &lt;dbl&gt; 3, 5, 1, 1, 4, 3, 5, 2, 4, 3, 3, 3, 5, 5, 1, 1,...
+$ group105            &lt;dbl&gt; 4, 5, 2, 2, 5, 3, 5, 3, 4, 3, 2, 4, 5, 4, 4, 4,...
+$ group106            &lt;dbl&gt; 3, 4, 2, 1, 3, 2, 4, 3, 5, 4, 4, 3, 2, 4, 5, 2,...
+$ group107            &lt;dbl&gt; 3, 4, 1, 1, 4, 2, 3, 3, 5, 4, 3, 3, 6, 4, 1, 1,...
+$ task_intensity      &lt;dbl&gt; 1, 1, 1, 2, 3, 3, 1, 1, 2, 2, 1, 1, 1, 2, 2, 2,...
+$ task_unpleasantness &lt;dbl&gt; 1, 1, 1, 2, 4, 3, 1, 1, 2, 1, 1, 1, 2, 6, 2, 1,...
+$ Threat_MEAN         &lt;dbl&gt; 1.000000, 1.500000, 1.000000, 1.166667, 2.50000...
+$ Challenge_MEAN      &lt;dbl&gt; 2.333333, 4.166667, 2.000000, 3.000000, 4.83333...
+$ Pos_PANAS           &lt;dbl&gt; 2.4, 4.0, 2.2, 4.1, 4.3, 2.3, 2.6, 3.0, 2.6, 3....
+$ Neg_PANAS           &lt;dbl&gt; 1.0, 1.6, 1.6, 1.0, 2.4, 1.0, 1.1, 1.1, 1.3, 1....</code></pre>
 </div>
 <div id="make-the-variable-name-formatting-consistent" class="section level1">
 <h1>make the variable name formatting consistent</h1>
+<pre class="r"><code>clean_bastian &lt;- bastian %&gt;%
+  clean_names() %&gt;%
+  rename(sub_id = subid, group_number = groupnumber, group_size = groupsize, sub_number = subnumber, sub_age = subage, sub_gender = subgender, gender_coded = gendercoded, sub_born_aus = subbornaus, sub_born_loc = subbornloc, sub_aus_years = subausyears, sub_efl = subefl, pain_1_secs = pain1secs, pain_2_secs = pain2secs)</code></pre>
 </div>
 <div id="make-the-data-problem-smaller" class="section level1">
 <h1>make the data problem smaller</h1>
 <p>There are lots of variables that you wont need. Select just the variables related to participant id, group, PANAS scores, threat and challenge means, ratings of task intensity and pleasantness, and the 7 ratings to group bonding.</p>
+<pre class="r"><code>select_bastian &lt;- select(clean_bastian, sub_id, condition, pos_panas, neg_panas, threat_mean, challenge_mean, task_intensity, task_unpleasantness, starts_with(&quot;group10&quot;))</code></pre>
 </div>
 <div id="q1-did-the-pain-manipulation-work" class="section level1">
-<h1>Q1 did the pain manipulation work?</h1>
+<h1>Q1: did the pain manipulation work?</h1>
 <p>Select just the ppid and condition variables along with those that relate to the manipulation check (unpleasantness and intensity), make them long so you have a single column called rating type (unpleasantness, intensity) and another with ratings.</p>
 <p>The condition values are 0 and 1, make them a factor so your plot will display properly.</p>
+<pre class="r"><code>long_manipulation_check &lt;- select_bastian %&gt;%
+  select(sub_id, condition,task_intensity, task_unpleasantness)%&gt;%
+  pivot_longer(names_to = &quot;rating_type&quot;, values_to = &quot;ratings&quot;, task_unpleasantness:task_intensity) %&gt;%
+  mutate(condition = as.factor(condition))</code></pre>
 <p>Get some summary stats by group and plot the intensity and unpleasantness scores separately for participants in the pain vs no pain group</p>
+<pre class="r"><code>summary_manipulation_check &lt;- long_manipulation_check %&gt;%
+  group_by(condition, rating_type) %&gt;% 
+  summarise(mean = mean(ratings), sd = sd(ratings), n = n(), stderror = sd/sqrt(n)) 
+
+summary_manipulation_check %&gt;%
+  ggplot(aes(x = condition, y = mean, fill = condition)) + 
+  geom_col(position = &quot;dodge&quot;) +
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0))+ 
+  easy_remove_legend()</code></pre>
+<p><img src="figure/coding4.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="q2-did-the-pain-manipulation-result-in-group-differences-in-pos-and-neg-affect-scores" class="section level1">
 <h1>Q2: did the pain manipulation result in group differences in pos and neg affect scores?</h1>
 <p>Select just ppid, condition and PANAS, make the data long, and plot group differences. Include standard error bars.</p>
+<pre class="r"><code>long_panas &lt;- select_bastian %&gt;%
+  select(sub_id, condition, pos_panas, neg_panas) %&gt;%
+  pivot_longer(names_to = &quot;rating_type&quot;, values_to = &quot;ratings&quot;, pos_panas:neg_panas) %&gt;%
+  mutate(condition = as.factor(condition))
+
+summary_panas &lt;- long_panas %&gt;%
+  group_by(condition, rating_type) %&gt;% 
+  summarise(mean = mean(ratings), sd = sd(ratings), n = n(), stderror = sd/sqrt(n)) 
+
+summary_panas %&gt;%
+  ggplot(aes(x = condition, y = mean, fill = condition)) + 
+  geom_col(position = &quot;dodge&quot;) +
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0))+ 
+  easy_remove_legend()</code></pre>
+<p><img src="figure/coding4.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="q3-was-the-pain-manipulation-more-threateningchallenging-than-the-control-task" class="section level1">
-<h1>Q3: Was the pain manipulation more threatening/challenging than the control task?</h1>
+<h1>Q3: was the pain manipulation more threatening/challenging than the control task?</h1>
 <p>Select just ppid, condition and threat challenge scores, make the data long, and plot group differences. Include standard error bars.</p>
+<pre class="r"><code>long_threat_challenge &lt;- select_bastian %&gt;%
+  select(sub_id, condition, threat_mean, challenge_mean) %&gt;%
+  pivot_longer(names_to = &quot;rating_type&quot;, values_to = &quot;ratings&quot;, threat_mean:challenge_mean) %&gt;%
+  mutate(condition = as.factor(condition))
+
+summary_threat_challenge &lt;- long_threat_challenge %&gt;%
+  group_by(condition, rating_type) %&gt;% 
+  summarise(mean = mean(ratings), sd = sd(ratings), n = n(), stderror = sd/sqrt(n)) 
+
+summary_threat_challenge %&gt;%
+  ggplot(aes(x = condition, y = mean, fill = condition)) + 
+  geom_col(position = &quot;dodge&quot;) +
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0))+ 
+  easy_remove_legend()</code></pre>
+<p><img src="figure/coding4.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="q4-did-the-pain-manipulation-result-in-differences-in-group-bonding" class="section level1">
-<h1>Q4: did the pain manipulation result in differences in group bonding</h1>
+<h1>Q4: did the pain manipulation result in differences in group bonding?</h1>
 <p>Select variables related to ppid, condition, and group ratings. Make the group ratings long, and group_by participant and condition to get a mean rating score across the 7 bonding variables. Plot mean bonding scores as a function of group.</p>
+<pre class="r"><code>long_bonding &lt;- select_bastian %&gt;%
+  select(sub_id, condition,starts_with(&quot;group10&quot;)) %&gt;%
+  pivot_longer(names_to = &quot;rating_type&quot;, values_to = &quot;ratings&quot;, group101:group107)%&gt;%
+  mutate(condition = as.factor(condition))
+
+summary_bonding &lt;- long_bonding %&gt;%
+  group_by(condition)%&gt;%
+  summarise(mean = mean(ratings), sd = sd(ratings), n = n(), stderror = sd/sqrt(n)) 
+
+summary_bonding %&gt;%
+  ggplot(aes(x = condition, y = mean, fill = condition)) + 
+  geom_col() + 
+  geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0))+ 
+  easy_remove_legend() + 
+  labs(y = &quot;mean bonding score&quot;)</code></pre>
+<p><img src="figure/coding4.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="extra-challenge" class="section level1">
 <h1>extra challenge</h1>
 <p>This dataset included all the raw ratings as well as summarised scores for the PANAS and threat/challenge scores. Look up the published paper and see if you can match the variables in the dataset to questionnaire items. Use your wrangling skills to verify that the summary scores for pos and neg and threat/challenge were calculated accurately.</p>
+<div id="verify-pos-scores" class="section level3">
+<h3>verify pos scores</h3>
+<pre class="r"><code>long_pos &lt;- clean_bastian %&gt;% 
+  select(sub_id, condition, feel_attentive, feel_active, feel_alert, feel_excited, feel_enthusiastic, feel_determined, feel_inspired, feel_proud, feel_interested, feel_strong) %&gt;%
+    pivot_longer(names_to = &quot;rating_type&quot;, values_to = &quot;ratings&quot;, feel_attentive:feel_strong)%&gt;%
+    mutate(condition = as.factor(condition))
+
+summary_pos &lt;- long_pos %&gt;%
+  group_by(condition)%&gt;%
+  summarise(mean = mean(ratings), sd = sd(ratings))</code></pre>
+</div>
+<div id="verify-neg-scores" class="section level3">
+<h3>verify neg scores</h3>
+<pre class="r"><code>long_neg &lt;- clean_bastian %&gt;% 
+  select(sub_id, condition, feel_hostile, feel_irritable, feel_ashamed, feel_guilty, feel_distressed, feel_upset, feel_scared, feel_afraid, feel_jittery, feel_nervous) %&gt;%
+    pivot_longer(names_to = &quot;rating_type&quot;, values_to = &quot;ratings&quot;, feel_hostile:feel_nervous)%&gt;%
+    mutate(condition = as.factor(condition))
+
+summary_neg &lt;- long_neg %&gt;%
+  group_by(condition)%&gt;%
+  summarise(mean = mean(ratings), sd = sd(ratings))</code></pre>
+</div>
+<div id="verify-threat-scores" class="section level3">
+<h3>verify threat scores</h3>
+<pre class="r"><code>long_threat &lt;- clean_bastian %&gt;% 
+  select(sub_id, condition, task_fearful, task_worrying, task_hostile, task_threatening, task_frightening, task_terrifying) %&gt;%
+    pivot_longer(names_to = &quot;rating_type&quot;, values_to = &quot;ratings&quot;, task_fearful:task_terrifying) %&gt;%    mutate(condition = as.factor(condition))
+
+summary_threat &lt;- long_threat %&gt;%
+  group_by(condition)%&gt;%
+  summarise(mean = mean(ratings), sd = sd(ratings))</code></pre>
+</div>
+<div id="verify-challenge-scores" class="section level3">
+<h3>verify challenge scores</h3>
+<pre class="r"><code>long_challenge &lt;- clean_bastian %&gt;% 
+  select(sub_id, condition, task_enjoyable, task_stimulating, task_exciting, task_exhilarating, task_informative, task_challenging) %&gt;%
+    pivot_longer(names_to = &quot;rating_type&quot;, values_to = &quot;ratings&quot;, task_enjoyable:task_challenging) %&gt;%    mutate(condition = as.factor(condition))
+
+summary_challenge &lt;- long_challenge %&gt;%
+  group_by(condition)%&gt;%
+  summarise(mean = mean(ratings), sd = sd(ratings))</code></pre>
+<p>The mean for condition 0 is incorrectly rounded down here.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -603,48 +860,44 @@ library(papaja)</code></pre>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.5.1 (2018-07-02)
-Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS Sierra 10.12.6
+<pre><code>R version 4.0.2 (2020-06-22)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19041)
 
 Matrix products: default
-BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 
 locale:
-[1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
+[1] LC_COLLATE=English_Australia.1252  LC_CTYPE=English_Australia.1252   
+[3] LC_MONETARY=English_Australia.1252 LC_NUMERIC=C                      
+[5] LC_TIME=English_Australia.1252    
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] papaja_0.1.0.9842  RColorBrewer_1.1-2 ggbeeswarm_0.6.0  
- [4] ggeasy_0.1.2       janitor_1.2.0      here_0.1          
- [7] forcats_0.5.0      stringr_1.4.0      dplyr_1.0.1       
-[10] purrr_0.3.3        readr_1.3.1        tidyr_1.1.0       
-[13] tibble_3.0.3       ggplot2_3.3.2      tidyverse_1.3.0   
+ [1] papaja_0.1.0.9997  RColorBrewer_1.1-2 ggbeeswarm_0.6.0   ggeasy_0.1.2      
+ [5] janitor_2.0.1      here_0.1           forcats_0.5.0      stringr_1.4.0     
+ [9] dplyr_1.0.2        purrr_0.3.4        readr_1.3.1        tidyr_1.1.1       
+[13] tibble_3.0.3       ggplot2_3.3.2      tidyverse_1.3.0    workflowr_1.6.2   
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.5             lubridate_1.7.4        assertthat_0.2.1      
- [4] rprojroot_1.3-2        digest_0.6.25          R6_2.4.1              
- [7] cellranger_1.1.0       backports_1.1.8        reprex_0.3.0          
-[10] evaluate_0.14          httr_1.4.1             pillar_1.4.6          
-[13] rlang_0.4.7            readxl_1.3.1           rstudioapi_0.11.0-9000
-[16] blob_1.2.1             rmarkdown_1.15         munsell_0.5.0         
-[19] broom_0.7.0            compiler_3.5.1         httpuv_1.5.2          
-[22] vipor_0.4.5            modelr_0.1.8           xfun_0.8              
-[25] pkgconfig_2.0.3        htmltools_0.5.0        tidyselect_1.1.0      
-[28] workflowr_1.6.2        fansi_0.4.1            crayon_1.3.4          
-[31] dbplyr_1.4.4           withr_2.2.0            later_1.1.0.1         
-[34] grid_3.5.1             jsonlite_1.7.0         gtable_0.3.0          
-[37] lifecycle_0.2.0        DBI_1.0.0              git2r_0.27.1          
-[40] magrittr_1.5           scales_1.1.1           cli_2.0.2             
-[43] stringi_1.4.6          fs_1.4.1               promises_1.1.1        
-[46] xml2_1.3.2             ellipsis_0.3.1         generics_0.0.2        
-[49] vctrs_0.3.2            tools_3.5.1            glue_1.4.1            
-[52] beeswarm_0.2.3         hms_0.5.3              yaml_2.2.1            
-[55] colorspace_1.4-1       rvest_0.3.6            knitr_1.23            
-[58] haven_2.3.1           </code></pre>
+ [1] Rcpp_1.0.5       lubridate_1.7.9  utf8_1.1.4       assertthat_0.2.1
+ [5] rprojroot_1.3-2  digest_0.6.25    R6_2.4.1         cellranger_1.1.0
+ [9] backports_1.1.7  reprex_0.3.0     evaluate_0.14    httr_1.4.2      
+[13] pillar_1.4.6     rlang_0.4.7      readxl_1.3.1     rstudioapi_0.11 
+[17] whisker_0.4      blob_1.2.1       rmarkdown_2.3    labeling_0.3    
+[21] munsell_0.5.0    broom_0.7.0.9001 vipor_0.4.5      compiler_4.0.2  
+[25] httpuv_1.5.4     modelr_0.1.8     xfun_0.16        pkgconfig_2.0.3 
+[29] htmltools_0.5.0  tidyselect_1.1.0 fansi_0.4.1      crayon_1.3.4    
+[33] dbplyr_1.4.4     withr_2.2.0      later_1.1.0.1    grid_4.0.2      
+[37] jsonlite_1.7.0   gtable_0.3.0     lifecycle_0.2.0  DBI_1.1.0       
+[41] git2r_0.27.1     magrittr_1.5     scales_1.1.1     cli_2.0.2       
+[45] stringi_1.4.6    farver_2.0.3     fs_1.5.0         promises_1.1.1  
+[49] snakecase_0.11.0 xml2_1.3.2       ellipsis_0.3.1   generics_0.0.2  
+[53] vctrs_0.3.2      tools_4.0.2      glue_1.4.1       beeswarm_0.2.3  
+[57] hms_0.5.3        yaml_2.2.1       colorspace_1.4-1 rvest_0.3.6     
+[61] knitr_1.29       haven_2.3.1     </code></pre>
+</div>
 </div>
 </div>
 
@@ -660,8 +913,6 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
-
-
 
 
 </div>
@@ -712,7 +963,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
