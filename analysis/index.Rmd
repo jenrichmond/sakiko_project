@@ -26,7 +26,7 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 
 
 [Coding 4](coding4.html)
-- placeholder for exercise 4
+- Does shared pain increase group bonding among strangers? Or affect how challenging/threatening we find group activities to be? Practice making data long, computing summary stats, and making clustered column graphs. Also use your wrangling skills to verify that the authors calculated their summary scores correctly. You can read the original paper by [Bastian et al. here](https://journals.sagepub.com/doi/abs/10.1177/0956797614545886)
 
 
 [Coding 5](coding5.html)

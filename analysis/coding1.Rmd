@@ -1,7 +1,7 @@
 ---
 title: "Coding exercise 1"
-author: "Jen Richmond"
-date: "10/09/2020"
+author: "Sakiko Okayama"
+date: "19/09/2020"
 output: html_document
 ---
 
@@ -63,7 +63,9 @@ renamedata <- rename(mehr, baseline = Baseline_Proportion_Gaze_to_Singer, famili
 In this kind of experiment, it is important to confirm that infants looking at each kind of stimulus during the familiarisation phase is the same. Calculate the mean and sd for familiarisation looking at the familiar and unfamiliar stimulus. 
 
 ```{r summarystats}
-summarise(renamedata, meanfamiliar = mean(familiar), sdfamiliar = sd(familiar), meanunfamiliar = mean(unfamiliar), sdunfamiliar = sd(unfamiliar))
+summarystats <- summarise(renamedata, meanfamiliar = mean(familiar), sdfamiliar = sd(familiar), meanunfamiliar = mean(unfamiliar), sdunfamiliar = sd(unfamiliar))
+
+print.data.frame(summarystats) # use this if i want data to display in a tibble without the decimal points chopped out 
 
 ```
 
@@ -74,11 +76,11 @@ Make a new df that includes only id and the familiarisation data and use pivot_l
 ```{r makedatalong}
 longdata <- renamedata %>%
   select(id, familiar, unfamiliar) %>%
-  pivot_longer(names_to = "stimulus", values_to = "looking_time", "familiar":"unfamiliar")
+  pivot_longer(names_to = "stimulus", values_to = "looking_time", familiar:unfamiliar) # don't need "" for columns that already exist 
                
 ```
 
-Great, now your dataframe has 192 observations intead of 96 observations. 
+Great, now your dataframe has 192 observations instead of 96 observations. 
 
 Use group_by and summarise to get a dataframe of summary stats, including mean, sd, n, stderror for each stimulus. 
 
@@ -98,21 +100,16 @@ Use the summary df to make a column graph plotting mean looking as a function of
   + theme_apa will make the bar float off the x axis. Use  scale_y_continuous(limits = c(0,600), expand = c(0,0)) to extend the y axis to 600ms and make the bars sit on the x axis at 0,0
 
 ```{r plotfamlooking, message=FALSE, warning=FALSE}
- write_csv(summarydata, here("data", "1_Mehr2016_plot.csv"))
-plotdata <- read_csv(here("data", "1_Mehr2016_plot.csv"))
-
-plotdata %>%
+summarydata %>%
   ggplot(aes(x = stimulus, y = mean, fill = stimulus)) + 
   geom_col() + 
   geom_errorbar(aes(x = stimulus, ymin = mean-stderror, ymax = mean+stderror), 
-                size=.3, 
                 width=.2) +
-  theme_apa(base_size = 14) +  
+  theme_apa() +  
   scale_y_continuous(limits = c(0,600), expand = c(0,0)) + 
-  labs(x="Stimulus type", y="Mean looking time (s)")
+  labs(title = "Time looking at person singing familiar or unfamiliar song", x="Stimulus type", y="Mean looking time (s)") + 
+  easy_remove_legend()
   
-
-
 ```
 
 Great! looks like the error bars overlap, so there is unlikely to be a significant difference in the amount of time that infants looked at familiar vs. unfamiliar during the familiarisation. 
@@ -136,7 +133,7 @@ Replicate the process above for the test data...
 # make the data long
 longtest <- renamedata %>%
   select(id, baseline, test) %>%
-   pivot_longer(names_to = "test_time", values_to = "proportion_looking", "baseline":"test")
+   pivot_longer(names_to = "test_time", values_to = "proportion_looking", baseline:test)
 
 #make summary stats
 summarytest <- longtest %>%
@@ -144,13 +141,10 @@ summarytest <- longtest %>%
   summarise(mean = mean(proportion_looking), sd = sd(proportion_looking), n = n(), stderror = sd/sqrt(n))
 
 # plot
-write_csv(summarytest, here("data", "1_Mehr2016_plot_test.csv"))
-plottest <- read_csv(here("data", "1_Mehr2016_plot_test.csv"))
-
-plottest %>%
+summarytest %>%
   ggplot(aes(x = test_time, y = mean, fill = test_time)) + 
   geom_col() + 
-  scale_y_continuous(limits = c(0,0.6), expand = c(0,0)) +
+  scale_y_continuous(limits = c(0,1), expand = c(0,0)) +
   geom_errorbar(aes(x = test_time, ymin = mean-stderror, ymax = mean+stderror), 
                 width=.2) +
   theme_apa(base_size = 14) +  
@@ -174,7 +168,10 @@ Try geom_jitter and geom_boxplot to visualise the raw proportion scores at basel
 longtest %>%
   ggplot(aes(x = test_time, y = proportion_looking, colour = test_time)) +
   geom_jitter() + 
-  theme_apa()
+  theme_apa() + 
+  scale_y_continuous(limits = c(0,1))+# when plotting proportion, make y-axis end at 1 
+  labs(title = "Proportion looking at person singing familiar song")
+  easy_remove_legend() 
 ```
 
 #### geom_boxplot
@@ -182,7 +179,10 @@ longtest %>%
 longtest %>%
   ggplot(aes(x = test_time, y = proportion_looking, fill = test_time)) + 
   geom_boxplot() + 
-  theme_apa()
+  theme_apa() + 
+  labs(title = "Proportion looking at person singing familiar song", subtitle = "Horizontal line represents median. Whiskers represent top and bottom 25% of scores") + 
+  easy_remove_legend()
+
 ```
 
 #### geom_boxplot + geom_jitter
@@ -191,6 +191,8 @@ longtest %>%
   ggplot(aes(x = test_time, y = proportion_looking, colour = test_time)) +
   geom_boxplot() + 
   geom_jitter(alpha = 0.5) + 
-  theme_apa()
+  theme_apa() + 
+   labs(title = "Proportion looking at person singing familiar song", subtitle = "Horizontal line represents median. Whiskers represent top and bottom 25% of scores") + 
+  easy_remove_legend()
 ```
 

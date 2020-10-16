@@ -1,7 +1,7 @@
 ---
 title: "Coding exercise 4"
-author: "Jen Richmond"
-date: "02/10/2020"
+author: "Sakiko Okayama"
+date: "10/10/2020"
 output: html_document
 ---
 
@@ -96,7 +96,9 @@ summary_manipulation_check %>%
   facet_wrap(~ rating_type) + 
   geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
   theme_apa() + 
-  scale_y_continuous(expand = c(0,0))+ 
+  scale_y_continuous(expand = c(0,0), limits=c(0, 10))+ 
+  scale_x_discrete(labels=c("0" = "control", "1" = "pain")) + 
+  labs(y = "mean rating") +
   easy_remove_legend()
 
 ```
@@ -121,7 +123,9 @@ summary_panas %>%
   facet_wrap(~ rating_type) + 
   geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
   theme_apa() + 
-  scale_y_continuous(expand = c(0,0))+ 
+  scale_x_discrete(labels=c("0" = "control", "1" = "pain")) + 
+  labs(y = "mean rating") +
+  scale_y_continuous(expand = c(0,0), limits = c(0, 5))+ 
   easy_remove_legend()
 
 ```
@@ -147,7 +151,9 @@ summary_threat_challenge %>%
   facet_wrap(~ rating_type) + 
   geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
   theme_apa() + 
-  scale_y_continuous(expand = c(0,0))+ 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 5))+ 
+  scale_x_discrete(labels=c("0" = "control", "1" = "pain")) + 
+  labs(y = "mean rating") +
   easy_remove_legend()
 
 ```
@@ -171,7 +177,8 @@ summary_bonding %>%
   geom_col() + 
   geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
   theme_apa() + 
-  scale_y_continuous(expand = c(0,0))+ 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 5))+
+  scale_x_discrete(labels=c("0" = "control", "1" = "pain")) + 
   easy_remove_legend() + 
   labs(y = "mean bonding score")
 ```
@@ -191,6 +198,9 @@ long_pos <- clean_bastian %>%
 summary_pos <- long_pos %>%
   group_by(condition)%>%
   summarise(mean = mean(ratings), sd = sd(ratings))
+
+print.data.frame(summary_pos)
+
 ```
 ### verify neg scores
 
@@ -203,6 +213,9 @@ long_neg <- clean_bastian %>%
 summary_neg <- long_neg %>%
   group_by(condition)%>%
   summarise(mean = mean(ratings), sd = sd(ratings))
+
+print.data.frame(summary_neg) 
+
 ```
 ### verify threat scores
 
@@ -214,6 +227,9 @@ long_threat <- clean_bastian %>%
 summary_threat <- long_threat %>%
   group_by(condition)%>%
   summarise(mean = mean(ratings), sd = sd(ratings))
+
+print.data.frame(summary_threat)
+
 ```
 
 ### verify challenge scores
@@ -226,5 +242,8 @@ long_challenge <- clean_bastian %>%
 summary_challenge <- long_challenge %>%
   group_by(condition)%>%
   summarise(mean = mean(ratings), sd = sd(ratings))
+
+print.data.frame(summary_challenge)
+
 ```
-The mean for condition 0 is incorrectly rounded down here. 
+The mean for condition 0 (control) is incorrectly rounded down here. 

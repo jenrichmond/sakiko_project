@@ -43,6 +43,7 @@ glimpse(atir)
 ```
 
 In this study, participants completed the following tasks: 
+
 1. a self perceived knowledge measure
 - people rating their general knowledge of personal finance
   + how knowledgeable d you think you are about personal finance
@@ -86,7 +87,7 @@ What about apa style tables? Have a go at making the summary stats table display
 https://cran.r-project.org/web/packages/apaTables/vignettes/apaTables.html
 
 ```{r}
-apa.1way.table(iv = order_of_tasks, dv = overclaiming_proportion, data = atir)
+apa.1way.table(iv = order_of_tasks, dv = overclaiming_proportion, data = atir, filename = "coding3_apatable.doc", table.number = 1)
 
 ```
 
@@ -94,11 +95,12 @@ apa.1way.table(iv = order_of_tasks, dv = overclaiming_proportion, data = atir)
 
 What is the variability in overclaiming scores like? Use geom_jitter or geom_boxplot (or both!) to look at individual differences in overclaiming task performance. 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 atir %>%
-  ggplot(aes(x = id, y = overclaiming_proportion)) + 
-  geom_jitter() + 
-  theme_apa()
+  ggplot(aes(y = overclaiming_proportion)) + 
+  geom_histogram() + 
+  theme_apa()+ 
+  labs(title="Variability in overclaiming scores")
 ```
 
 # Is overclaiming related to self perceived knowledge?
@@ -110,18 +112,20 @@ atir %>%
   ggplot(aes(x = self_perceived_knowledge, y = overclaiming_proportion)) +
   geom_point() + 
   stat_cor(method = "pearson") + 
-  theme_apa()
+  theme_apa() + 
+  labs(title = "Relationship between participants' self-perceived knowledge and \noverclaiming proportion")
 ```
 
 Can you capture accuracy in the plot too? maybe with colour or shape? maybe with facet_wrap()? 
 
 ```{r}
 atir %>%
-  ggplot(aes(x = self_perceived_knowledge, y = overclaiming_proportion, colour = self_perceived_knowledge)) +
+  ggplot(aes(x = self_perceived_knowledge, y = overclaiming_proportion, colour = accuracy)) +
   geom_point() + 
   stat_cor(method = "pearson") + 
   theme_apa() + 
-  easy_remove_legend()
+  labs(title = "Relationship between participants' self-perceived knowledge and \noverclaiming proportion")
+
 ```
 
 # does task order make a difference to overclaiming performance?
@@ -146,7 +150,8 @@ grouped_overclaiming_atir %>%
   geom_errorbar(aes(x = order_of_tasks, ymin = mean-stderror, ymax = mean+stderror), 
                 width=.2) + 
   theme_apa() + 
-  labs(x = "Order of tasks", y="Mean proportion", caption = "Atir et al., 2015") + 
+  labs(title = "Mean proportion of overclaiming by order of tasks", subtitle = "Overclaiming was
+higher when self-perceived knowledge task was completed before the overclaiming task", x= "Order of tasks", y="Mean proportion", caption = "Atir et al., 2015") + 
   easy_remove_legend()
 ```
 
@@ -168,9 +173,12 @@ Use geom_jitter or boxplot to visualise the variability in actual knowledge scor
 
 ```{r}
 atir %>%
-  ggplot(aes(x = id, y = FINRA_score)) + 
+  mutate(order_of_tasks = as.factor(order_of_tasks)) %>%
+  ggplot(aes(x = order_of_tasks, y = FINRA_score, group = order_of_tasks)) +
+  geom_boxplot() + 
   geom_jitter() + 
-  theme_apa()
+  theme_apa()+ 
+  labs(title = "Variability in actual knowledge scores by order of tasks") 
 ```
 
 Is there a relation between perceived knowledge and actual knowledge? Use geom_point to make a scatterplot. Include a correlation coefficient. 
@@ -181,7 +189,8 @@ atir %>%
   geom_point() + 
   stat_cor(method = "pearson") + 
   theme_apa() + 
-  easy_remove_legend()
+  easy_remove_legend() + 
+  labs(title = "Relationship between actual and perceived knowledge") 
 
 ```
 
@@ -199,7 +208,8 @@ atir %>%
   geom_point() + 
   facet_wrap(~ FINRA_score) + 
   stat_cor(method = "pearson") + 
-  theme_apa()
+  theme_apa() + 
+  labs("Relationship between overclaiming and self-perceived knowledge according to FINRA score") 
 
 ```
 
@@ -210,6 +220,18 @@ atir %>%
   geom_point() + 
   stat_cor(method = "pearson") + 
   theme_apa() + 
-  easy_remove_legend()
+  easy_remove_legend() +
+  labs(title = "Relationship between actual knowledge and overclaiming") 
+```
+
+```{r message=FALSE, warning=FALSE}
+atir %>%
+  ggplot(aes(x = FINRA_score, y = overclaiming_proportion, group = FINRA_score)) +
+  geom_boxplot() + 
+  geom_jitter()
+  theme_apa() + 
+  easy_remove_legend() + 
+  labs(title = "Relationship between actual knowledge and overclaiming") 
+  
 ```
 

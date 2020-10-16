@@ -1,7 +1,7 @@
 ---
 title: "Coding exercise 2"
-author: "Jen Richmond"
-date: "10/09/2020"
+author: "Sakiko Okayama"
+date: "27/09/2020"
 output: html_document
 ---
 
@@ -23,6 +23,7 @@ library(papaja)
 library(naniar) # re missing data
 library(RColorBrewer)
 library(ggpubr)
+library(patchwork)
 
 ```
 
@@ -91,6 +92,7 @@ selectbeall %>%
   ggplot(aes(x = voter_intention_index, y = ebola_search_volume_index)) + 
   geom_point() +
   theme_apa() + 
+  labs(title = "Relationship between internet search activity for the term “Ebola” \nand voting intentions") + 
   stat_cor(method = "pearson")
   
 ```
@@ -107,65 +109,68 @@ selectbeall %>%
   ggplot(aes(x = voter_intention_index, y = ebola_search_volume_index)) + 
   geom_point() +
   theme_apa() + 
+  labs(title = "Relationship between internet search activity for the term “Ebola” \nand voting intentions two weeks prior to outbreak") + 
   stat_cor(method = "pearson")
   
 
 ```
 
-### september
+### Whole month
 
-Restrict to just the month of september and plot date against voter intention
+Restrict to just the month of september and plot date against voter intention. Then restrict to just October and plot date against voter intention.
 
-```{r sept}
-# whole month
-selectbeall %>%
+```{r month, message=FALSE, warning=FALSE}
+# September
+p1 <- selectbeall %>%
   filter(month == 9) %>%
   na.omit() %>%
   ggplot(aes(x = date, y = voter_intention_index)) + 
   geom_point() +
   theme_apa() +
-  stat_cor(method = "pearson")
+  labs(title = "Change in voting intentions \nduring September") + 
+  stat_cor(method = "pearson",  vjust = -0.2) # shift text up to dodge the plot 
 
-
-```
-
-Restrict to just the last week september and plot date against voter intention
-
-```{r weeksept}
-selectbeall %>%
-  filter(month == 9, date > 23) %>%
-  na.omit() %>%
-  ggplot(aes(x = date, y = voter_intention_index)) + 
-  geom_point() +
-  theme_apa() +
-  stat_cor(method = "pearson")
-```
-
-### october
-
-Restrict to just October and plot date against voter intention
-```{r oct}
-# whole month
-selectbeall %>%
+# October
+p2 <- selectbeall %>%
   filter(month == 10) %>%
   na.omit() %>%
   ggplot(aes(x = date, y = voter_intention_index)) + 
   geom_point() +
   theme_apa() +
+  labs(title = "Change in voting intentions \nduring October") + 
   stat_cor(method = "pearson")
 
+p1 + p2 
 ```
-Restrict to just the first week of October and plot date against voter intention
 
-```{r weekoct}
-# first week 
-selectbeall %>%
+
+### Part of month
+
+Restrict to just the last week september and plot date against voter intention. Then restrict to just the first week of October and plot date against voter intention
+
+```{r week, message=FALSE, warning=FALSE}
+# last week of September
+p3 <- selectbeall %>%
+  filter(month == 9, date > 23) %>%
+  na.omit() %>%
+  ggplot(aes(x = date, y = voter_intention_index)) + 
+  geom_point() +
+  theme_apa() +
+    labs(title = "Change in voting intentions \nduring the last week of \nSeptember") + 
+  stat_cor(method = "pearson")
+
+# first week of October
+p4 <- selectbeall %>%
   filter(month == 10, date < 8) %>%
   na.omit() %>%
   ggplot(aes(x = date, y = voter_intention_index)) + 
   geom_point() +
   theme_apa() +
+    labs(title = "Change in voting intentions \nduring the first week of \nOctober")
   stat_cor(method = "pearson")
+  
+p3 + p4
+
 ```
 
 
