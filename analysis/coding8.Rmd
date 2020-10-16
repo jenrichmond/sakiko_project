@@ -1,0 +1,42 @@
+---
+title: "coding8 stats"
+author: "Jen Richmond"
+date: "02/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this coding exercise, you will work with data from a study published in Psychological Science. 
+
+insert reference
+
+# load packages
+
+```{r loadpackages, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+library(janitor)
+library(ggeasy)
+library(ggbeeswarm)
+library(RColorBrewer)
+library(papaja)
+
+```
+
+# read in the data
+
+```{r readdata, message=FALSE, warning=FALSE}
+
+```
+
+# familiarise yourself with the data
+
+Use glimpse() or names() or str() to get an idea what is included in the dataset
+
+```{r datastructure}
+
+```
+

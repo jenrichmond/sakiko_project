@@ -29,8 +29,7 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 - Does shared pain increase group bonding among strangers? Or affect how challenging/threatening we find group activities to be? Practice making data long, computing summary stats, and making clustered column graphs. Also use your wrangling skills to verify that the authors calculated their summary scores correctly. You can read the original paper by [Bastian et al. here](https://journals.sagepub.com/doi/abs/10.1177/0956797614545886)
 
 
-[Coding 5](coding5.html)
-- placeholder for exercise 5
+
 
 
 # Blog
@@ -46,7 +45,17 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 
 # MTT project
 
-Links to code created visualising and analysing the MTT anxiety project data will go here. 
+[Coding 5](coding5.html)
+- woot! we are at the point where we can start working with the MTT dataset. In this exercise, you will read in data for the overgeneral coding and specificity scores, make the data long and answer some questions about group differences using your ggplot skills. 
+
+[Coding 6](coding6.html)
+- In this exercise, you will read in data for the phenomenological ratings, make the data long and answer some questions about group differences in the experience of remembering/imagining using your ggplot skills
+
+[Coding 7](coding7.html)
+- Lets use the Tidy Tuesday Taylor Swift and Beyonce analysis as a template for trying sentiment analysis on the narrative responses participants gave in response to past/future, pos/neu/neg events. 
+
+[Coding 8](coding8.html)
+- some stats might be useful for your results section. Lets learn how to run t-tests, ANOVA to test hypotheses re group differences in MTT. 
 
 
 # Resources from Jenny
