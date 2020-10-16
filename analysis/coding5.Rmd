@@ -1,0 +1,87 @@
+---
+title: "coding5_mtt_details"
+author: "Jen Richmond"
+date: "16/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# load packages
+
+```{r}
+
+```
+
+# read in the data
+
+study_3_details_mtt.csv in the data folder
+
+```{r}
+
+```
+
+# use table() to check how many participants we have in each group
+
+```{r}
+
+```
+
+# drop the variables that are proportions that were calculated in excel
+
+You will create them again below. 
+
+```{r}
+
+```
+
+
+# make the data long
+
+We have two group and pp in each group described 2 events in each of the following categories
+
+- positive future
+- neutral future
+- negative future
+- positive past
+- neutral past
+- negative past
+
+There are variables in the dataset for the code (specific categorical general), number of internal details, external details. The data is in wide format. 
+
+Make the data long so there are variables for
+- event (event1, event2)
+- valence (pos, neu, neg)
+- direction (past/future)
+- detail type (internal/external)
+
+```{r}
+
+```
+
+
+# create a new variable that combines event 1 and 2 "codes" into a score out of 6
+
+```{r}
+
+```
+
+# calculate the proportion of internal for each event and average across event 1 and 2
+
+```{r}
+
+```
+
+NOTE, you might like to separate analysis of the coding scores and the details into separate data frames. 
+
+# Plot away!!!
+
+Questions to start with....
+
+- do pp with anxiety have lower scores on the event codes? (i.e. report fewer events that meet criteria for specific?
+- when you look at just the events that meet criteria for specific, do participants with anxiety report fewer internal details
+- does the pattern of results look different if you use proportions (you'll need to use mutate to make a new variable) vs. raw internal/external scores. 
+- are there interesting patterns across direction/valence ?
+
