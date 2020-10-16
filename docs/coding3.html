@@ -415,7 +415,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-10-10
+<strong>Last updated:</strong> 2020-10-16
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -506,16 +506,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreea05cf7f83390e11975c8c9ca9b03851fdf7c7409targetblanka05cf7fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/a05cf7f83390e11975c8c9ca9b03851fdf7c7409" target="_blank">a05cf7f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree8628d4d800d8541b2da0c9bd2c99d7ad4d427e1atargetblank8628d4da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/8628d4d800d8541b2da0c9bd2c99d7ad4d427e1a" target="_blank">8628d4d</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreea05cf7f83390e11975c8c9ca9b03851fdf7c7409targetblanka05cf7fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree8628d4d800d8541b2da0c9bd2c99d7ad4d427e1atargetblank8628d4da" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/a05cf7f83390e11975c8c9ca9b03851fdf7c7409" target="_blank">a05cf7f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/8628d4d800d8541b2da0c9bd2c99d7ad4d427e1a" target="_blank">8628d4d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -562,6 +562,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/8628d4d800d8541b2da0c9bd2c99d7ad4d427e1a/analysis/coding3.Rmd" target="_blank">8628d4d</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-10-16
+</td>
+<td>
+coding 1-4 updated based on feedback
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/625c582e8b050a24a49c74313328f0fb964f0379/docs/coding3.html" target="_blank">625c582</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-10-10
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -651,7 +685,17 @@ $ self_perceived_knowledge &lt;dbl&gt; 5.5, 4.5, 3.5, 6.0, 2.5, 7.0, 6.5, 4.0, 4
 $ overclaiming_proportion  &lt;dbl&gt; 0.4444444, 0.5555556, 0.1666667, 0.7222222...
 $ accuracy                 &lt;dbl&gt; 0.25000000, 0.19444444, 0.34722222, -0.055...
 $ FINRA_score              &lt;dbl&gt; 4, 4, 5, 4, 3, 4, 5, 4, 2, 5, 5, 0, 3, 5, ...</code></pre>
-<p>In this study, participants completed the following tasks: 1. a self perceived knowledge measure - people rating their general knowledge of personal finance + how knowledgeable d you think you are about personal finance + how would your knowledge compare to average american?</p>
+<p>In this study, participants completed the following tasks:</p>
+<ol style="list-style-type: decimal">
+<li>a self perceived knowledge measure</li>
+</ol>
+<ul>
+<li>people rating their general knowledge of personal finance
+<ul>
+<li>how knowledgeable d you think you are about personal finance</li>
+<li>how would your knowledge compare to average american?</li>
+</ul></li>
+</ul>
 <ol start="2" style="list-style-type: decimal">
 <li>an overclaiming task</li>
 </ol>
@@ -708,8 +752,10 @@ Overclaiming proportion
 </table>
 <p>What about apa style tables? Have a go at making the summary stats table display in apa format using the <code>apaTables</code> package</p>
 <p><a href="https://cran.r-project.org/web/packages/apaTables/vignettes/apaTables.html" class="uri">https://cran.r-project.org/web/packages/apaTables/vignettes/apaTables.html</a></p>
-<pre class="r"><code>apa.1way.table(iv = order_of_tasks, dv = overclaiming_proportion, data = atir)</code></pre>
+<pre class="r"><code>apa.1way.table(iv = order_of_tasks, dv = overclaiming_proportion, data = atir, filename = &quot;coding3_apatable.doc&quot;, table.number = 1)</code></pre>
 <pre><code>
+
+Table 1 
 
 Descriptive statistics for overclaiming_proportion as a function of order_of_tasks.  
 
@@ -726,9 +772,10 @@ Note. M and SD represent mean and standard deviation, respectively.
 <h1>Plot overclaiming scores</h1>
 <p>What is the variability in overclaiming scores like? Use geom_jitter or geom_boxplot (or both!) to look at individual differences in overclaiming task performance.</p>
 <pre class="r"><code>atir %&gt;%
-  ggplot(aes(x = id, y = overclaiming_proportion)) + 
-  geom_jitter() + 
-  theme_apa()</code></pre>
+  ggplot(aes(y = overclaiming_proportion)) + 
+  geom_histogram() + 
+  theme_apa()+ 
+  labs(title=&quot;Variability in overclaiming scores&quot;)</code></pre>
 <p><img src="figure/coding3.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="is-overclaiming-related-to-self-perceived-knowledge" class="section level1">
@@ -738,15 +785,16 @@ Note. M and SD represent mean and standard deviation, respectively.
   ggplot(aes(x = self_perceived_knowledge, y = overclaiming_proportion)) +
   geom_point() + 
   stat_cor(method = &quot;pearson&quot;) + 
-  theme_apa()</code></pre>
+  theme_apa() + 
+  labs(title = &quot;Relationship between participants&#39; self-perceived knowledge and \noverclaiming proportion&quot;)</code></pre>
 <p><img src="figure/coding3.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Can you capture accuracy in the plot too? maybe with colour or shape? maybe with facet_wrap()?</p>
 <pre class="r"><code>atir %&gt;%
-  ggplot(aes(x = self_perceived_knowledge, y = overclaiming_proportion, colour = self_perceived_knowledge)) +
+  ggplot(aes(x = self_perceived_knowledge, y = overclaiming_proportion, colour = accuracy)) +
   geom_point() + 
   stat_cor(method = &quot;pearson&quot;) + 
   theme_apa() + 
-  easy_remove_legend()</code></pre>
+  labs(title = &quot;Relationship between participants&#39; self-perceived knowledge and \noverclaiming proportion&quot;)</code></pre>
 <p><img src="figure/coding3.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="does-task-order-make-a-difference-to-overclaiming-performance" class="section level1">
@@ -764,7 +812,8 @@ Note. M and SD represent mean and standard deviation, respectively.
   geom_errorbar(aes(x = order_of_tasks, ymin = mean-stderror, ymax = mean+stderror), 
                 width=.2) + 
   theme_apa() + 
-  labs(x = &quot;Order of tasks&quot;, y=&quot;Mean proportion&quot;, caption = &quot;Atir et al., 2015&quot;) + 
+  labs(title = &quot;Mean proportion of overclaiming by order of tasks&quot;, subtitle = &quot;Overclaiming was
+higher when self-perceived knowledge task was completed before the overclaiming task&quot;, x= &quot;Order of tasks&quot;, y=&quot;Mean proportion&quot;, caption = &quot;Atir et al., 2015&quot;) + 
   easy_remove_legend()</code></pre>
 <p><img src="figure/coding3.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
@@ -806,9 +855,12 @@ FINRA scores
 </table>
 <p>Use geom_jitter or boxplot to visualise the variability in actual knowledge scores</p>
 <pre class="r"><code>atir %&gt;%
-  ggplot(aes(x = id, y = FINRA_score)) + 
+  mutate(order_of_tasks = as.factor(order_of_tasks)) %&gt;%
+  ggplot(aes(x = order_of_tasks, y = FINRA_score, group = order_of_tasks)) +
+  geom_boxplot() + 
   geom_jitter() + 
-  theme_apa()</code></pre>
+  theme_apa()+ 
+  labs(title = &quot;Variability in actual knowledge scores by order of tasks&quot;) </code></pre>
 <p><img src="figure/coding3.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Is there a relation between perceived knowledge and actual knowledge? Use geom_point to make a scatterplot. Include a correlation coefficient.</p>
 <pre class="r"><code>atir %&gt;%
@@ -816,7 +868,8 @@ FINRA scores
   geom_point() + 
   stat_cor(method = &quot;pearson&quot;) + 
   theme_apa() + 
-  easy_remove_legend()</code></pre>
+  easy_remove_legend() + 
+  labs(title = &quot;Relationship between actual and perceived knowledge&quot;) </code></pre>
 <p><img src="figure/coding3.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="what-other-questions-to-you-have-about-this-dataset" class="section level1">
@@ -831,7 +884,8 @@ FINRA scores
   geom_point() + 
   facet_wrap(~ FINRA_score) + 
   stat_cor(method = &quot;pearson&quot;) + 
-  theme_apa()</code></pre>
+  theme_apa() + 
+  labs(&quot;Relationship between overclaiming and self-perceived knowledge according to FINRA score&quot;) </code></pre>
 <p><img src="figure/coding3.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="is-there-a-relationship-between-actual-knowledge-and-overclaiming" class="section level2">
@@ -841,8 +895,458 @@ FINRA scores
   geom_point() + 
   stat_cor(method = &quot;pearson&quot;) + 
   theme_apa() + 
-  easy_remove_legend()</code></pre>
+  easy_remove_legend() +
+  labs(title = &quot;Relationship between actual knowledge and overclaiming&quot;) </code></pre>
 <p><img src="figure/coding3.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>atir %&gt;%
+  ggplot(aes(x = FINRA_score, y = overclaiming_proportion, group = FINRA_score)) +
+  geom_boxplot() + 
+  geom_jitter()</code></pre>
+<p><img src="figure/coding3.Rmd/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>  theme_apa() + 
+  easy_remove_legend() + 
+  labs(title = &quot;Relationship between actual knowledge and overclaiming&quot;) </code></pre>
+<pre><code>List of 93
+ $ line                      :List of 6
+  ..$ colour       : chr &quot;black&quot;
+  ..$ size         : num 0.545
+  ..$ linetype     : num 1
+  ..$ lineend      : chr &quot;butt&quot;
+  ..$ arrow        : logi FALSE
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
+ $ rect                      :List of 5
+  ..$ fill         : chr &quot;white&quot;
+  ..$ colour       : chr &quot;black&quot;
+  ..$ size         : num 0.545
+  ..$ linetype     : num 1
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
+ $ text                      :List of 11
+  ..$ family       : chr &quot;&quot;
+  ..$ face         : chr &quot;plain&quot;
+  ..$ colour       : chr &quot;black&quot;
+  ..$ size         : num 12
+  ..$ hjust        : num 0.5
+  ..$ vjust        : num 0.5
+  ..$ angle        : num 0
+  ..$ lineheight   : num 0.9
+  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 0points 0points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : logi FALSE
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ title                     : chr &quot;Relationship between actual knowledge and overclaiming&quot;
+ $ aspect.ratio              : NULL
+ $ axis.title                : NULL
+ $ axis.title.x              :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : &#39;rel&#39; num 1
+  ..$ hjust        : NULL
+  ..$ vjust        : num 1
+  ..$ angle        : NULL
+  ..$ lineheight   : &#39;rel&#39; num 1.1
+  ..$ margin       : &#39;margin&#39; num [1:4] 12points 0points 0points 0points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ axis.title.x.top          :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : NULL
+  ..$ hjust        : NULL
+  ..$ vjust        : num 0
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 3points 0points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ axis.title.x.bottom       : NULL
+ $ axis.title.y              :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : &#39;rel&#39; num 1
+  ..$ hjust        : NULL
+  ..$ vjust        : num 1
+  ..$ angle        : num 90
+  ..$ lineheight   : &#39;rel&#39; num 1.1
+  ..$ margin       : &#39;margin&#39; num [1:4] 0points 12points 0points 0points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ axis.title.y.left         : NULL
+ $ axis.title.y.right        :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : &#39;rel&#39; num 1
+  ..$ hjust        : NULL
+  ..$ vjust        : num 0
+  ..$ angle        : num -90
+  ..$ lineheight   : &#39;rel&#39; num 1.1
+  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 0points 12points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ axis.text                 :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : chr &quot;grey30&quot;
+  ..$ size         : &#39;rel&#39; num 0.9
+  ..$ hjust        : NULL
+  ..$ vjust        : NULL
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : NULL
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ axis.text.x               :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : &#39;rel&#39; num 1
+  ..$ hjust        : NULL
+  ..$ vjust        : num 1
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : &#39;margin&#39; num [1:4] 6points 0points 0points 0points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ axis.text.x.top           :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : NULL
+  ..$ hjust        : NULL
+  ..$ vjust        : num 0
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 2.4points 0points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ axis.text.x.bottom        : NULL
+ $ axis.text.y               :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : &#39;rel&#39; num 1
+  ..$ hjust        : num 1
+  ..$ vjust        : NULL
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : &#39;margin&#39; num [1:4] 0points 6points 0points 0points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ axis.text.y.left          : NULL
+ $ axis.text.y.right         :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : &#39;rel&#39; num 1
+  ..$ hjust        : num 0
+  ..$ vjust        : NULL
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 0points 6points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ axis.ticks                :List of 6
+  ..$ colour       : chr &quot;grey20&quot;
+  ..$ size         : NULL
+  ..$ linetype     : NULL
+  ..$ lineend      : NULL
+  ..$ arrow        : logi FALSE
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
+ $ axis.ticks.x              : NULL
+ $ axis.ticks.x.top          : NULL
+ $ axis.ticks.x.bottom       : NULL
+ $ axis.ticks.y              : NULL
+ $ axis.ticks.y.left         : NULL
+ $ axis.ticks.y.right        : NULL
+ $ axis.ticks.length         : &#39;simpleUnit&#39; num 6points
+  ..- attr(*, &quot;unit&quot;)= int 8
+ $ axis.ticks.length.x       : NULL
+ $ axis.ticks.length.x.top   : NULL
+ $ axis.ticks.length.x.bottom: NULL
+ $ axis.ticks.length.y       : NULL
+ $ axis.ticks.length.y.left  : NULL
+ $ axis.ticks.length.y.right : NULL
+ $ axis.line                 :List of 6
+  ..$ colour       : NULL
+  ..$ size         : NULL
+  ..$ linetype     : NULL
+  ..$ lineend      : NULL
+  ..$ arrow        : logi FALSE
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
+ $ axis.line.x               : NULL
+ $ axis.line.x.top           : NULL
+ $ axis.line.x.bottom        : NULL
+ $ axis.line.y               : NULL
+ $ axis.line.y.left          : NULL
+ $ axis.line.y.right         : NULL
+ $ legend.background         :List of 5
+  ..$ fill         : NULL
+  ..$ colour       : logi NA
+  ..$ size         : NULL
+  ..$ linetype     : NULL
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
+ $ legend.margin             : &#39;margin&#39; num [1:4] 16points 16points 16points 16points
+  ..- attr(*, &quot;unit&quot;)= int 8
+ $ legend.spacing            : &#39;simpleUnit&#39; num 12points
+  ..- attr(*, &quot;unit&quot;)= int 8
+ $ legend.spacing.x          : NULL
+ $ legend.spacing.y          : NULL
+ $ legend.key                :List of 5
+  ..$ fill         : logi NA
+  ..$ colour       : logi NA
+  ..$ size         : NULL
+  ..$ linetype     : NULL
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
+ $ legend.key.size           : &#39;simpleUnit&#39; num 1.2lines
+  ..- attr(*, &quot;unit&quot;)= int 3
+ $ legend.key.height         : &#39;simpleUnit&#39; num 20points
+  ..- attr(*, &quot;unit&quot;)= int 8
+ $ legend.key.width          : &#39;simpleUnit&#39; num 20points
+  ..- attr(*, &quot;unit&quot;)= int 8
+ $ legend.text               :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : &#39;rel&#39; num 0.8
+  ..$ hjust        : NULL
+  ..$ vjust        : NULL
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : NULL
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ legend.text.align         : NULL
+ $ legend.title              :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : NULL
+  ..$ hjust        : num 0
+  ..$ vjust        : NULL
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : NULL
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ legend.title.align        : NULL
+ $ legend.position           : chr &quot;none&quot;
+ $ legend.direction          : NULL
+ $ legend.justification      : chr &quot;center&quot;
+ $ legend.box                : NULL
+ $ legend.box.just           : NULL
+ $ legend.box.margin         : &#39;margin&#39; num [1:4] 0cm 0cm 0cm 0cm
+  ..- attr(*, &quot;unit&quot;)= int 1
+ $ legend.box.background     : list()
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
+ $ legend.box.spacing        : &#39;simpleUnit&#39; num 12points
+  ..- attr(*, &quot;unit&quot;)= int 8
+ $ panel.background          :List of 5
+  ..$ fill         : chr &quot;white&quot;
+  ..$ colour       : logi NA
+  ..$ size         : NULL
+  ..$ linetype     : NULL
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
+ $ panel.border              : list()
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
+ $ panel.spacing             : &#39;simpleUnit&#39; num 14points
+  ..- attr(*, &quot;unit&quot;)= int 8
+ $ panel.spacing.x           : NULL
+ $ panel.spacing.y           : NULL
+ $ panel.grid                :List of 6
+  ..$ colour       : chr &quot;grey92&quot;
+  ..$ size         : NULL
+  ..$ linetype     : NULL
+  ..$ lineend      : NULL
+  ..$ arrow        : logi FALSE
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
+ $ panel.grid.major          : NULL
+ $ panel.grid.minor          :List of 6
+  ..$ colour       : NULL
+  ..$ size         : &#39;rel&#39; num 0.5
+  ..$ linetype     : NULL
+  ..$ lineend      : NULL
+  ..$ arrow        : logi FALSE
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
+ $ panel.grid.major.x        : list()
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
+ $ panel.grid.major.y        : list()
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
+ $ panel.grid.minor.x        : list()
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
+ $ panel.grid.minor.y        : list()
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
+ $ panel.ontop               : logi FALSE
+ $ plot.background           :List of 5
+  ..$ fill         : NULL
+  ..$ colour       : chr &quot;white&quot;
+  ..$ size         : NULL
+  ..$ linetype     : NULL
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
+ $ plot.title                :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : &#39;rel&#39; num 1.1
+  ..$ hjust        : num 0
+  ..$ vjust        : num 1
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 14points 0points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ plot.title.position       : chr &quot;panel&quot;
+ $ plot.subtitle             :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : NULL
+  ..$ hjust        : num 0
+  ..$ vjust        : num 1
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 6points 0points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ plot.caption              :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : &#39;rel&#39; num 0.8
+  ..$ hjust        : num 1
+  ..$ vjust        : num 1
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : &#39;margin&#39; num [1:4] 6points 0points 0points 0points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ plot.caption.position     : chr &quot;panel&quot;
+ $ plot.tag                  :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : &#39;rel&#39; num 1.2
+  ..$ hjust        : num 0.5
+  ..$ vjust        : num 0.5
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : NULL
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ plot.tag.position         : chr &quot;topleft&quot;
+ $ plot.margin               : &#39;margin&#39; num [1:4] 6points 6points 6points 6points
+  ..- attr(*, &quot;unit&quot;)= int 8
+ $ strip.background          :List of 5
+  ..$ fill         : logi NA
+  ..$ colour       : logi NA
+  ..$ size         : NULL
+  ..$ linetype     : NULL
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
+ $ strip.background.x        : NULL
+ $ strip.background.y        : NULL
+ $ strip.placement           : chr &quot;inside&quot;
+ $ strip.text                :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : chr &quot;grey10&quot;
+  ..$ size         : &#39;rel&#39; num 0.8
+  ..$ hjust        : NULL
+  ..$ vjust        : NULL
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : &#39;margin&#39; num [1:4] 4.8points 4.8points 4.8points 4.8points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ strip.text.x              :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : &#39;rel&#39; num 1.2
+  ..$ hjust        : NULL
+  ..$ vjust        : NULL
+  ..$ angle        : NULL
+  ..$ lineheight   : NULL
+  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 10points 0points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ strip.text.y              :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : &#39;rel&#39; num 1.2
+  ..$ hjust        : NULL
+  ..$ vjust        : NULL
+  ..$ angle        : num -90
+  ..$ lineheight   : NULL
+  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 0points 10points
+  .. ..- attr(*, &quot;unit&quot;)= int 8
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi FALSE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ $ strip.switch.pad.grid     : &#39;simpleUnit&#39; num 3points
+  ..- attr(*, &quot;unit&quot;)= int 8
+ $ strip.switch.pad.wrap     : &#39;simpleUnit&#39; num 3points
+  ..- attr(*, &quot;unit&quot;)= int 8
+ $ strip.text.y.left         :List of 11
+  ..$ family       : NULL
+  ..$ face         : NULL
+  ..$ colour       : NULL
+  ..$ size         : NULL
+  ..$ hjust        : NULL
+  ..$ vjust        : NULL
+  ..$ angle        : num 90
+  ..$ lineheight   : NULL
+  ..$ margin       : NULL
+  ..$ debug        : NULL
+  ..$ inherit.blank: logi TRUE
+  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
+ - attr(*, &quot;class&quot;)= chr [1:2] &quot;theme&quot; &quot;gg&quot;
+ - attr(*, &quot;complete&quot;)= logi TRUE
+ - attr(*, &quot;validate&quot;)= logi TRUE</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">

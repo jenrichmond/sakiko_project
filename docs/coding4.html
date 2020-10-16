@@ -9,9 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Jen Richmond" />
+<meta name="author" content="Sakiko Okayama" />
 
-<meta name="date" content="2020-02-10" />
+<meta name="date" content="2020-10-10" />
 
 <title>Coding exercise 4</title>
 
@@ -387,8 +387,8 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Coding exercise 4</h1>
-<h4 class="author">Jen Richmond</h4>
-<h4 class="date">02/10/2020</h4>
+<h4 class="author">Sakiko Okayama</h4>
+<h4 class="date">10/10/2020</h4>
 
 </div>
 
@@ -413,7 +413,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-10-10
+<strong>Last updated:</strong> 2020-10-16
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -504,16 +504,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreea05cf7f83390e11975c8c9ca9b03851fdf7c7409targetblanka05cf7fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/a05cf7f83390e11975c8c9ca9b03851fdf7c7409" target="_blank">a05cf7f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree8628d4d800d8541b2da0c9bd2c99d7ad4d427e1atargetblank8628d4da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/8628d4d800d8541b2da0c9bd2c99d7ad4d427e1a" target="_blank">8628d4d</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreea05cf7f83390e11975c8c9ca9b03851fdf7c7409targetblanka05cf7fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree8628d4d800d8541b2da0c9bd2c99d7ad4d427e1atargetblank8628d4da" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/a05cf7f83390e11975c8c9ca9b03851fdf7c7409" target="_blank">a05cf7f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/8628d4d800d8541b2da0c9bd2c99d7ad4d427e1a" target="_blank">8628d4d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -522,6 +522,9 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  coding3_apatable.doc
 
 </code></pre>
 <p>
@@ -560,6 +563,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/8628d4d800d8541b2da0c9bd2c99d7ad4d427e1a/analysis/coding4.Rmd" target="_blank">8628d4d</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-10-16
+</td>
+<td>
+coding 1-4 updated based on feedback
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/625c582e8b050a24a49c74313328f0fb964f0379/docs/coding4.html" target="_blank">625c582</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-10-10
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -737,7 +774,9 @@ summary_manipulation_check %&gt;%
   facet_wrap(~ rating_type) + 
   geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
   theme_apa() + 
-  scale_y_continuous(expand = c(0,0))+ 
+  scale_y_continuous(expand = c(0,0), limits=c(0, 10))+ 
+  scale_x_discrete(labels=c(&quot;0&quot; = &quot;control&quot;, &quot;1&quot; = &quot;pain&quot;)) + 
+  labs(y = &quot;mean rating&quot;) +
   easy_remove_legend()</code></pre>
 <p><img src="figure/coding4.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
@@ -759,7 +798,9 @@ summary_panas %&gt;%
   facet_wrap(~ rating_type) + 
   geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
   theme_apa() + 
-  scale_y_continuous(expand = c(0,0))+ 
+  scale_x_discrete(labels=c(&quot;0&quot; = &quot;control&quot;, &quot;1&quot; = &quot;pain&quot;)) + 
+  labs(y = &quot;mean rating&quot;) +
+  scale_y_continuous(expand = c(0,0), limits = c(0, 5))+ 
   easy_remove_legend()</code></pre>
 <p><img src="figure/coding4.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
@@ -781,7 +822,9 @@ summary_threat_challenge %&gt;%
   facet_wrap(~ rating_type) + 
   geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
   theme_apa() + 
-  scale_y_continuous(expand = c(0,0))+ 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 5))+ 
+  scale_x_discrete(labels=c(&quot;0&quot; = &quot;control&quot;, &quot;1&quot; = &quot;pain&quot;)) + 
+  labs(y = &quot;mean rating&quot;) +
   easy_remove_legend()</code></pre>
 <p><img src="figure/coding4.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
@@ -802,7 +845,8 @@ summary_bonding %&gt;%
   geom_col() + 
   geom_errorbar(aes(x = condition, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
   theme_apa() + 
-  scale_y_continuous(expand = c(0,0))+ 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 5))+
+  scale_x_discrete(labels=c(&quot;0&quot; = &quot;control&quot;, &quot;1&quot; = &quot;pain&quot;)) + 
   easy_remove_legend() + 
   labs(y = &quot;mean bonding score&quot;)</code></pre>
 <p><img src="figure/coding4.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
@@ -819,7 +863,12 @@ summary_bonding %&gt;%
 
 summary_pos &lt;- long_pos %&gt;%
   group_by(condition)%&gt;%
-  summarise(mean = mean(ratings), sd = sd(ratings))</code></pre>
+  summarise(mean = mean(ratings), sd = sd(ratings))
+
+print.data.frame(summary_pos)</code></pre>
+<pre><code>  condition     mean       sd
+1         0 2.803704 1.095099
+2         1 3.048148 1.170222</code></pre>
 </div>
 <div id="verify-neg-scores" class="section level3">
 <h3>verify neg scores</h3>
@@ -830,7 +879,12 @@ summary_pos &lt;- long_pos %&gt;%
 
 summary_neg &lt;- long_neg %&gt;%
   group_by(condition)%&gt;%
-  summarise(mean = mean(ratings), sd = sd(ratings))</code></pre>
+  summarise(mean = mean(ratings), sd = sd(ratings))
+
+print.data.frame(summary_neg) </code></pre>
+<pre><code>  condition     mean        sd
+1         0 1.270370 0.6488851
+2         1 1.337037 0.6404275</code></pre>
 </div>
 <div id="verify-threat-scores" class="section level3">
 <h3>verify threat scores</h3>
@@ -840,7 +894,12 @@ summary_neg &lt;- long_neg %&gt;%
 
 summary_threat &lt;- long_threat %&gt;%
   group_by(condition)%&gt;%
-  summarise(mean = mean(ratings), sd = sd(ratings))</code></pre>
+  summarise(mean = mean(ratings), sd = sd(ratings))
+
+print.data.frame(summary_threat)</code></pre>
+<pre><code>  condition     mean        sd
+1         0 1.111111 0.4316658
+2         1 1.358025 0.7190166</code></pre>
 </div>
 <div id="verify-challenge-scores" class="section level3">
 <h3>verify challenge scores</h3>
@@ -850,8 +909,13 @@ summary_threat &lt;- long_threat %&gt;%
 
 summary_challenge &lt;- long_challenge %&gt;%
   group_by(condition)%&gt;%
-  summarise(mean = mean(ratings), sd = sd(ratings))</code></pre>
-<p>The mean for condition 0 is incorrectly rounded down here.</p>
+  summarise(mean = mean(ratings), sd = sd(ratings))
+
+print.data.frame(summary_challenge)</code></pre>
+<pre><code>  condition     mean       sd
+1         0 2.376543 1.174340
+2         1 2.672840 1.178641</code></pre>
+<p>The mean for condition 0 (control) is incorrectly rounded down here.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
