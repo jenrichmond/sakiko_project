@@ -1,0 +1,38 @@
+---
+title: "Week 5 Blog"
+author: "Sakiko Okayama"
+date: "17/10/2020"
+output: html_document
+---
+
+## Mental Time Travel
+This week we read Miloyan et al.'s (2014) review on future thinking. This was a very comprehensive yet accessible paper. The authors proposed two integrative models for future thinking in anxiety and depression: 
+
+1. The **Reconstructive Memory Model** hypothesises that depressed and anxious individuals are more likely to retrieve information from the past that aligns with their present affective state. This retrieval bias may account for more negative future thinking in these individuals.
+2. The **Valuation Model** posits that future thinking is influenced by attribution biases. Anxious and depressed individuals tend to overestimate the risk and uncertainty associated with future events. Therefore, when thinking about the future, their attention may be captured by threatening and negative information. 
+
+The authors also gave an interesting explanation for the mixed results supporting a negativity bias in mental time travel for anxious individuals. Anxiety disorders are very heterogeneous, and individuals' anxiety-evoking thoughts may be very specific and unique. In comparison, the instruction to imagine or recall a negative event in experiments like ours is very general. In an experimental situation, people may be unwilling to describe to interviewers events related to their specific anxieties, and stick to more benign negative events instead. Therefore, we may not be able to replicate the expected findings. 
+
+I didn't get around to reading much on the significance of overgeneral memory and future thinking in anxiety. However, I did find out about CaRFAX, which stands for capture and rumination, functional avoidance, and executive control (Williams 1996). The author proposes that our ability to retrieve specific memories is negatively affected by these three processes. I would like to learn more about CaRFAX, because it relates to many ideas I've read about so far, like the ensemble perspective of mental time travel (Week 3) and the role of rumination in anxiety (Week 4). 
+
+Next week I will be writing the method. I plan to read the method sections of studies similar to ours, so I know the level of detail that I should be including. I may also need to do more research to justify the procedure that we used. 
+
+## R
+
+This week's coding challenge was to update my previous exercises based on Jenny's feedback. This was a great way to learn many new things!
+
+- Use `print.data.frame()` instead of `print()` when I want summary stats to display in a tibble without the decimal points being chopped off
+- When making data long, names of columns that already exist don't have to be in quotation marks
+- When using `apaTables`, I need to save the table as a doc using `filename = ".doc"` for it to actually display in APA format 
+- I can follow the instructions [here](http://www.sthda.com/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels#change-tick-mark-labels) to change the tick labels in my plots. For example, I did `scale_x_discrete(labels=c("0" = "control", "1" = "pain"))`
+- It is best practice to ensure that the y-axis of a plot covers all the possible values that a response could take (if this is a finite value). For example, let the axis end at 1 if the DV is a proportion, and 7 if the DV is the response on a 7-point scale. 
+- The `patchwork` package allows me to display [multiple plots in many different layouts](https://gotellilab.github.io/GotelliLabMeetingHacks/NickGotelli/ggplotPatchwork.html). Very cool! 
+
+Next week's coding task involves making new variables. So I will need to brush up on my `mutate()` skills and do some research. 
+
+## References
+
+Miloyan, B., Pachana, N. A., & Suddendorf, T. (2014). The future is here: A review of foresight systems in anxiety and depression. *Cognition and Emotion*, *28*(5), 795-810. https://doi.org/10.1080/02699931.2013.863179 
+
+Williams, J. M. G. (2006). Capture and rumination, functional avoidance, and executive control (CaRFAX): Three processes that underlie overgeneral memory. *Cognition and Emotion*, *20*(3-4), 548-568. https://doi.org/10.1080/02699930500450465 
+
