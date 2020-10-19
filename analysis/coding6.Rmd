@@ -9,28 +9,30 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-In this coding exercise, you will work with data from a study published in Psychological Science. 
 
-insert reference
 
 # load packages
 
 ```{r loadpackages, message=FALSE, warning=FALSE}
+
 library(tidyverse)
 library(here)
-library(janitor)
-library(ggeasy)
-library(ggbeeswarm)
-library(RColorBrewer)
-library(papaja)
-
 ```
 
 # read in the data
 
 ```{r readdata, message=FALSE, warning=FALSE}
+phenom <- read_csv(here("data", "study3_phenom_ratings.csv"))
+```
+
+# filter df to only include participants with identifier = good
+
+Some pp were excluded due to english skills, age, or not completing the experiment
+
+```{r}
 
 ```
+
 
 # familiarise yourself with the data
 
@@ -40,3 +42,49 @@ Use glimpse() or names() or str() to get an idea what is included in the dataset
 
 ```
 
+# details re phenomenological ratings
+
+For each event that participants remembered/imagined they were asked to rate the following on a 7 point scale
+
+- vividness
+- pre/re-experiencing
+  + the extent to which they felt like they were pre or re experiencing the event
+- sensory details
+  + individual sensory items (sight, sound, smell, taste) averaged into single sensory detail rating for each event
+- contextual details
+  + ratings of clarity of location and clarity of spatial arrangement of objects averaged into combined contextual details rating for each event
+- perspective
+  + ratio calculated by dividing rating for "seen through my own eyes" and "as if I was a fly on the wall" to determine field or observer perspective. Higher ratios indicate field perspective; lower ratios field perspective
+- reaction
+  + combined reaction score calculated by averaging intensity and physical reactions
+- coherence
+- importance
+  
+All phenomenological ratings averaged across event type (i.e. future neutral, future positive) for analysis. 
+
+# make the data long
+
+You want to end up with a dataset that has separate variables for event, valence, direction, rating type, rating
+```{r}
+
+```
+
+# make a dataset that averages scores for each rating type across events
+
+each participant came up with two events for each condition, rating scores were averaged across those two events. 
+
+```{r}
+
+```
+
+
+# Plot away!!!
+
+Questions to answer...
+
+- Do pp with anxiety rate their experience of remembering past events or imagining future events differently to controls?
+- Does it make a difference whether they were asked to remember/imagine positive, negative or neutral events?
+- Do pp with anxiety rate future events as more important?
+- Are pp with anxiety more likely to see future events from a fly on the wall perspective?
+
+Other questions you may have...... :)
