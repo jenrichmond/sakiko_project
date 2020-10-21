@@ -1,6 +1,6 @@
 ---
 title: "coding5_mtt_details"
-author: "Jen Richmond"
+author: "Sakiko Okayama"
 date: "16/10/2020"
 output: html_document
 ---
@@ -11,22 +11,28 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # load packages
 
-```{r}
-
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+library(ggeasy)
+library(ggbeeswarm)
+library(RColorBrewer)
+library(papaja)
 ```
 
 # read in the data
 
 study_3_details_mtt.csv in the data folder
 
-```{r}
-
+```{r message=FALSE, warning=FALSE}
+details <- read_csv(here("data", "study3_details_mtt.csv"))
 ```
 
 # use table() to check how many participants we have in each group
 
 ```{r}
-
+table_details <- table(details$group)
+print(table_details)
 ```
 
 # drop the variables that are proportions that were calculated in excel
@@ -34,6 +40,8 @@ study_3_details_mtt.csv in the data folder
 You will create them again below. 
 
 ```{r}
+select_details <-details %>% select(!contains(c("proportion", "code")))
+select_specificity <- details %>% select(!contains(c("proportion", "internal", "external"))) 
 
 ```
 
@@ -58,20 +66,52 @@ Make the data long so there are variables for
 - detail type (internal/external)
 
 ```{r}
+long_details <- select_details %>% 
+  pivot_longer(
+    names_to = c("direction", "valence", "event", "detail_type"),
+    names_sep = "_",
+    future_neutral_e1_internal:future_neg_e2_external)
 
+head(long_details)
+
+long_specificity <- select_specificity %>% 
+  pivot_longer(
+    names_to = c("direction", "valence", "event"),
+    names_sep = "_", 
+    future_neutral_e1_code:future_neg_e2_code)
+
+head(long_specificity)
 ```
 
 
 # create a new variable that combines event 1 and 2 "codes" into a score out of 6
 
 ```{r}
+combine_specificity <- long_specificity %>%
+  pivot_wider(names_from = event, values_from = value) %>%
+  mutate(total = e1 + e2)
 
+head(combine_specificity)
 ```
 
 # calculate the proportion of internal for each event and average across event 1 and 2
 
 ```{r}
+proportion_details <- long_details %>%
+  pivot_wider(names_from = event, values_from = value) %>%
+    pivot_wider(names_from = detail_type, values_from = e1:e2) %>%
+  mutate(proportion_e1 = e1_internal/(e1_internal + e1_external)) %>%
+  mutate(proportion_e2 = e2_internal/(e2_internal + e2_external)) %>%
+    mutate(proportion_average = (proportion_e1 + proportion_e2)/2)
 
+
+head(proportion_details)
+
+# selected some variables so the hidden columns above are now visible   
+select_proportion_details <- proportion_details %>%
+    select(e2_external:proportion_average)
+  
+head(select_proportion_details)
 ```
 
 NOTE, you might like to separate analysis of the coding scores and the details into separate data frames. 
