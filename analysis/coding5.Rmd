@@ -40,8 +40,11 @@ print(table_details)
 You will create them again below. 
 
 ```{r}
-select_details <-details %>% select(!contains(c("proportion", "code")))
-select_specificity <- details %>% select(!contains(c("proportion", "internal", "external"))) 
+select_details <- details %>% 
+  select(!contains(c("proportion", "code")))
+
+select_specificity <- details %>% 
+  select(!contains(c("proportion", "internal", "external"))) 
 
 ```
 
@@ -65,10 +68,13 @@ Make the data long so there are variables for
 - direction (past/future)
 - detail type (internal/external)
 
+*hi sakiko, the only think I would do differently here is use values_to to specify what you want the values column to be called*
+
 ```{r}
 long_details <- select_details %>% 
   pivot_longer(
     names_to = c("direction", "valence", "event", "detail_type"),
+    values_to = "number_details",
     names_sep = "_",
     future_neutral_e1_internal:future_neg_e2_external)
 
@@ -77,6 +83,7 @@ head(long_details)
 long_specificity <- select_specificity %>% 
   pivot_longer(
     names_to = c("direction", "valence", "event"),
+    values_to = "specificity_code",
     names_sep = "_", 
     future_neutral_e1_code:future_neg_e2_code)
 
@@ -85,6 +92,16 @@ head(long_specificity)
 
 
 # create a new variable that combines event 1 and 2 "codes" into a score out of 6
+
+*sakiko- here is a way of doing this without making things wide- it is harder to sum across when things are not in different columns, but you can use group_by(all variables except the one you want to sum across) and summarise to get a total score.*
+
+
+```{r}
+combine <- long_specificity %>%
+  group_by(px_no, group, direction, valence) %>%
+  summarise(total_specificity_code = sum(specificity_code))
+```
+
 
 ```{r}
 combine_specificity <- long_specificity %>%

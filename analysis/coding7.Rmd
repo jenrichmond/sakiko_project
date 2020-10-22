@@ -9,9 +9,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-In this coding exercise, you will work with data from a study published in Psychological Science. 
-
-insert reference
 
 # load packages
 
