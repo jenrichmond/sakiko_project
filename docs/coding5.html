@@ -12,7 +12,7 @@
 <meta name="author" content="Sakiko Okayama" />
 
 
-<title>coding5_mtt_details</title>
+<title>Coding exercise 5: MTT details</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -385,9 +385,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">coding5_mtt_details</h1>
+<h1 class="title toc-ignore">Coding exercise 5: MTT details</h1>
 <h4 class="author">Sakiko Okayama</h4>
-<h4 class="date">16/10/2020</h4>
+<h4 class="date">24/10/2020</h4>
 
 </div>
 
@@ -412,7 +412,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-10-22
+<strong>Last updated:</strong> 2020-10-25
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -503,16 +503,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreec3c9614ed43eabe12ba7c3732c95f4ffe90882e9targetblankc3c9614a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/c3c9614ed43eabe12ba7c3732c95f4ffe90882e9" target="_blank">c3c9614</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree20beb995d867f0134d98cf0b67e0fc27b9749221targetblank20beb99a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/20beb995d867f0134d98cf0b67e0fc27b9749221" target="_blank">20beb99</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreec3c9614ed43eabe12ba7c3732c95f4ffe90882e9targetblankc3c9614a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree20beb995d867f0134d98cf0b67e0fc27b9749221targetblank20beb99a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/c3c9614ed43eabe12ba7c3732c95f4ffe90882e9" target="_blank">c3c9614</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/20beb995d867f0134d98cf0b67e0fc27b9749221" target="_blank">20beb99</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -564,6 +564,57 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/20beb995d867f0134d98cf0b67e0fc27b9749221/analysis/coding5.Rmd" target="_blank">20beb99</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-10-25
+</td>
+<td>
+week 6 coding and blog complete
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/bf138eba5a38831ca506eadf0b1a169cf665cb08/analysis/coding5.Rmd" target="_blank">bf138eb</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-10-22
+</td>
+<td>
+jenny adding coding5 suggestions
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/5061f5f076274241358e31840db46534f6451e04/docs/coding5.html" target="_blank">5061f5f</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-10-22
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/jenrichmond/sakiko_project/blob/c3c9614ed43eabe12ba7c3732c95f4ffe90882e9/analysis/coding5.Rmd" target="_blank">c3c9614</a>
 </td>
 <td>
@@ -607,7 +658,8 @@ library(here)
 library(ggeasy)
 library(ggbeeswarm)
 library(RColorBrewer)
-library(papaja)</code></pre>
+library(papaja)
+library(patchwork)</code></pre>
 </div>
 <div id="read-in-the-data" class="section level1">
 <h1>read in the data</h1>
@@ -625,8 +677,10 @@ ANX CON
 <div id="drop-the-variables-that-are-proportions-that-were-calculated-in-excel" class="section level1">
 <h1>drop the variables that are proportions that were calculated in excel</h1>
 <p>You will create them again below.</p>
-<pre class="r"><code>select_details &lt;-details %&gt;% select(!contains(c(&quot;proportion&quot;, &quot;code&quot;)))
-select_specificity &lt;- details %&gt;% select(!contains(c(&quot;proportion&quot;, &quot;internal&quot;, &quot;external&quot;))) </code></pre>
+<pre class="r"><code>select_details &lt;- details %&gt;% 
+  select(!contains(c(&quot;proportion&quot;, &quot;code&quot;, &quot;identifier&quot;)))
+
+select_specificity &lt;- details %&gt;% select(!contains(c(&quot;proportion&quot;, &quot;internal&quot;, &quot;external&quot;, &quot;identifier&quot;))) </code></pre>
 </div>
 <div id="make-the-data-long" class="section level1">
 <h1>make the data long</h1>
@@ -644,91 +698,119 @@ select_specificity &lt;- details %&gt;% select(!contains(c(&quot;proportion&quot
 <pre class="r"><code>long_details &lt;- select_details %&gt;% 
   pivot_longer(
     names_to = c(&quot;direction&quot;, &quot;valence&quot;, &quot;event&quot;, &quot;detail_type&quot;),
+    values_to = &quot;number_details&quot;,
     names_sep = &quot;_&quot;,
     future_neutral_e1_internal:future_neg_e2_external)
 
 head(long_details)</code></pre>
-<pre><code># A tibble: 6 x 8
-  px_no  identifier group direction valence event detail_type value
-  &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;
-1 p_1001 Good       ANX   future    neutral e1    internal       14
-2 p_1001 Good       ANX   future    neutral e1    external        3
-3 p_1001 Good       ANX   future    neutral e2    internal       NA
-4 p_1001 Good       ANX   future    neutral e2    external       NA
-5 p_1001 Good       ANX   past      neutral e1    internal        7
-6 p_1001 Good       ANX   past      neutral e1    external        5</code></pre>
+<pre><code># A tibble: 6 x 7
+  px_no  group direction valence event detail_type number_details
+  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;                &lt;dbl&gt;
+1 p_1001 ANX   future    neutral e1    internal                14
+2 p_1001 ANX   future    neutral e1    external                 3
+3 p_1001 ANX   future    neutral e2    internal                NA
+4 p_1001 ANX   future    neutral e2    external                NA
+5 p_1001 ANX   past      neutral e1    internal                 7
+6 p_1001 ANX   past      neutral e1    external                 5</code></pre>
 <pre class="r"><code>long_specificity &lt;- select_specificity %&gt;% 
   pivot_longer(
     names_to = c(&quot;direction&quot;, &quot;valence&quot;, &quot;event&quot;),
+    values_to = &quot;specificity_code&quot;,
     names_sep = &quot;_&quot;, 
-    future_neutral_e1_code:future_neg_e2_code)</code></pre>
+    future_neutral_e1_code:future_neg_e2_code) </code></pre>
 <pre><code>Warning: Expected 3 pieces. Additional pieces discarded in 12 rows [1, 2, 3, 4,
 5, 6, 7, 8, 9, 10, 11, 12].</code></pre>
 <pre class="r"><code>head(long_specificity)</code></pre>
-<pre><code># A tibble: 6 x 7
-  px_no  identifier group direction valence event value
-  &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;
-1 p_1001 Good       ANX   future    neutral e1        3
-2 p_1001 Good       ANX   future    neutral e2        2
-3 p_1001 Good       ANX   past      neutral e1        3
-4 p_1001 Good       ANX   past      neutral e2        2
-5 p_1001 Good       ANX   past      neg     e1        3
-6 p_1001 Good       ANX   past      neg     e2        3</code></pre>
+<pre><code># A tibble: 6 x 6
+  px_no  group direction valence event specificity_code
+  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;            &lt;dbl&gt;
+1 p_1001 ANX   future    neutral e1                   3
+2 p_1001 ANX   future    neutral e2                   2
+3 p_1001 ANX   past      neutral e1                   3
+4 p_1001 ANX   past      neutral e2                   2
+5 p_1001 ANX   past      neg     e1                   3
+6 p_1001 ANX   past      neg     e2                   3</code></pre>
 </div>
 <div id="create-a-new-variable-that-combines-event-1-and-2-codes-into-a-score-out-of-6" class="section level1">
 <h1>create a new variable that combines event 1 and 2 “codes” into a score out of 6</h1>
-<pre class="r"><code>combine_specificity &lt;- long_specificity %&gt;%
-  pivot_wider(names_from = event, values_from = value) %&gt;%
-  mutate(total = e1 + e2)
-
-head(combine_specificity)</code></pre>
-<pre><code># A tibble: 6 x 8
-  px_no  identifier group direction valence    e1    e2 total
-  &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 p_1001 Good       ANX   future    neutral     3     2     5
-2 p_1001 Good       ANX   past      neutral     3     2     5
-3 p_1001 Good       ANX   past      neg         3     3     6
-4 p_1001 Good       ANX   past      pos         3     3     6
-5 p_1001 Good       ANX   future    pos         3     3     6
-6 p_1001 Good       ANX   future    neg         3     2     5</code></pre>
+<p><em>sakiko- here is a way of doing this without making things wide- it is harder to sum across when things are not in different columns, but you can use group_by(all variables except the one you want to sum across) and summarise to get a total score.</em></p>
+<pre class="r"><code>total_specificity &lt;- long_specificity %&gt;%
+  group_by(px_no, group, direction, valence) %&gt;%
+  summarise(total_specificity_code = sum(specificity_code))</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;px_no&#39;, &#39;group&#39;, &#39;direction&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>head(total_specificity)</code></pre>
+<pre><code># A tibble: 6 x 5
+# Groups:   px_no, group, direction [2]
+  px_no  group direction valence total_specificity_code
+  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;                    &lt;dbl&gt;
+1 p_1001 ANX   future    neg                          5
+2 p_1001 ANX   future    neutral                      5
+3 p_1001 ANX   future    pos                          6
+4 p_1001 ANX   past      neg                          6
+5 p_1001 ANX   past      neutral                      5
+6 p_1001 ANX   past      pos                          6</code></pre>
 </div>
 <div id="calculate-the-proportion-of-internal-for-each-event-and-average-across-event-1-and-2" class="section level1">
 <h1>calculate the proportion of internal for each event and average across event 1 and 2</h1>
 <pre class="r"><code>proportion_details &lt;- long_details %&gt;%
-  pivot_wider(names_from = event, values_from = value) %&gt;%
+  pivot_wider(names_from = event, values_from = number_details) %&gt;%
     pivot_wider(names_from = detail_type, values_from = e1:e2) %&gt;%
   mutate(proportion_e1 = e1_internal/(e1_internal + e1_external)) %&gt;%
   mutate(proportion_e2 = e2_internal/(e2_internal + e2_external)) %&gt;%
-    mutate(proportion_average = (proportion_e1 + proportion_e2)/2)
-
+    mutate(proportion_details_average = (proportion_e1 + proportion_e2)/2) %&gt;%
+  select(!(e1_internal:proportion_e2))
 
 head(proportion_details)</code></pre>
-<pre><code># A tibble: 6 x 12
-  px_no identifier group direction valence e1_internal e1_external e2_internal
-  &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
-1 p_10~ Good       ANX   future    neutral          14           3          NA
-2 p_10~ Good       ANX   past      neutral           7           5          NA
-3 p_10~ Good       ANX   past      neg              14           0          32
-4 p_10~ Good       ANX   past      pos              23           0          15
-5 p_10~ Good       ANX   future    pos              20           0          17
-6 p_10~ Good       ANX   future    neg              17           2          NA
-# ... with 4 more variables: e2_external &lt;dbl&gt;, proportion_e1 &lt;dbl&gt;,
-#   proportion_e2 &lt;dbl&gt;, proportion_average &lt;dbl&gt;</code></pre>
-<pre class="r"><code># selected some variables so the hidden columns above are now visible   
-select_proportion_details &lt;- proportion_details %&gt;%
-    select(e2_external:proportion_average)
-  
-head(select_proportion_details)</code></pre>
-<pre><code># A tibble: 6 x 4
-  e2_external proportion_e1 proportion_e2 proportion_average
-        &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;              &lt;dbl&gt;
-1          NA         0.824        NA                 NA    
-2          NA         0.583        NA                 NA    
-3           1         1             0.970              0.985
-4           0         1             1                  1    
-5           0         1             1                  1    
-6          NA         0.895        NA                 NA    </code></pre>
-<p>NOTE, you might like to separate analysis of the coding scores and the details into separate data frames.</p>
+<pre><code># A tibble: 6 x 5
+  px_no  group direction valence proportion_details_average
+  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;                        &lt;dbl&gt;
+1 p_1001 ANX   future    neutral                     NA    
+2 p_1001 ANX   past      neutral                     NA    
+3 p_1001 ANX   past      neg                          0.985
+4 p_1001 ANX   past      pos                          1    
+5 p_1001 ANX   future    pos                          1    
+6 p_1001 ANX   future    neg                         NA    </code></pre>
+<pre class="r"><code># another way to do the above, without making the data wide again... 
+proportion_details &lt;- long_details %&gt;%
+  group_by(px_no, group, direction, valence, event) %&gt;%
+  mutate(total = sum(number_details)) %&gt;%
+   filter(detail_type == &quot;internal&quot;) %&gt;%
+  summarise(proportion = number_details/total) %&gt;%
+  group_by(px_no, group, direction, valence) %&gt;%
+  summarise(proportion_details_average = mean(proportion))</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;px_no&#39;, &#39;group&#39;, &#39;direction&#39;, &#39;valence&#39; (override with `.groups` argument)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;px_no&#39;, &#39;group&#39;, &#39;direction&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>head(proportion_details)</code></pre>
+<pre><code># A tibble: 6 x 5
+# Groups:   px_no, group, direction [2]
+  px_no  group direction valence proportion_details_average
+  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;                        &lt;dbl&gt;
+1 p_1001 ANX   future    neg                         NA    
+2 p_1001 ANX   future    neutral                     NA    
+3 p_1001 ANX   future    pos                          1    
+4 p_1001 ANX   past      neg                          0.985
+5 p_1001 ANX   past      neutral                     NA    
+6 p_1001 ANX   past      pos                          1    </code></pre>
+<div id="combine-the-two-data-frames" class="section level2">
+<h2>combine the two data frames</h2>
+<pre class="r"><code>specificity_details &lt;- merge(total_specificity, proportion_details, by=c(&quot;px_no&quot;, &quot;group&quot;, &quot;direction&quot;, &quot;valence&quot;))
+
+head(specificity_details)</code></pre>
+<pre><code>   px_no group direction valence total_specificity_code
+1 p_1001   ANX    future     neg                      5
+2 p_1001   ANX    future neutral                      5
+3 p_1001   ANX    future     pos                      6
+4 p_1001   ANX      past     neg                      6
+5 p_1001   ANX      past neutral                      5
+6 p_1001   ANX      past     pos                      6
+  proportion_details_average
+1                         NA
+2                         NA
+3                  1.0000000
+4                  0.9848485
+5                         NA
+6                  1.0000000</code></pre>
+</div>
 </div>
 <div id="plot-away" class="section level1">
 <h1>Plot away!!!</h1>
@@ -739,6 +821,303 @@ head(select_proportion_details)</code></pre>
 <li>does the pattern of results look different if you use proportions (you’ll need to use mutate to make a new variable) vs. raw internal/external scores.</li>
 <li>are there interesting patterns across direction/valence ?</li>
 </ul>
+<div id="event-codes-anxious-vs-non-anxious" class="section level2">
+<h2>event codes anxious vs non-anxious</h2>
+<pre class="r"><code>total_specificity %&gt;%
+  group_by(group) %&gt;%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col() + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+
+  scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Mean specificity score by group&quot;) +
+  easy_remove_legend() </code></pre>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="proportion-of-internal-details-for-specific-events-only---anxious-vs-non-anxious" class="section level2">
+<h2>proportion of internal details for specific events only - anxious vs non-anxious</h2>
+<pre class="r"><code>#make a data frame with specificity code and proportion details, separate for e1 and e2
+proportion_details_by_event &lt;- long_details %&gt;%
+  group_by(px_no, group, direction, valence, event) %&gt;%
+  mutate(total = sum(number_details)) %&gt;%
+  filter(detail_type == &quot;internal&quot;) %&gt;%
+  summarise(proportion_details = number_details/total)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;px_no&#39;, &#39;group&#39;, &#39;direction&#39;, &#39;valence&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>specificity_details_by_event &lt;- merge(proportion_details_by_event, long_specificity, by=c(&quot;px_no&quot;, &quot;group&quot;, &quot;direction&quot;, &quot;valence&quot;, &quot;event&quot;))
+
+#plot
+p1 &lt;- specificity_details_by_event %&gt;%
+  filter(specificity_code == &quot;3&quot;) %&gt;%
+  group_by(group) %&gt;%
+  summarise(mean = mean(proportion_details, na.rm = TRUE), 
+            sd = sd(proportion_details, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col() + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+
+  scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Proportion of internal details \nfor specific events&quot;) + 
+  easy_remove_legend()</code></pre>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p1</code></pre>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="comparing-patterns-when-using-average-proportion-across-events-more-missing-values-vs-proportion-separately-by-event-as-above" class="section level2">
+<h2>Comparing patterns when using average proportion across events (more missing values) vs proportion separately by event (as above)</h2>
+<pre class="r"><code>p2 &lt;- proportion_details %&gt;%
+  group_by(group) %&gt;%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col() + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+
+  scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Average proportion of internal \ndetails across events&quot;) + 
+  easy_remove_legend()</code></pre>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p1 + p2</code></pre>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /> The difference is only very slightly more pronounced when you use the proportion score for individual events rather than averaged across e1 &amp; e2 (which results in more missing values).</p>
+</div>
+<div id="proportion-scores-vs-raw-internalexternal-scores" class="section level2">
+<h2>proportion scores vs raw internal/external scores</h2>
+<pre class="r"><code># average the raw internal/external scores across events
+number_details_average &lt;- long_details %&gt;% 
+  group_by(px_no, group, direction, valence, detail_type) %&gt;%
+  mutate(number_details_average = mean(number_details)) 
+
+#plot 
+p3 &lt;- number_details_average %&gt;%
+    group_by(group, detail_type) %&gt;%
+  summarise(mean = mean(number_details_average, na.rm = TRUE), 
+            sd = sd(number_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ detail_type) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0)) +
+  scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Average number of internal and \nexternal details across events&quot;) + 
+  easy_remove_legend()</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p2 + p3</code></pre>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The pattern of results does look different when we use raw scores instead of proportions. The anxiety group gave more external and internal details, suggesting that their total response output was higher. However, the proportion of internal details was lower in the anxiety group than in controls.</p>
+</div>
+<div id="group-differences-in-specificity-scores-by-valence" class="section level2">
+<h2>group differences in specificity scores by valence</h2>
+<pre class="r"><code>total_specificity %&gt;%
+  group_by(group, valence) %&gt;%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ valence) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+
+  scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Mean specificity score by group and valence&quot;) + 
+  easy_remove_legend() </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /> Anxiety group gave less specific responses for neutral events. Specificity scores look more or less equal between groups for negative and positive events.</p>
+</div>
+<div id="group-differences-in-proportion-of-internal-details-by-valence" class="section level2">
+<h2>group differences in proportion of internal details by valence</h2>
+<pre class="r"><code>proportion_details %&gt;%
+  group_by(group, valence) %&gt;%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ valence) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+
+  scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Average proportion of internal details by group and valence&quot;) + 
+  easy_remove_legend()</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /> Anxiety group gave a lower proportion of internal details for negative and neutral events, but not positive events.</p>
+</div>
+<div id="direction-differences-in-specificity-scores-and-proportion-of-internal-details" class="section level2">
+<h2>direction differences in specificity scores and proportion of internal details</h2>
+<pre class="r"><code>p4 &lt;- total_specificity %&gt;%
+  group_by(direction) %&gt;%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  geom_col() + 
+  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+
+  scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Mean specificity score by \ndirection&quot;) + 
+  easy_remove_legend() </code></pre>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p5 &lt;- proportion_details %&gt;%
+  group_by(direction) %&gt;%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  geom_col() + 
+  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+
+  scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Average proportion of internal \ndetails by direction&quot;) + 
+  easy_remove_legend()</code></pre>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p4 + p5 </code></pre>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="direction-differences-in-specificity-scores-and-proportion-of-internal-details-by-group" class="section level2">
+<h2>direction differences in specificity scores and proportion of internal details by group</h2>
+<pre class="r"><code>p6 &lt;- total_specificity %&gt;%
+  group_by(group, direction) %&gt;%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ group) +
+  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+
+  scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Mean specificity score by \ndirection and group&quot;) + 
+  easy_remove_legend() </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p7 &lt;- proportion_details %&gt;%
+  group_by(group, direction) %&gt;%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ group) +
+  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+
+  scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Average proportion of internal \ndetails by direction and group&quot;) + 
+  easy_remove_legend()</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p6 + p7</code></pre>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="patterns-in-direction-and-valence-for-specificity" class="section level2">
+<h2>patterns in direction and valence for specificity</h2>
+<pre class="r"><code>p8 &lt;- total_specificity %&gt;%
+  filter(group == &quot;ANX&quot;) %&gt;% 
+  group_by(valence, direction) %&gt;%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = valence, y = mean, fill = valence)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ direction) +
+  geom_errorbar(aes(x = valence, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+ 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Mean specificity scores in anxiety \ngroup by direction and valence&quot;) + 
+  easy_remove_legend() </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;valence&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p9 &lt;- total_specificity %&gt;%
+  filter(group == &quot;CON&quot;) %&gt;% 
+  group_by(valence, direction) %&gt;%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = valence, y = mean, fill = valence)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ direction) +
+  geom_errorbar(aes(x = valence, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+ 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Mean specificity scores in control \ngroup by direction and valence&quot;) + 
+  easy_remove_legend() </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;valence&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p8 + p9</code></pre>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="patterns-in-direction-and-valence-for-proportion-of-internal-details" class="section level2">
+<h2>Patterns in direction and valence for proportion of internal details</h2>
+<pre class="r"><code>p10 &lt;- proportion_details %&gt;%
+  filter(group == &quot;ANX&quot;) %&gt;% 
+  group_by(valence, direction) %&gt;%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = valence, y = mean, fill = valence)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ direction) +
+  geom_errorbar(aes(x = valence, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+ 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Mean proportion of internal details \nin anxiety group by direction and \nvalence&quot;) + 
+  easy_remove_legend() </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;valence&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p11 &lt;- proportion_details %&gt;%
+  filter(group == &quot;CON&quot;) %&gt;% 
+  group_by(valence, direction) %&gt;%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = valence, y = mean, fill = valence)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ direction) +
+  geom_errorbar(aes(x = valence, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+ 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Mean proportion of internal details \nin control group by direction and \nvalence&quot;) + 
+  easy_remove_legend() </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;valence&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p10 + p11</code></pre>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -762,27 +1141,29 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] papaja_0.1.0.9997  RColorBrewer_1.1-2 ggbeeswarm_0.6.0   ggeasy_0.1.2      
- [5] here_0.1           forcats_0.5.0      stringr_1.4.0      dplyr_1.0.2       
- [9] purrr_0.3.4        readr_1.3.1        tidyr_1.1.1        tibble_3.0.3      
-[13] ggplot2_3.3.2      tidyverse_1.3.0    workflowr_1.6.2   
+ [1] patchwork_1.0.1    papaja_0.1.0.9997  RColorBrewer_1.1-2 ggbeeswarm_0.6.0  
+ [5] ggeasy_0.1.2       here_0.1           forcats_0.5.0      stringr_1.4.0     
+ [9] dplyr_1.0.2        purrr_0.3.4        readr_1.3.1        tidyr_1.1.1       
+[13] tibble_3.0.3       ggplot2_3.3.2      tidyverse_1.3.0    workflowr_1.6.2   
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.5       lubridate_1.7.9  utf8_1.1.4       assertthat_0.2.1
  [5] rprojroot_1.3-2  digest_0.6.25    R6_2.4.1         cellranger_1.1.0
  [9] backports_1.1.7  reprex_0.3.0     evaluate_0.14    httr_1.4.2      
 [13] pillar_1.4.6     rlang_0.4.7      readxl_1.3.1     rstudioapi_0.11 
-[17] whisker_0.4      blob_1.2.1       rmarkdown_2.3    munsell_0.5.0   
-[21] broom_0.7.0.9001 compiler_4.0.2   httpuv_1.5.4     vipor_0.4.5     
-[25] modelr_0.1.8     xfun_0.16        pkgconfig_2.0.3  htmltools_0.5.0 
-[29] tidyselect_1.1.0 fansi_0.4.1      crayon_1.3.4     dbplyr_1.4.4    
-[33] withr_2.2.0      later_1.1.0.1    grid_4.0.2       jsonlite_1.7.0  
-[37] gtable_0.3.0     lifecycle_0.2.0  DBI_1.1.0        git2r_0.27.1    
-[41] magrittr_1.5     scales_1.1.1     cli_2.0.2        stringi_1.4.6   
-[45] fs_1.5.0         promises_1.1.1   xml2_1.3.2       ellipsis_0.3.1  
-[49] generics_0.0.2   vctrs_0.3.2      tools_4.0.2      glue_1.4.1      
-[53] beeswarm_0.2.3   hms_0.5.3        yaml_2.2.1       colorspace_1.4-1
-[57] rvest_0.3.6      knitr_1.29       haven_2.3.1     </code></pre>
+[17] whisker_0.4      blob_1.2.1       rmarkdown_2.3    labeling_0.3    
+[21] munsell_0.5.0    broom_0.7.0.9001 compiler_4.0.2   httpuv_1.5.4    
+[25] vipor_0.4.5      modelr_0.1.8     xfun_0.16        pkgconfig_2.0.3 
+[29] htmltools_0.5.0  tidyselect_1.1.0 fansi_0.4.1      crayon_1.3.4    
+[33] dbplyr_1.4.4     withr_2.2.0      later_1.1.0.1    grid_4.0.2      
+[37] jsonlite_1.7.0   gtable_0.3.0     lifecycle_0.2.0  DBI_1.1.0       
+[41] git2r_0.27.1     magrittr_1.5     scales_1.1.1     cli_2.0.2       
+[45] stringi_1.4.6    farver_2.0.3     fs_1.5.0         promises_1.1.1  
+[49] xml2_1.3.2       ellipsis_0.3.1   generics_0.0.2   vctrs_0.3.2     
+[53] tools_4.0.2      glue_1.4.1       beeswarm_0.2.3   hms_0.5.3       
+[57] yaml_2.2.1       colorspace_1.4-1 rvest_0.3.6      knitr_1.29      
+[61] haven_2.3.1     </code></pre>
+</div>
 </div>
 </div>
 
