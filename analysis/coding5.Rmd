@@ -1,7 +1,7 @@
 ---
-title: "coding5_mtt_details"
+title: "Coding exercise 5: MTT details"
 author: "Sakiko Okayama"
-date: "16/10/2020"
+date: "24/10/2020"
 output: html_document
 ---
 
@@ -18,6 +18,7 @@ library(ggeasy)
 library(ggbeeswarm)
 library(RColorBrewer)
 library(papaja)
+library(patchwork)
 ```
 
 # read in the data
@@ -41,10 +42,9 @@ You will create them again below.
 
 ```{r}
 select_details <- details %>% 
-  select(!contains(c("proportion", "code")))
+  select(!contains(c("proportion", "code", "identifier")))
 
-select_specificity <- details %>% 
-  select(!contains(c("proportion", "internal", "external"))) 
+select_specificity <- details %>% select(!contains(c("proportion", "internal", "external", "identifier"))) 
 
 ```
 
@@ -68,8 +68,6 @@ Make the data long so there are variables for
 - direction (past/future)
 - detail type (internal/external)
 
-*hi sakiko, the only think I would do differently here is use values_to to specify what you want the values column to be called*
-
 ```{r}
 long_details <- select_details %>% 
   pivot_longer(
@@ -85,53 +83,53 @@ long_specificity <- select_specificity %>%
     names_to = c("direction", "valence", "event"),
     values_to = "specificity_code",
     names_sep = "_", 
-    future_neutral_e1_code:future_neg_e2_code)
+    future_neutral_e1_code:future_neg_e2_code) 
 
 head(long_specificity)
 ```
 
-
 # create a new variable that combines event 1 and 2 "codes" into a score out of 6
 
 *sakiko- here is a way of doing this without making things wide- it is harder to sum across when things are not in different columns, but you can use group_by(all variables except the one you want to sum across) and summarise to get a total score.*
-
-
 ```{r}
-combine <- long_specificity %>%
+total_specificity <- long_specificity %>%
   group_by(px_no, group, direction, valence) %>%
   summarise(total_specificity_code = sum(specificity_code))
-```
 
-
-```{r}
-combine_specificity <- long_specificity %>%
-  pivot_wider(names_from = event, values_from = value) %>%
-  mutate(total = e1 + e2)
-
-head(combine_specificity)
+head(total_specificity)
 ```
 
 # calculate the proportion of internal for each event and average across event 1 and 2
 
 ```{r}
 proportion_details <- long_details %>%
-  pivot_wider(names_from = event, values_from = value) %>%
+  pivot_wider(names_from = event, values_from = number_details) %>%
     pivot_wider(names_from = detail_type, values_from = e1:e2) %>%
   mutate(proportion_e1 = e1_internal/(e1_internal + e1_external)) %>%
   mutate(proportion_e2 = e2_internal/(e2_internal + e2_external)) %>%
-    mutate(proportion_average = (proportion_e1 + proportion_e2)/2)
-
+    mutate(proportion_details_average = (proportion_e1 + proportion_e2)/2) %>%
+  select(!(e1_internal:proportion_e2))
 
 head(proportion_details)
 
-# selected some variables so the hidden columns above are now visible   
-select_proportion_details <- proportion_details %>%
-    select(e2_external:proportion_average)
-  
-head(select_proportion_details)
+# another way to do the above, without making the data wide again... 
+proportion_details <- long_details %>%
+  group_by(px_no, group, direction, valence, event) %>%
+  mutate(total = sum(number_details)) %>%
+   filter(detail_type == "internal") %>%
+  summarise(proportion = number_details/total) %>%
+  group_by(px_no, group, direction, valence) %>%
+  summarise(proportion_details_average = mean(proportion))
+
+head(proportion_details)
 ```
 
-NOTE, you might like to separate analysis of the coding scores and the details into separate data frames. 
+## combine the two data frames
+```{r}
+specificity_details <- merge(total_specificity, proportion_details, by=c("px_no", "group", "direction", "valence"))
+
+head(specificity_details)
+```
 
 # Plot away!!!
 
@@ -141,4 +139,314 @@ Questions to start with....
 - when you look at just the events that meet criteria for specific, do participants with anxiety report fewer internal details
 - does the pattern of results look different if you use proportions (you'll need to use mutate to make a new variable) vs. raw internal/external scores. 
 - are there interesting patterns across direction/valence ?
+
+## event codes anxious vs non-anxious
+```{r}
+total_specificity %>%
+  group_by(group) %>%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col() + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+
+  scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Mean specificity score by group") +
+  easy_remove_legend() 
+
+```
+
+## proportion of internal details for specific events only - anxious vs non-anxious
+```{r}
+#make a data frame with specificity code and proportion details, separate for e1 and e2
+proportion_details_by_event <- long_details %>%
+  group_by(px_no, group, direction, valence, event) %>%
+  mutate(total = sum(number_details)) %>%
+  filter(detail_type == "internal") %>%
+  summarise(proportion_details = number_details/total)
+
+specificity_details_by_event <- merge(proportion_details_by_event, long_specificity, by=c("px_no", "group", "direction", "valence", "event"))
+
+#plot
+p1 <- specificity_details_by_event %>%
+  filter(specificity_code == "3") %>%
+  group_by(group) %>%
+  summarise(mean = mean(proportion_details, na.rm = TRUE), 
+            sd = sd(proportion_details, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col() + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+
+  scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Proportion of internal details \nfor specific events") + 
+  easy_remove_legend()
+  
+p1
+```
+
+## Comparing patterns when using average proportion across events (more missing values) vs proportion separately by event (as above)
+```{r}
+p2 <- proportion_details %>%
+  group_by(group) %>%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col() + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+
+  scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Average proportion of internal \ndetails across events") + 
+  easy_remove_legend()
+  
+p1 + p2
+```
+The difference is only very slightly more pronounced when you use the proportion score for individual events rather than averaged across e1 & e2 (which results in more missing values).  
+
+## proportion scores vs raw internal/external scores  
+```{r}
+# average the raw internal/external scores across events
+number_details_average <- long_details %>% 
+  group_by(px_no, group, direction, valence, detail_type) %>%
+  mutate(number_details_average = mean(number_details)) 
+
+#plot 
+p3 <- number_details_average %>%
+    group_by(group, detail_type) %>%
+  summarise(mean = mean(number_details_average, na.rm = TRUE), 
+            sd = sd(number_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ detail_type) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0)) +
+  scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Average number of internal and \nexternal details across events") + 
+  easy_remove_legend()
+
+p2 + p3
+```
+
+The pattern of results does look different when we use raw scores instead of proportions. The anxiety group gave more external and internal details, suggesting that their total response output was higher. However, the proportion of internal details was lower in the anxiety group than in controls.
+
+## group differences in specificity scores by valence 
+```{r}
+total_specificity %>%
+  group_by(group, valence) %>%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ valence) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+
+  scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Mean specificity score by group and valence") + 
+  easy_remove_legend() 
+
+
+```
+Anxiety group gave less specific responses for neutral events. Specificity scores look more or less equal between groups for negative and positive events. 
+
+## group differences in proportion of internal details by valence 
+```{r}
+proportion_details %>%
+  group_by(group, valence) %>%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ valence) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+
+  scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Average proportion of internal details by group and valence") + 
+  easy_remove_legend()
+
+```
+Anxiety group gave a lower proportion of internal details for negative and neutral events, but not positive events. 
+
+## direction differences in specificity scores and proportion of internal details
+```{r}
+p4 <- total_specificity %>%
+  group_by(direction) %>%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  geom_col() + 
+  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+
+  scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Mean specificity score by \ndirection") + 
+  easy_remove_legend() 
+
+p5 <- proportion_details %>%
+  group_by(direction) %>%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  geom_col() + 
+  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+
+  scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Average proportion of internal \ndetails by direction") + 
+  easy_remove_legend()
+
+p4 + p5 
+
+```
+
+## direction differences in specificity scores and proportion of internal details by group
+```{r}
+p6 <- total_specificity %>%
+  group_by(group, direction) %>%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ group) +
+  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+
+  scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Mean specificity score by \ndirection and group") + 
+  easy_remove_legend() 
+
+p7 <- proportion_details %>%
+  group_by(group, direction) %>%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ group) +
+  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+
+  scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Average proportion of internal \ndetails by direction and group") + 
+  easy_remove_legend()
+
+p6 + p7
+```
+
+## patterns in direction and valence for specificity 
+
+```{r}
+p8 <- total_specificity %>%
+  filter(group == "ANX") %>% 
+  group_by(valence, direction) %>%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = valence, y = mean, fill = valence)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ direction) +
+  geom_errorbar(aes(x = valence, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+ 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Mean specificity scores in anxiety \ngroup by direction and valence") + 
+  easy_remove_legend() 
+
+
+p9 <- total_specificity %>%
+  filter(group == "CON") %>% 
+  group_by(valence, direction) %>%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = valence, y = mean, fill = valence)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ direction) +
+  geom_errorbar(aes(x = valence, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+ 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Mean specificity scores in control \ngroup by direction and valence") + 
+  easy_remove_legend() 
+
+p8 + p9
+
+```
+
+## Patterns in direction and valence for proportion of internal details
+
+```{r}
+
+p10 <- proportion_details %>%
+  filter(group == "ANX") %>% 
+  group_by(valence, direction) %>%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = valence, y = mean, fill = valence)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ direction) +
+  geom_errorbar(aes(x = valence, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+ 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Mean proportion of internal details \nin anxiety group by direction and \nvalence") + 
+  easy_remove_legend() 
+
+p11 <- proportion_details %>%
+  filter(group == "CON") %>% 
+  group_by(valence, direction) %>%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = valence, y = mean, fill = valence)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ direction) +
+  geom_errorbar(aes(x = valence, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+ 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Mean proportion of internal details \nin control group by direction and \nvalence") + 
+  easy_remove_legend() 
+
+p10 + p11
+
+```
 

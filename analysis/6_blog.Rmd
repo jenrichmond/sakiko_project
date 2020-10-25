@@ -1,0 +1,26 @@
+---
+title: "Week 6 Blog"
+author: "Sakiko Okayama"
+date: "25/10/2020"
+output: html_document
+---
+
+## R
+
+This week I started looking at the MTT study data! I looked at the specificity scores (ratings of the specificity of the overall response) and the proportion of internal details (the details that related to the central event). 
+
+I learned how to use `names_sep` within `pivot_longer()` to separate variable names that contain multiple values. For example, the variable "future_neutral_e1_internal" contains information about direction, valence, event number, and detail type, which I needed to separate across columns. I found [this guide](https://dcl-wrangle.stanford.edu/pivot_advanced.html#multiple-values) to be useful when using `names_sep()`. 
+
+I also learned a lot from my struggle trying to calculate the total specificity scores and proportion of internal details. I mainly found this process difficult because it involved doing calculations within rather than across columns (the latter felt more intuitive after being exposed to `mutate()`). However, I can do calculations within columns by using `group_by()` before using `summarise()`. If I do this, I can essentially look at the data frame sideways and calculate whatever summary values I want to calculate WITHIN the grouping(s) that I specified and ACROSS any grouping(s) that I didn't specify.
+
+The process of calculating total specificity and proportion scores also taught me about the difference between `summarise()` and `mutate()`. While `mutate()` is useful for changing a column or adding a new one, `summarise()` is sufficient if I just want to calculate a summary value for each group. For example, I used `summarise()` to sum the specificity scores and average the proportion scores. However, I did need to use `mutate()` when summing the total number of details. This was because I needed to ADD a new column. That is, I needed the column with the number of internal details to remain in the data frame (rather than being overwritten by the total number of details) in order to calculate proportions in the next step. 
+
+Finally, I learned how to `merge()` data frames. I didn't really need to use this function this week, but it's useful to know for the future. [This article](https://www.statmethods.net/management/merging.html) provides a good explanation of merging data.  
+
+## What I want to learn next 
+I think I will have a smoother time with next week's coding exercise after what I learned this week. However, I have a lot to do in terms of writing. One priority next week is to re-structure my introduction to:
+
+1. Create a more easy to follow 'funnel' structure 
+2. Make the progression of my ideas very clear through specific topic sentences
+
+I think rather than learning more, I need to examine the evidence I already have and what each contributes to my rationale. Then, I need to play around with re-ordering and re-grouping the evidence until they fall into paragraphs that logically build on each other and have a single specific idea each.  

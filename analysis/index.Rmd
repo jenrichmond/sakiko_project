@@ -44,6 +44,8 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 
 [Week 5 blog post](5_blog.html)
 
+[Week 6 blog post](6_blog.html)
+
 # MTT project
 
 [Coding 5](coding5.html)
