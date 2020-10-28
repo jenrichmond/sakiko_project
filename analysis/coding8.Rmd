@@ -9,9 +9,23 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-In this coding exercise, you will work with data from a study published in Psychological Science. 
+# Framing questions to be answered with statistics
 
-insert reference
+Now that you have visualised the specificity scores, details, and phenomenological scores, we need to decide what questions you want to answer with statistics. Refer to your plots for each DV and under the headings below write questions that you want to use statistical tests to answer (i.e. is there is a significant difference between ..., is there a correlation between....)
+
+# specificity codes
+
+
+# details
+
+
+# phenomenological ratings
+
+
+
+
+
+
 
 # load packages
 

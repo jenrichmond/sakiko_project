@@ -58,7 +58,7 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 - Lets use the Tidy Tuesday Taylor Swift and Beyonce analysis as a template for trying sentiment analysis on the narrative responses participants gave in response to past/future, pos/neu/neg events. 
 
 [Coding 8](coding8.html)
-- some stats might be useful for your results section. Lets learn how to run t-tests, ANOVA to test hypotheses re group differences in MTT. 
+- some stats might be useful for your results section. First thing to do is to decide what questions we would like statistical analysis to answer for us about the data. Then we can work out whether we need t-tests, ANOVA, and/or correlation analysis to test hypotheses re group differences in MTT. 
 
 
 # Resources from Jenny
