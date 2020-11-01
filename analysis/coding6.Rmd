@@ -1,7 +1,7 @@
 ---
-title: "coding6 phenomenological"
-author: "Jen Richmond"
-date: "02/10/2020"
+title: "Coding exercise 6: Phenomenological Ratings"
+author: "Sakiko Okayama"
+date: "30/10/2020"
 output: html_document
 ---
 
@@ -9,14 +9,17 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-
 # load packages
 
 ```{r loadpackages, message=FALSE, warning=FALSE}
 
 library(tidyverse)
 library(here)
+library(ggeasy)
+library(ggbeeswarm)
+library(RColorBrewer)
+library(papaja)
+library(patchwork)
 ```
 
 # read in the data
@@ -30,7 +33,8 @@ phenom <- read_csv(here("data", "study3_phenom_ratings.csv"))
 Some pp were excluded due to english skills, age, or not completing the experiment
 
 ```{r}
-
+filter_phenom <- phenom %>%
+  filter(identifier == "Good")
 ```
 
 
@@ -39,7 +43,7 @@ Some pp were excluded due to english skills, age, or not completing the experime
 Use glimpse() or names() or str() to get an idea what is included in the dataset
 
 ```{r datastructure}
-
+str(filter_phenom)
 ```
 
 # details re phenomenological ratings
@@ -66,6 +70,12 @@ All phenomenological ratings averaged across event type (i.e. future neutral, fu
 
 You want to end up with a dataset that has separate variables for event, valence, direction, rating type, rating
 ```{r}
+long_phenom <- filter_phenom %>% 
+  pivot_longer(
+    names_to = c("direction", "valence", "event", "rating_type"),
+    values_to = "rating",
+    names_sep = "_",
+    past_neutral_e1_vivid:future_positive_e2_temp)
 
 ```
 
@@ -74,17 +84,293 @@ You want to end up with a dataset that has separate variables for event, valence
 each participant came up with two events for each condition, rating scores were averaged across those two events. 
 
 ```{r}
-
+average_phenom <- long_phenom %>%
+  group_by(px_no, group, age, gender, direction, valence, rating_type) %>%
+  summarise(average_rating = mean(rating))
 ```
-
 
 # Plot away!!!
 
 Questions to answer...
 
-- Do pp with anxiety rate their experience of remembering past events or imagining future events differently to controls?
-- Does it make a difference whether they were asked to remember/imagine positive, negative or neutral events?
-- Do pp with anxiety rate future events as more important?
-- Are pp with anxiety more likely to see future events from a fly on the wall perspective?
+### Do pp with anxiety rate their experience of remembering past events or imagining future events differently to controls?
+```{r}
+average_phenom %>%
+  group_by(group, rating_type) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n))%>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col() + 
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7))+
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Differences in phenom ratings between anxiety and control group") + 
+  scale_fill_brewer(palette="Pastel1")
+  
+```
 
-Other questions you may have...... :)
+### Does it make a difference whether they were asked to remember/imagine positive, negative or neutral events?
+Within groups? Not really
+
+**Anxiety group**
+```{r}
+average_phenom %>%
+  filter(group == "ANX") %>%
+  group_by(valence, rating_type) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n))%>%
+  ggplot(aes(x = valence, y = mean, fill = valence)) +
+  geom_col() + 
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = valence, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7))+
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Phenom ratings in anxiety group by valence") + 
+  scale_fill_brewer(palette="Pastel1")
+```
+
+**Control group**
+```{r}
+average_phenom %>%
+  filter(group == "CON") %>%
+  group_by(valence, rating_type) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n))%>%
+  ggplot(aes(x = valence, y = mean, fill = valence)) +
+  geom_col() + 
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = valence, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7))+
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Phenom ratings in control group by valence") +
+  scale_fill_brewer(palette="Pastel1")
+```
+
+### Does it make a difference whether they were asked to remember/imagine future or past events? 
+Yes - both groups seem to rate past events as more coherent, important, and vivid, compared to future events.
+
+**Anxiety group**
+```{r}
+average_phenom %>%
+  filter(group == "ANX") %>%
+  group_by(direction, rating_type) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n))%>%
+  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  geom_col() + 
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7))+
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Phenom ratings in anxiety group by direction") + 
+  scale_fill_brewer(palette="Pastel1")
+```
+
+**Control group**
+```{r}
+average_phenom %>%
+  filter(group == "CON") %>%
+  group_by(direction, rating_type) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n))%>%
+  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  geom_col() + 
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7))+
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Phenom ratings in control group by direction") + 
+  scale_fill_brewer(palette="Pastel1")
+```
+
+
+
+### Do pp with anxiety rate future events as more important?
+Yes 
+```{r}
+average_phenom %>%
+filter(rating_type == "impt") %>% 
+  group_by(direction, group) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ direction) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
+  labs(title = "Importance of future and past events by group") +
+  scale_fill_brewer(palette="Pastel1") + 
+  easy_remove_legend()
+  
+```
+
+
+### Are pp with anxiety more likely to see future events from a fly on the wall perspective?
+```{r}
+average_phenom %>%
+filter(rating_type == "ratio") %>% 
+  group_by(direction, group) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ direction) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
+  labs(title = "Ratio of events seen through field? perspective by direction and group") +
+  scale_fill_brewer(palette="Pastel1") + 
+  easy_remove_legend()
+
+```
+
+### Do pp with anxiety see negative events more vividly?
+No - anxiety group only seems to see neutral events more vividly than controls - and specifically past neutral events  
+```{r}
+p1 <- average_phenom %>%
+filter(rating_type == "vivid") %>% 
+  group_by(group, valence) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Vividness ratings by \nvalence and group") +
+  scale_fill_brewer(palette="Pastel1") + 
+  easy_remove_legend()
+  
+  
+p2 <- average_phenom %>%
+filter(rating_type == "vivid") %>% 
+  group_by(direction, group, valence) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ direction + valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Vividness ratings by direction, \nvalence, and group") +
+  scale_fill_brewer(palette="Pastel1") 
+  
+  p1 + p2 
+
+```
+
+### Do pp with anxiety see negative events more coherently?
+Anxiety group sees events of all valences more coherently. When direction is also taken into account, anxiety groups sees future neutral, future positive, past neutral and past positive events more coherently. 
+```{r}
+p3 <- average_phenom %>%
+filter(rating_type == "coh") %>% 
+  group_by(group, valence) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Coherence ratings by \nvalence and group") +
+  scale_fill_brewer(palette="Pastel1") + 
+  easy_remove_legend()
+  
+  
+p4 <- average_phenom %>%
+filter(rating_type == "coh") %>% 
+  group_by(direction, group, valence) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ direction + valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Coherence ratings by direction, \nvalence, and group") +
+  scale_fill_brewer(palette="Pastel1") 
+  
+  p3 + p4 
+```
+
+### Do pp with anxiety pre-/re- experience negative events more? 
+Doesn't seem to be any group differences by direction or valence 
+```{r}
+p5 <- average_phenom %>%
+filter(rating_type == "prere") %>% 
+  group_by(group, valence) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Pre-/re-experiencing ratings \nby valence and group") +
+  scale_fill_brewer(palette="Pastel1") + 
+  easy_remove_legend()
+  
+  
+p6 <- average_phenom %>%
+filter(rating_type == "prere") %>% 
+  group_by(direction, group) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ direction) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Pre-/re-experiencing ratings by \ndirection and group") +
+  scale_fill_brewer(palette="Pastel1")
+
+p5 + p6 
+```
+

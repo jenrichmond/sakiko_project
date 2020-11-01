@@ -1,0 +1,21 @@
+---
+title: "Week 7 Blog"
+author: "Sakiko Okayama"
+date: "01/11/2020"
+output: html_document
+---
+
+## MTT
+This week we read Marsh et al.'s (2019) paper on positivity biases in past and future episodic thinking. In this study, participants generated and described episodic past and future events from neutral cue words. The researchers then coded the events as positive, negative, or neutral. The researchers also coded the responses for specificity, with a specific response being one that described a single event or episode that lasted less than a day. 
+
+This study was useful because it's the only one I've come across that has looked at direction, valence, and specificity of MTT in anxiety (which is what we primarily looked at). However, unlike our study, they used participants from subclinical populations. Also, the participants were free to generate events of any valence, and the researchers later coded the valence of the events. This aspect of their method highlighted a limitation in ours, which is that we can't be sure whether the participants actually generated events that corresponded to negative, neutral, and positive valences. This is because while we asked participants to generate events of particular valences, we didn't later code the event valences to check. 
+
+Marsh et al. found that greater anxiety levels were associated with reduced positivity and reduced specificity of past and future thinking. They also found a significant positive correlation between the valence of past and future events.
+
+Interestingly, while both anxiety and depression were associated with reduced future positivity, only depression significantly correlated with the valence of memories. When considering theories that state that future thinking is a generative process based on episodic memory, this result suggests that depression is fundamentally a memory problem. Whereas for anxiety, it seems that MTT impairments are more closely tied to future thinking itself, rather than memory. 
+
+## What I want to learn next
+While editing my introduction, I noticed some gaps in my knowledge that I'd like to fill next week. First, I want to read more into the idea of anxiety being associated with unique patterns in MTT that are more related to future thinking rather than memory. Second, I want to read more about MTT in depression, especially in regard to valence biases and episodic specificity. Marsh et al. did a good job of tying in the depression research into their discussion of anxiety, and I've definitely been under-using the depression research in my rationale. 
+
+## Reference
+Marsh, L., Edginton, T., Conway, M. A., & Loveday, C. (2018). Positivity bias in past and future episodic thinking: Relationship with anxiety, depression, and retrieval-induced forgetting. *Quarterly Journal of Experimental Psychology*, *72*(3), 508-522. https://doi.org/10.1177/1747021818758620 

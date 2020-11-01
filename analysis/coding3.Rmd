@@ -1,6 +1,6 @@
 ---
 title: "Coding exercise 3"
-author: "Jen Richmond"
+author: "Sakiko Okayama"
 date: "02/10/2020"
 output: html_document
 ---
