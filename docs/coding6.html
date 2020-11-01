@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Jen Richmond" />
+<meta name="author" content="Sakiko Okayama" />
 
-<meta name="date" content="2020-02-10" />
 
-<title>coding6 phenomenological</title>
+<title>Coding exercise 6: Phenomenological Ratings</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -38,8 +36,6 @@ div.section {
   padding-top: 12px;
 }
 </style>
-
-
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -249,6 +245,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -277,6 +274,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -382,9 +385,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">coding6 phenomenological</h1>
-<h4 class="author">Jen Richmond</h4>
-<h4 class="date">02/10/2020</h4>
+<h1 class="title toc-ignore">Coding exercise 6: Phenomenological Ratings</h1>
+<h4 class="author">Sakiko Okayama</h4>
+<h4 class="date">30/10/2020</h4>
 
 </div>
 
@@ -409,7 +412,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-10-29
+<strong>Last updated:</strong> 2020-11-02
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -500,29 +503,23 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree89dcd31fe2fd34102cadfc1a32966d0a9a1d7f96targetblank89dcd31a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/89dcd31fe2fd34102cadfc1a32966d0a9a1d7f96" target="_blank">89dcd31</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree31fa18bb32ad09abbc41e23c7d37779fdf8735f5targetblank31fa18ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/31fa18bb32ad09abbc41e23c7d37779fdf8735f5" target="_blank">31fa18b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree89dcd31fe2fd34102cadfc1a32966d0a9a1d7f96targetblank89dcd31a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree31fa18bb32ad09abbc41e23c7d37779fdf8735f5targetblank31fa18ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/89dcd31fe2fd34102cadfc1a32966d0a9a1d7f96" target="_blank">89dcd31</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/31fa18bb32ad09abbc41e23c7d37779fdf8735f5" target="_blank">31fa18b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .DS_Store
-    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Unstaged changes:
-    Modified:   analysis/coding8.Rmd
-    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -561,6 +558,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/31fa18bb32ad09abbc41e23c7d37779fdf8735f5/analysis/coding6.Rmd" target="_blank">31fa18b</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-11-02
+</td>
+<td>
+blog 7 complete and coding6 progress
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/245fcf137def26cb0518b9a1d387288ec728e629/docs/coding6.html" target="_blank">245fcf1</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-10-29
+</td>
+<td>
+jenny adding coding 8
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -622,7 +653,12 @@ update links
 <div id="load-packages" class="section level1">
 <h1>load packages</h1>
 <pre class="r"><code>library(tidyverse)
-library(here)</code></pre>
+library(here)
+library(ggeasy)
+library(ggbeeswarm)
+library(RColorBrewer)
+library(papaja)
+library(patchwork)</code></pre>
 </div>
 <div id="read-in-the-data" class="section level1">
 <h1>read in the data</h1>
@@ -631,10 +667,290 @@ library(here)</code></pre>
 <div id="filter-df-to-only-include-participants-with-identifier-good" class="section level1">
 <h1>filter df to only include participants with identifier = good</h1>
 <p>Some pp were excluded due to english skills, age, or not completing the experiment</p>
+<pre class="r"><code>filter_phenom &lt;- phenom %&gt;%
+  filter(identifier == &quot;Good&quot;)</code></pre>
 </div>
 <div id="familiarise-yourself-with-the-data" class="section level1">
 <h1>familiarise yourself with the data</h1>
 <p>Use glimpse() or names() or str() to get an idea what is included in the dataset</p>
+<pre class="r"><code>str(filter_phenom)</code></pre>
+<pre><code>tibble [34 x 173] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ px_no                          : chr [1:34] &quot;p_1001&quot; &quot;p_1003&quot; &quot;p_1014&quot; &quot;p_1017&quot; ...
+ $ identifier                     : chr [1:34] &quot;Good&quot; &quot;Good&quot; &quot;Good&quot; &quot;Good&quot; ...
+ $ group                          : chr [1:34] &quot;ANX&quot; &quot;ANX&quot; &quot;ANX&quot; &quot;ANX&quot; ...
+ $ age                            : num [1:34] 29 33 28 50 32 60 54 57 53 29 ...
+ $ gender                         : chr [1:34] &quot;Female&quot; &quot;Female&quot; &quot;Female&quot; &quot;Male&quot; ...
+ $ past_neutral_e1_vivid          : num [1:34] 5 6 5 6 5 7 7 6 7 5 ...
+ $ past_neutral_e1_prere          : num [1:34] 5 2 4 4 5 4 6 6 6 6 ...
+ $ past_neutral_e1_sense1         : num [1:34] 4 6 5 4 5 7 6 4 6 3 ...
+ $ past_neutral_e1_sense2         : num [1:34] 1 1 6 2 5 1 5 4 1 4 ...
+ $ past_neutral_e1_context1       : num [1:34] 4 6 5 3 5 7 6 5 3 6 ...
+ $ past_neutral_e1_context2       : num [1:34] 5 6 7 5 5 7 6 6 7 5 ...
+ $ past_neutral_e1_perspective1   : num [1:34] 7 6 6 6 5 7 6 5 7 6 ...
+ $ past_neutral_e1_perspective2   : num [1:34] 1 1 3 2 5 6 6 5 7 5 ...
+ $ past_neutral_e1_ratio          : num [1:34] 7 6 2 3 1 ...
+ $ past_neutral_e1_intensity      : num [1:34] 4 2 4 3 5 4 6 5 4 5 ...
+ $ past_neutral_e1_reaction       : num [1:34] 3 1 7 3 5 5 6 1 1 3 ...
+ $ past_neutral_e1_impt           : num [1:34] 3 7 6 1 5 7 6 6 7 5 ...
+ $ past_neutral_e1_coh            : num [1:34] 2 6 6 5 5 7 6 6 7 6 ...
+ $ past_neutral_e1_temp           : num [1:34] 4 2 4 3 2 NA 1 4 4 2 ...
+ $ past_neutral_e2_vivid          : num [1:34] 6 6 6 6 6 7 6 5 7 7 ...
+ $ past_neutral_e2_prere          : num [1:34] 5 6 4 5 6 4 6 6 7 7 ...
+ $ past_neutral_e2_sense1         : num [1:34] 5 6 5 6 6 7 6 5 7 7 ...
+ $ past_neutral_e2_sense2         : num [1:34] 1 1 5 5 6 1 6 5 1 6 ...
+ $ past_neutral_e2_context1       : num [1:34] 4 6 6 5 6 7 6 5 7 7 ...
+ $ past_neutral_e2_context2       : num [1:34] 4 6 6 6 6 7 5 6 7 6 ...
+ $ past_neutral_e2_perspective1   : num [1:34] 1 6 5 5 6 7 6 6 7 6 ...
+ $ past_neutral_e2_perspective2   : num [1:34] 7 1 2 2 6 7 6 6 7 6 ...
+ $ past_neutral_e2_ratio          : num [1:34] 0.143 6 2.5 2.5 1 ...
+ $ past_neutral_e2_intensity      : num [1:34] 5 1 5 5 6 7 7 5 5 5 ...
+ $ past_neutral_e2_reaction       : num [1:34] 5 1 1 6 7 3 6 1 5 3 ...
+ $ past_neutral_e2_impt           : num [1:34] 5 6 4 7 6 3 6 5 7 2 ...
+ $ past_neutral_e2_coh            : num [1:34] 6 6 6 6 6 7 7 5 7 5 ...
+ $ past_neutral_e2_temp           : num [1:34] 4 2 4 4 1 1 4 4 3 1 ...
+ $ past_negative_e1_vivid         : num [1:34] 5 3 6 6 6 7 6 5 7 5 ...
+ $ past_negative_e1_prere         : num [1:34] 5 2 6 6 6 3 6 5 7 5 ...
+ $ past_negative_e1_sense1        : num [1:34] 5 2 6 7 6 7 4 5 6 4 ...
+ $ past_negative_e1_sense2        : num [1:34] 3 1 3 2 6 1 4 4 1 4 ...
+ $ past_negative_e1_context1      : num [1:34] 5 2 4 6 6 7 3 5 7 4 ...
+ $ past_negative_e1_context2      : num [1:34] 5 5 6 6 6 7 5 4 7 5 ...
+ $ past_negative_e1_perspective1  : num [1:34] 5 4 6 6 6 7 5 5 7 6 ...
+ $ past_negative_e1_perspective2  : num [1:34] 3 1 1 5 6 7 5 4 7 5 ...
+ $ past_negative_e1_ratio         : num [1:34] 1.67 4 6 1.2 1 ...
+ $ past_negative_e1_intensity     : num [1:34] 3 1 5 4 6 7 5 5 6 6 ...
+ $ past_negative_e1_reaction      : num [1:34] 3 1 1 5 6 3 5 1 6 5 ...
+ $ past_negative_e1_impt          : num [1:34] 3 2 4 6 6 7 5 5 7 5 ...
+ $ past_negative_e1_coh           : num [1:34] 2 2 6 6 6 7 5 5 7 5 ...
+ $ past_negative_e1_temp          : num [1:34] 3 4 3 4 4 4 4 1 2 4 ...
+ $ past_negative_e2_vivid         : num [1:34] 6 4 7 6 5 7 6 5 7 6 ...
+ $ past_negative_e2_prere         : num [1:34] 6 2 6 6 5 5 6 5 6 6 ...
+ $ past_negative_e2_sense1        : num [1:34] 6 2 6 6 5 7 5 5 7 6 ...
+ $ past_negative_e2_sense2        : num [1:34] 3 1 2 2 5 1 6 6 1 5 ...
+ $ past_negative_e2_context1      : num [1:34] 5 2 2 6 5 4 6 5 7 6 ...
+ $ past_negative_e2_context2      : num [1:34] 6 2 5 7 5 7 6 6 7 5 ...
+ $ past_negative_e2_perspective1  : num [1:34] 5 2 6 7 5 7 6 5 7 6 ...
+ $ past_negative_e2_perspective2  : num [1:34] 3 1 2 4 5 2 6 5 6 4 ...
+ $ past_negative_e2_ratio         : num [1:34] 1.67 2 3 1.75 1 ...
+ $ past_negative_e2_intensity     : num [1:34] 6 1 6 5 5 7 6 5 7 4 ...
+ $ past_negative_e2_reaction      : num [1:34] 4 1 4 5 6 7 5 1 6 2 ...
+ $ past_negative_e2_impt          : num [1:34] 5 1 3 2 6 7 6 5 7 1 ...
+ $ past_negative_e2_coh           : num [1:34] 5 2 6 3 5 7 6 5 7 5 ...
+ $ past_negative_e2_temp          : num [1:34] 4 4 4 3 4 4 4 4 3 3 ...
+ $ past_positive_e1_vivid         : num [1:34] 6 5 6 3 6 7 6 5 7 6 ...
+ $ past_positive_e1_prere         : num [1:34] 6 2 6 2 6 4 6 6 7 6 ...
+ $ past_positive_e1_sense1        : num [1:34] 6 5 5 5 6 7 6 6 7 7 ...
+ $ past_positive_e1_sense2        : num [1:34] 3 1 3 1 6 1 6 6 1 5 ...
+ $ past_positive_e1_context1      : num [1:34] 6 2 6 5 6 7 6 6 7 7 ...
+ $ past_positive_e1_context2      : num [1:34] 6 3 6 6 6 7 6 7 7 7 ...
+ $ past_positive_e1_perspective1  : num [1:34] 6 4 6 5 6 7 6 6 7 7 ...
+ $ past_positive_e1_perspective2  : num [1:34] 1 1 2 2 6 2 6 6 1 7 ...
+ $ past_positive_e1_ratio         : num [1:34] 6 4 3 2.5 1 3.5 1 1 7 1 ...
+ $ past_positive_e1_intensity     : num [1:34] 5 2 6 4 6 4 6 6 7 6 ...
+ $ past_positive_e1_reaction      : num [1:34] 5 1 5 6 6 3 6 1 4 5 ...
+ $ past_positive_e1_impt          : num [1:34] 5 4 6 6 6 7 6 6 7 7 ...
+ $ past_positive_e1_coh           : num [1:34] 6 4 5 5 5 7 6 5 7 7 ...
+ $ past_positive_e1_temp          : num [1:34] 2 1 4 4 3 2 4 4 1 3 ...
+ $ past_positive_e2_vivid         : num [1:34] 5 5 5 6 5 5 6 4 7 7 ...
+ $ past_positive_e2_prere         : num [1:34] 5 3 4 5 5 2 6 5 7 6 ...
+ $ past_positive_e2_sense1        : num [1:34] 5 4 3 5 5 4 6 5 7 6 ...
+ $ past_positive_e2_sense2        : num [1:34] 4 1 2 2 5 1 6 5 3 7 ...
+ $ past_positive_e2_context1      : num [1:34] 3 4 3 6 4 3 6 5 7 7 ...
+ $ past_positive_e2_context2      : num [1:34] 5 6 6 6 4 7 6 5 7 7 ...
+ $ past_positive_e2_perspective1  : num [1:34] 5 6 6 6 5 7 6 5 7 7 ...
+ $ past_positive_e2_perspective2  : num [1:34] 1 1 2 3 5 1 5 5 1 5 ...
+ $ past_positive_e2_ratio         : num [1:34] 5 6 3 2 1 7 1.2 1 7 1.4 ...
+ $ past_positive_e2_intensity     : num [1:34] 2 1 4 4 5 2 6 5 3 2 ...
+ $ past_positive_e2_reaction      : num [1:34] 2 1 1 2 5 2 6 1 1 1 ...
+ $ past_positive_e2_impt          : num [1:34] 2 3 4 6 6 1 7 6 7 1 ...
+ $ past_positive_e2_coh           : num [1:34] 4 6 4 4 5 7 7 5 7 3 ...
+ $ past_positive_e2_temp          : num [1:34] 1 1 4 4 2 3 2 NA 1 1 ...
+ $ future_neutral_e1_vivid        : num [1:34] 2 3 4 5 5 7 5 5 7 6 ...
+ $ future_neutral_e1_prere        : num [1:34] 4 3 4 3 5 1 4 2 7 6 ...
+ $ future_neutral_e1_sense1       : num [1:34] 4 1 5 5 6 7 3 5 7 7 ...
+ $ future_neutral_e1_sense2       : num [1:34] 1 1 5 2 5 1 4 2 6 5 ...
+ $ future_neutral_e1_context1     : num [1:34] 2 2 4 2 6 3 5 5 5 6 ...
+ $ future_neutral_e1_context2     : num [1:34] 4 1 3 4 6 7 5 4 7 7 ...
+ $ future_neutral_e1_perspective1 : num [1:34] 6 6 4 5 6 4 5 5 7 7 ...
+ $ future_neutral_e1_perspective2 : num [1:34] 2 1 1 3 5 2 5 5 7 7 ...
+ $ future_neutral_e1_ratio        : num [1:34] 3 6 4 1.67 NA ...
+ $ future_neutral_e1_intensity    : num [1:34] 2 1 3 5 6 2 6 6 4 5 ...
+  [list output truncated]
+ - attr(*, &quot;spec&quot;)=
+  .. cols(
+  ..   px_no = col_character(),
+  ..   identifier = col_character(),
+  ..   group = col_character(),
+  ..   age = col_double(),
+  ..   gender = col_character(),
+  ..   past_neutral_e1_vivid = col_double(),
+  ..   past_neutral_e1_prere = col_double(),
+  ..   past_neutral_e1_sense1 = col_double(),
+  ..   past_neutral_e1_sense2 = col_double(),
+  ..   past_neutral_e1_context1 = col_double(),
+  ..   past_neutral_e1_context2 = col_double(),
+  ..   past_neutral_e1_perspective1 = col_double(),
+  ..   past_neutral_e1_perspective2 = col_double(),
+  ..   past_neutral_e1_ratio = col_double(),
+  ..   past_neutral_e1_intensity = col_double(),
+  ..   past_neutral_e1_reaction = col_double(),
+  ..   past_neutral_e1_impt = col_double(),
+  ..   past_neutral_e1_coh = col_double(),
+  ..   past_neutral_e1_temp = col_double(),
+  ..   past_neutral_e2_vivid = col_double(),
+  ..   past_neutral_e2_prere = col_double(),
+  ..   past_neutral_e2_sense1 = col_double(),
+  ..   past_neutral_e2_sense2 = col_double(),
+  ..   past_neutral_e2_context1 = col_double(),
+  ..   past_neutral_e2_context2 = col_double(),
+  ..   past_neutral_e2_perspective1 = col_double(),
+  ..   past_neutral_e2_perspective2 = col_double(),
+  ..   past_neutral_e2_ratio = col_double(),
+  ..   past_neutral_e2_intensity = col_double(),
+  ..   past_neutral_e2_reaction = col_double(),
+  ..   past_neutral_e2_impt = col_double(),
+  ..   past_neutral_e2_coh = col_double(),
+  ..   past_neutral_e2_temp = col_double(),
+  ..   past_negative_e1_vivid = col_double(),
+  ..   past_negative_e1_prere = col_double(),
+  ..   past_negative_e1_sense1 = col_double(),
+  ..   past_negative_e1_sense2 = col_double(),
+  ..   past_negative_e1_context1 = col_double(),
+  ..   past_negative_e1_context2 = col_double(),
+  ..   past_negative_e1_perspective1 = col_double(),
+  ..   past_negative_e1_perspective2 = col_double(),
+  ..   past_negative_e1_ratio = col_double(),
+  ..   past_negative_e1_intensity = col_double(),
+  ..   past_negative_e1_reaction = col_double(),
+  ..   past_negative_e1_impt = col_double(),
+  ..   past_negative_e1_coh = col_double(),
+  ..   past_negative_e1_temp = col_double(),
+  ..   past_negative_e2_vivid = col_double(),
+  ..   past_negative_e2_prere = col_double(),
+  ..   past_negative_e2_sense1 = col_double(),
+  ..   past_negative_e2_sense2 = col_double(),
+  ..   past_negative_e2_context1 = col_double(),
+  ..   past_negative_e2_context2 = col_double(),
+  ..   past_negative_e2_perspective1 = col_double(),
+  ..   past_negative_e2_perspective2 = col_double(),
+  ..   past_negative_e2_ratio = col_double(),
+  ..   past_negative_e2_intensity = col_double(),
+  ..   past_negative_e2_reaction = col_double(),
+  ..   past_negative_e2_impt = col_double(),
+  ..   past_negative_e2_coh = col_double(),
+  ..   past_negative_e2_temp = col_double(),
+  ..   past_positive_e1_vivid = col_double(),
+  ..   past_positive_e1_prere = col_double(),
+  ..   past_positive_e1_sense1 = col_double(),
+  ..   past_positive_e1_sense2 = col_double(),
+  ..   past_positive_e1_context1 = col_double(),
+  ..   past_positive_e1_context2 = col_double(),
+  ..   past_positive_e1_perspective1 = col_double(),
+  ..   past_positive_e1_perspective2 = col_double(),
+  ..   past_positive_e1_ratio = col_double(),
+  ..   past_positive_e1_intensity = col_double(),
+  ..   past_positive_e1_reaction = col_double(),
+  ..   past_positive_e1_impt = col_double(),
+  ..   past_positive_e1_coh = col_double(),
+  ..   past_positive_e1_temp = col_double(),
+  ..   past_positive_e2_vivid = col_double(),
+  ..   past_positive_e2_prere = col_double(),
+  ..   past_positive_e2_sense1 = col_double(),
+  ..   past_positive_e2_sense2 = col_double(),
+  ..   past_positive_e2_context1 = col_double(),
+  ..   past_positive_e2_context2 = col_double(),
+  ..   past_positive_e2_perspective1 = col_double(),
+  ..   past_positive_e2_perspective2 = col_double(),
+  ..   past_positive_e2_ratio = col_double(),
+  ..   past_positive_e2_intensity = col_double(),
+  ..   past_positive_e2_reaction = col_double(),
+  ..   past_positive_e2_impt = col_double(),
+  ..   past_positive_e2_coh = col_double(),
+  ..   past_positive_e2_temp = col_double(),
+  ..   future_neutral_e1_vivid = col_double(),
+  ..   future_neutral_e1_prere = col_double(),
+  ..   future_neutral_e1_sense1 = col_double(),
+  ..   future_neutral_e1_sense2 = col_double(),
+  ..   future_neutral_e1_context1 = col_double(),
+  ..   future_neutral_e1_context2 = col_double(),
+  ..   future_neutral_e1_perspective1 = col_double(),
+  ..   future_neutral_e1_perspective2 = col_double(),
+  ..   future_neutral_e1_ratio = col_double(),
+  ..   future_neutral_e1_intensity = col_double(),
+  ..   future_neutral_e1_reaction = col_double(),
+  ..   future_neutral_e1_impt = col_double(),
+  ..   future_neutral_e1_coh = col_double(),
+  ..   future_neutral_e1_temp = col_double(),
+  ..   future_neutral_e2_vivid = col_double(),
+  ..   future_neutral_e2_prere = col_double(),
+  ..   future_neutral_e2_sense1 = col_double(),
+  ..   future_neutral_e2_sense2 = col_double(),
+  ..   future_neutral_e2_context1 = col_double(),
+  ..   future_neutral_e2_context2 = col_double(),
+  ..   future_neutral_e2_perspective1 = col_double(),
+  ..   future_neutral_e2_perspective2 = col_double(),
+  ..   future_neutral_e2_ratio = col_double(),
+  ..   future_neutral_e2_intensity = col_double(),
+  ..   future_neutral_e2_reaction = col_double(),
+  ..   future_neutral_e2_impt = col_double(),
+  ..   future_neutral_e2_coh = col_double(),
+  ..   future_neutral_e2_temp = col_double(),
+  ..   future_negative_e1_vivid = col_double(),
+  ..   future_negative_e1_prere = col_double(),
+  ..   future_negative_e1_sense1 = col_double(),
+  ..   future_negative_e1_sense2 = col_double(),
+  ..   future_negative_e1_context1 = col_double(),
+  ..   future_negative_e1_context2 = col_double(),
+  ..   future_negative_e1_perspective1 = col_double(),
+  ..   future_negative_e1_perspective2 = col_double(),
+  ..   future_negative_e1_ratio = col_double(),
+  ..   future_negative_e1_intensity = col_double(),
+  ..   future_negative_e1_reaction = col_double(),
+  ..   future_negative_e1_impt = col_double(),
+  ..   future_negative_e1_coh = col_double(),
+  ..   future_negative_e1_temp = col_double(),
+  ..   future_negative_e2_vivid = col_double(),
+  ..   future_negative_e2_prere = col_double(),
+  ..   future_negative_e2_sense1 = col_double(),
+  ..   future_negative_e2_sense2 = col_double(),
+  ..   future_negative_e2_context1 = col_double(),
+  ..   future_negative_e2_context2 = col_double(),
+  ..   future_negative_e2_perspective1 = col_double(),
+  ..   future_negative_e2_perspective2 = col_double(),
+  ..   future_negative_e2_ratio = col_double(),
+  ..   future_negative_e2_intensity = col_double(),
+  ..   future_negative_e2_reaction = col_double(),
+  ..   future_negative_e2_impt = col_double(),
+  ..   future_negative_e2_coh = col_double(),
+  ..   future_negative_e2_temp = col_double(),
+  ..   future_positive_e1_vivid = col_double(),
+  ..   future_positive_e1_prere = col_double(),
+  ..   future_positive_e1_sense1 = col_double(),
+  ..   future_positive_e1_sense2 = col_double(),
+  ..   future_positive_e1_context1 = col_double(),
+  ..   future_positive_e1_context2 = col_double(),
+  ..   future_positive_e1_perspective1 = col_double(),
+  ..   future_positive_e1_perspective2 = col_double(),
+  ..   future_positive_e1_ratio = col_double(),
+  ..   future_positive_e1_intensity = col_double(),
+  ..   future_positive_e1_reaction = col_double(),
+  ..   future_positive_e1_impt = col_double(),
+  ..   future_positive_e1_coh = col_double(),
+  ..   future_positive_e1_temp = col_double(),
+  ..   future_positive_e2_vivid = col_double(),
+  ..   future_positive_e2_prere = col_double(),
+  ..   future_positive_e2_sense1 = col_double(),
+  ..   future_positive_e2_sense2 = col_double(),
+  ..   future_positive_e2_context1 = col_double(),
+  ..   future_positive_e2_context2 = col_double(),
+  ..   future_positive_e2_perspective1 = col_double(),
+  ..   future_positive_e2_perspective2 = col_double(),
+  ..   future_positive_e2_ratio = col_double(),
+  ..   future_positive_e2_intensity = col_double(),
+  ..   future_positive_e2_reaction = col_double(),
+  ..   future_positive_e2_impt = col_double(),
+  ..   future_positive_e2_coh = col_double(),
+  ..   future_positive_e2_temp = col_double()
+  .. )</code></pre>
 </div>
 <div id="details-re-phenomenological-ratings" class="section level1">
 <h1>details re phenomenological ratings</h1>
@@ -669,21 +985,295 @@ library(here)</code></pre>
 <div id="make-the-data-long" class="section level1">
 <h1>make the data long</h1>
 <p>You want to end up with a dataset that has separate variables for event, valence, direction, rating type, rating</p>
+<pre class="r"><code>long_phenom &lt;- filter_phenom %&gt;% 
+  pivot_longer(
+    names_to = c(&quot;direction&quot;, &quot;valence&quot;, &quot;event&quot;, &quot;rating_type&quot;),
+    values_to = &quot;rating&quot;,
+    names_sep = &quot;_&quot;,
+    past_neutral_e1_vivid:future_positive_e2_temp)</code></pre>
 </div>
 <div id="make-a-dataset-that-averages-scores-for-each-rating-type-across-events" class="section level1">
 <h1>make a dataset that averages scores for each rating type across events</h1>
 <p>each participant came up with two events for each condition, rating scores were averaged across those two events.</p>
+<pre class="r"><code>average_phenom &lt;- long_phenom %&gt;%
+  group_by(px_no, group, age, gender, direction, valence, rating_type) %&gt;%
+  summarise(average_rating = mean(rating))</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;px_no&#39;, &#39;group&#39;, &#39;age&#39;, &#39;gender&#39;, &#39;direction&#39;, &#39;valence&#39; (override with `.groups` argument)</code></pre>
 </div>
 <div id="plot-away" class="section level1">
 <h1>Plot away!!!</h1>
 <p>Questions to answer…</p>
-<ul>
-<li>Do pp with anxiety rate their experience of remembering past events or imagining future events differently to controls?</li>
-<li>Does it make a difference whether they were asked to remember/imagine positive, negative or neutral events?</li>
-<li>Do pp with anxiety rate future events as more important?</li>
-<li>Are pp with anxiety more likely to see future events from a fly on the wall perspective?</li>
-</ul>
-<p>Other questions you may have…… :)</p>
+<div id="do-pp-with-anxiety-rate-their-experience-of-remembering-past-events-or-imagining-future-events-differently-to-controls" class="section level3">
+<h3>Do pp with anxiety rate their experience of remembering past events or imagining future events differently to controls?</h3>
+<pre class="r"><code>average_phenom %&gt;%
+  group_by(group, rating_type) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n))%&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col() + 
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7))+
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = &quot;Differences in phenom ratings between anxiety and control group&quot;) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
+<p><img src="figure/coding6.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="does-it-make-a-difference-whether-they-were-asked-to-rememberimagine-positive-negative-or-neutral-events" class="section level3">
+<h3>Does it make a difference whether they were asked to remember/imagine positive, negative or neutral events?</h3>
+<p>Within groups? Not really</p>
+<p><strong>Anxiety group</strong></p>
+<pre class="r"><code>average_phenom %&gt;%
+  filter(group == &quot;ANX&quot;) %&gt;%
+  group_by(valence, rating_type) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n))%&gt;%
+  ggplot(aes(x = valence, y = mean, fill = valence)) +
+  geom_col() + 
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = valence, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7))+
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = &quot;Phenom ratings in anxiety group by valence&quot;) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;valence&#39; (override with `.groups` argument)</code></pre>
+<p><img src="figure/coding6.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><strong>Control group</strong></p>
+<pre class="r"><code>average_phenom %&gt;%
+  filter(group == &quot;CON&quot;) %&gt;%
+  group_by(valence, rating_type) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n))%&gt;%
+  ggplot(aes(x = valence, y = mean, fill = valence)) +
+  geom_col() + 
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = valence, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7))+
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = &quot;Phenom ratings in control group by valence&quot;) +
+  scale_fill_brewer(palette=&quot;Pastel1&quot;)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;valence&#39; (override with `.groups` argument)</code></pre>
+<p><img src="figure/coding6.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="does-it-make-a-difference-whether-they-were-asked-to-rememberimagine-future-or-past-events" class="section level3">
+<h3>Does it make a difference whether they were asked to remember/imagine future or past events?</h3>
+<p>Yes - both groups seem to rate past events as more coherent, important, and vivid, compared to future events.</p>
+<p><strong>Anxiety group</strong></p>
+<pre class="r"><code>average_phenom %&gt;%
+  filter(group == &quot;ANX&quot;) %&gt;%
+  group_by(direction, rating_type) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n))%&gt;%
+  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  geom_col() + 
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7))+
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = &quot;Phenom ratings in anxiety group by direction&quot;) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;direction&#39; (override with `.groups` argument)</code></pre>
+<p><img src="figure/coding6.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><strong>Control group</strong></p>
+<pre class="r"><code>average_phenom %&gt;%
+  filter(group == &quot;CON&quot;) %&gt;%
+  group_by(direction, rating_type) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n))%&gt;%
+  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  geom_col() + 
+  facet_wrap(~ rating_type) + 
+  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7))+
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = &quot;Phenom ratings in control group by direction&quot;) + 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;direction&#39; (override with `.groups` argument)</code></pre>
+<p><img src="figure/coding6.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="do-pp-with-anxiety-rate-future-events-as-more-important" class="section level3">
+<h3>Do pp with anxiety rate future events as more important?</h3>
+<p>Yes</p>
+<pre class="r"><code>average_phenom %&gt;%
+filter(rating_type == &quot;impt&quot;) %&gt;% 
+  group_by(direction, group) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ direction) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
+  labs(title = &quot;Importance of future and past events by group&quot;) +
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) + 
+  easy_remove_legend()</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;direction&#39; (override with `.groups` argument)</code></pre>
+<p><img src="figure/coding6.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="are-pp-with-anxiety-more-likely-to-see-future-events-from-a-fly-on-the-wall-perspective" class="section level3">
+<h3>Are pp with anxiety more likely to see future events from a fly on the wall perspective?</h3>
+<pre class="r"><code>average_phenom %&gt;%
+filter(rating_type == &quot;ratio&quot;) %&gt;% 
+  group_by(direction, group) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ direction) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
+  labs(title = &quot;Ratio of events seen through field? perspective by direction and group&quot;) +
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) + 
+  easy_remove_legend()</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;direction&#39; (override with `.groups` argument)</code></pre>
+<p><img src="figure/coding6.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="do-pp-with-anxiety-see-negative-events-more-vividly" class="section level3">
+<h3>Do pp with anxiety see negative events more vividly?</h3>
+<p>No - anxiety group only seems to see neutral events more vividly than controls - and specifically past neutral events</p>
+<pre class="r"><code>p1 &lt;- average_phenom %&gt;%
+filter(rating_type == &quot;vivid&quot;) %&gt;% 
+  group_by(group, valence) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = &quot;Vividness ratings by \nvalence and group&quot;) +
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) + 
+  easy_remove_legend()</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p2 &lt;- average_phenom %&gt;%
+filter(rating_type == &quot;vivid&quot;) %&gt;% 
+  group_by(direction, group, valence) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ direction + valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = &quot;Vividness ratings by direction, \nvalence, and group&quot;) +
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;direction&#39;, &#39;group&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>  p1 + p2 </code></pre>
+<p><img src="figure/coding6.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="do-pp-with-anxiety-see-negative-events-more-coherently" class="section level3">
+<h3>Do pp with anxiety see negative events more coherently?</h3>
+<p>Anxiety group sees events of all valences more coherently. When direction is also taken into account, anxiety groups sees future neutral, future positive, past neutral and past positive events more coherently.</p>
+<pre class="r"><code>p3 &lt;- average_phenom %&gt;%
+filter(rating_type == &quot;coh&quot;) %&gt;% 
+  group_by(group, valence) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = &quot;Coherence ratings by \nvalence and group&quot;) +
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) + 
+  easy_remove_legend()</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p4 &lt;- average_phenom %&gt;%
+filter(rating_type == &quot;coh&quot;) %&gt;% 
+  group_by(direction, group, valence) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ direction + valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = &quot;Coherence ratings by direction, \nvalence, and group&quot;) +
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;direction&#39;, &#39;group&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>  p3 + p4 </code></pre>
+<p><img src="figure/coding6.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="do-pp-with-anxiety-pre-re--experience-negative-events-more" class="section level3">
+<h3>Do pp with anxiety pre-/re- experience negative events more?</h3>
+<p>Doesn’t seem to be any group differences by direction or valence</p>
+<pre class="r"><code>p5 &lt;- average_phenom %&gt;%
+filter(rating_type == &quot;prere&quot;) %&gt;% 
+  group_by(group, valence) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = &quot;Pre-/re-experiencing ratings \nby valence and group&quot;) +
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) + 
+  easy_remove_legend()</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p6 &lt;- average_phenom %&gt;%
+filter(rating_type == &quot;prere&quot;) %&gt;% 
+  group_by(direction, group) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ direction) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = &quot;Pre-/re-experiencing ratings by \ndirection and group&quot;) +
+  scale_fill_brewer(palette=&quot;Pastel1&quot;)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;direction&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p5 + p6 </code></pre>
+<p><img src="figure/coding6.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -692,45 +1282,43 @@ library(here)</code></pre>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.5.1 (2018-07-02)
-Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS Sierra 10.12.6
+<pre><code>R version 4.0.2 (2020-06-22)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19041)
 
 Matrix products: default
-BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 
 locale:
-[1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
+[1] LC_COLLATE=English_Australia.1252  LC_CTYPE=English_Australia.1252   
+[3] LC_MONETARY=English_Australia.1252 LC_NUMERIC=C                      
+[5] LC_TIME=English_Australia.1252    
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] here_0.1        forcats_0.5.0   stringr_1.4.0   dplyr_1.0.2    
- [5] purrr_0.3.4     readr_1.3.1     tidyr_1.1.0     tibble_3.0.4   
- [9] ggplot2_3.3.2   tidyverse_1.3.0 workflowr_1.6.2
+ [1] patchwork_1.0.1    papaja_0.1.0.9997  RColorBrewer_1.1-2 ggbeeswarm_0.6.0  
+ [5] ggeasy_0.1.2       here_0.1           forcats_0.5.0      stringr_1.4.0     
+ [9] dplyr_1.0.2        purrr_0.3.4        readr_1.3.1        tidyr_1.1.1       
+[13] tibble_3.0.3       ggplot2_3.3.2      tidyverse_1.3.0    workflowr_1.6.2   
 
 loaded via a namespace (and not attached):
- [1] tidyselect_1.1.0       xfun_0.18              haven_2.3.1           
- [4] colorspace_1.4-1       vctrs_0.3.4            generics_0.0.2        
- [7] htmltools_0.5.0        yaml_2.2.1             blob_1.2.1            
-[10] rlang_0.4.8            later_1.1.0.1          pillar_1.4.6          
-[13] withr_2.3.0            glue_1.4.2             DBI_1.0.0             
-[16] dbplyr_1.4.4           modelr_0.1.8           readxl_1.3.1          
-[19] lifecycle_0.2.0        munsell_0.5.0          gtable_0.3.0          
-[22] cellranger_1.1.0       rvest_0.3.6            evaluate_0.14         
-[25] knitr_1.23             httpuv_1.5.4           fansi_0.4.1           
-[28] broom_0.7.0            Rcpp_1.0.5             promises_1.1.1        
-[31] backports_1.1.10       scales_1.1.1           jsonlite_1.7.1        
-[34] fs_1.5.0               hms_0.5.3              digest_0.6.25         
-[37] stringi_1.5.3          rprojroot_1.3-2        grid_3.5.1            
-[40] cli_2.1.0              tools_3.5.1            magrittr_1.5          
-[43] crayon_1.3.4           whisker_0.4            pkgconfig_2.0.3       
-[46] ellipsis_0.3.1         xml2_1.3.2             reprex_0.3.0          
-[49] lubridate_1.7.4        assertthat_0.2.1       rmarkdown_1.15        
-[52] httr_1.4.1             rstudioapi_0.11.0-9000 R6_2.4.1              
-[55] git2r_0.27.1           compiler_3.5.1        </code></pre>
+ [1] Rcpp_1.0.5       lubridate_1.7.9  assertthat_0.2.1 rprojroot_1.3-2 
+ [5] digest_0.6.25    R6_2.4.1         cellranger_1.1.0 backports_1.1.7 
+ [9] reprex_0.3.0     evaluate_0.14    httr_1.4.2       pillar_1.4.6    
+[13] rlang_0.4.7      readxl_1.3.1     rstudioapi_0.11  whisker_0.4     
+[17] blob_1.2.1       rmarkdown_2.3    labeling_0.3     munsell_0.5.0   
+[21] broom_0.7.0.9001 compiler_4.0.2   httpuv_1.5.4     vipor_0.4.5     
+[25] modelr_0.1.8     xfun_0.16        pkgconfig_2.0.3  htmltools_0.5.0 
+[29] tidyselect_1.1.0 fansi_0.4.1      crayon_1.3.4     dbplyr_1.4.4    
+[33] withr_2.2.0      later_1.1.0.1    grid_4.0.2       jsonlite_1.7.0  
+[37] gtable_0.3.0     lifecycle_0.2.0  DBI_1.1.0        git2r_0.27.1    
+[41] magrittr_1.5     scales_1.1.1     cli_2.0.2        stringi_1.4.6   
+[45] farver_2.0.3     fs_1.5.0         promises_1.1.1   xml2_1.3.2      
+[49] ellipsis_0.3.1   generics_0.0.2   vctrs_0.3.2      tools_4.0.2     
+[53] glue_1.4.1       beeswarm_0.2.3   hms_0.5.3        yaml_2.2.1      
+[57] colorspace_1.4-1 rvest_0.3.6      knitr_1.29       haven_2.3.1     </code></pre>
+</div>
 </div>
 </div>
 
@@ -746,8 +1334,6 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
-
-
 
 
 </div>
@@ -798,7 +1384,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
