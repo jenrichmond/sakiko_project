@@ -1,0 +1,23 @@
+---
+title: "Week 8 Blog"
+author: "Sakiko Okayama"
+date: "07/11/2020"
+output: html_document
+---
+
+## MTT
+This week we read Miloyan et al.'s (2016) paper about the nature of episodic foresight in anxiety and how it is (or isn't) adaptive from an evolutionary perspective. People with clinical anxiety can predict future threats more readily than healthy adults. They also tend to overestimate the likelihood of threatening outcomes actually occurring, and overexaggerate the negative impact of such outcomes.  
+
+Anxious people's enhanced ability to imagine negative future events can be adaptive to some extent. By imagining future threats, we can take action to prevent negative outcomes. The unique advantage of mental time travel in humans is that we can pre-experience events over greater temporal distances than other animals. Imbuing simulations about the future with negative affect further motivates us to take action to manage threats. 
+
+However, it can also be maladaptive to have enhanced episodic foresight for threatening events. If we worry about future events that are outside our control or are unlikely to ever happen, ensuing costs to our mental health may overweigh any adaptive advantages. Somewhat counterintuitively, repeatedly simulating future threats may also cause us to make more short-sighted decisions. This is because we are motivated by reward as well as fear. If we perceive that the future is unlikely to be rewarding, we may make decisions that prioritise immediate rewards instead, which can be maladaptive. 
+
+This paper also made me realise that in anxiety, the specificity of episodic thinking is a characteristic that is quite distinct from other features of MTT. People with anxiety tend to have an enhanced ability to generate, anticipate, and expect negative future events. In contrast, anxious individuals have a diminished ability to think specifically about future events. I think this pattern hints at why it's so important to look at episodic specificity in anxiety. If we generate lots of negative future events but think about them in general terms, we can't take many concrete steps to prevent negative outcomes. This may in turn lead to a sense of hopelessness. Generalised thoughts about negative future events may also exacerbate anxious feelings. This is because general, broadly defined events are statistically more likely to occur than specific events. 
+
+Next week I'd like to read more about the adaptive implications of overgeneral thinking in anxiety because it will help me better justify the significance of our research. I also need to read more about the similarities between anxiety and depression to better justify why I'm using the depression literature to guide my rationale. 
+
+## R
+This week in coding, I learned how to merge dataframes vertically. While you use `merge()` to add new columns to a dataframe, you use `rbind(dataframeA, dataframeB)` to add new rows. To use `rbind()`, the dataframes you are combining must have the same variables. `rbind()` adds the second dataframe to the bottom of the first one, so you might also need to use `arrange()` to re-order the rows to your liking. 
+
+## Reference
+Miloyan, B., Bulley, A., & Suddendorf, T. (2016). Episodic foresight and anxiety: Proximate and ultimate perspectives. *British Journal of Clinical Psychology*, *55*(1), 4-22. https://doi.org/10.1111/bjc.12080 

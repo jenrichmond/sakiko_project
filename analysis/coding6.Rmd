@@ -1,7 +1,7 @@
 ---
 title: "Coding exercise 6: Phenomenological Ratings"
 author: "Sakiko Okayama"
-date: "30/10/2020"
+date: "7/11/2020"
 output: html_document
 ---
 
@@ -75,7 +75,40 @@ long_phenom <- filter_phenom %>%
     names_to = c("direction", "valence", "event", "rating_type"),
     values_to = "rating",
     names_sep = "_",
-    past_neutral_e1_vivid:future_positive_e2_temp)
+    past_neutral_e1_vivid:future_positive_e2_temp) %>%
+  filter(!rating_type %in% c("perspective1", "perspective2")) # get rid of these ratings as they are already captured by "perspective"
+```
+
+# rename "ratio" to show that it refers to perspective ratio
+
+```{r}
+rename_phenom <- long_phenom %>%
+  mutate(rating_type = recode(rating_type, "ratio" = "perspective"))
+```
+
+
+
+# average context and sense scores for each event
+```{r}
+average_phenom_context <- rename_phenom %>%
+  filter(rating_type %in% c("context1", "context2")) %>%
+  pivot_wider(names_from = rating_type, values_from = rating)%>%
+  mutate(context = (context1+context2)/2) %>%
+  pivot_longer(names_to = "rating_type", values_to = "rating", context1:context) %>%
+  filter(rating_type == "context")
+
+average_phenom_sense <- rename_phenom %>%
+  filter(rating_type %in% c("sense1", "sense2")) %>%
+  pivot_wider(names_from = rating_type, values_from = rating)%>%
+  mutate(sense = (sense1+sense2)/2) %>%
+  pivot_longer(names_to = "rating_type", values_to = "rating", sense1:sense) %>%
+  filter(rating_type == "sense")
+
+average_phenom_other <- rename_phenom %>%
+  filter(!rating_type %in% c("context1", "context2", "sense1", "sense2"))
+  
+average_phenom_combine <- rbind(average_phenom_context, average_phenom_sense, average_phenom_other) %>%
+  arrange(px_no, direction, valence, event)
 
 ```
 
@@ -84,7 +117,7 @@ long_phenom <- filter_phenom %>%
 each participant came up with two events for each condition, rating scores were averaged across those two events. 
 
 ```{r}
-average_phenom <- long_phenom %>%
+average_phenom_events <- average_phenom_combine %>%
   group_by(px_no, group, age, gender, direction, valence, rating_type) %>%
   summarise(average_rating = mean(rating))
 ```
@@ -95,7 +128,7 @@ Questions to answer...
 
 ### Do pp with anxiety rate their experience of remembering past events or imagining future events differently to controls?
 ```{r}
-average_phenom %>%
+average_phenom_events %>%
   group_by(group, rating_type) %>%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
             sd = sd(average_rating, na.rm = TRUE), 
@@ -118,7 +151,7 @@ Within groups? Not really
 
 **Anxiety group**
 ```{r}
-average_phenom %>%
+average_phenom_events %>%
   filter(group == "ANX") %>%
   group_by(valence, rating_type) %>%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -138,7 +171,7 @@ average_phenom %>%
 
 **Control group**
 ```{r}
-average_phenom %>%
+average_phenom_events %>%
   filter(group == "CON") %>%
   group_by(valence, rating_type) %>%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -157,11 +190,11 @@ average_phenom %>%
 ```
 
 ### Does it make a difference whether they were asked to remember/imagine future or past events? 
-Yes - both groups seem to rate past events as more coherent, important, and vivid, compared to future events.
+Yes - both groups seem to rate past events as more coherent, contextually detailed, important, and vivid, compared to future events.
 
 **Anxiety group**
 ```{r}
-average_phenom %>%
+average_phenom_events%>%
   filter(group == "ANX") %>%
   group_by(direction, rating_type) %>%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -181,7 +214,7 @@ average_phenom %>%
 
 **Control group**
 ```{r}
-average_phenom %>%
+average_phenom_events%>%
   filter(group == "CON") %>%
   group_by(direction, rating_type) %>%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -199,12 +232,10 @@ average_phenom %>%
   scale_fill_brewer(palette="Pastel1")
 ```
 
-
-
 ### Do pp with anxiety rate future events as more important?
 Yes 
 ```{r}
-average_phenom %>%
+average_phenom_events %>%
 filter(rating_type == "impt") %>% 
   group_by(direction, group) %>%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -224,11 +255,11 @@ filter(rating_type == "impt") %>%
   
 ```
 
-
 ### Are pp with anxiety more likely to see future events from a fly on the wall perspective?
+No - no group differences in ratio of events seen through field perspective
 ```{r}
-average_phenom %>%
-filter(rating_type == "ratio") %>% 
+average_phenom_events %>%
+filter(rating_type == "perspective") %>% 
   group_by(direction, group) %>%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
             sd = sd(average_rating, na.rm = TRUE), 
@@ -239,9 +270,9 @@ filter(rating_type == "ratio") %>%
   facet_wrap(~ direction) + 
   geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
   theme_apa() + 
-  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  scale_y_continuous(expand = c(0,0), limits = c(0, 3)) +
   scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
-  labs(title = "Ratio of events seen through field? perspective by direction and group") +
+  labs(title = "Ratio of events seen through field perspective by direction and group") +
   scale_fill_brewer(palette="Pastel1") + 
   easy_remove_legend()
 
@@ -250,7 +281,7 @@ filter(rating_type == "ratio") %>%
 ### Do pp with anxiety see negative events more vividly?
 No - anxiety group only seems to see neutral events more vividly than controls - and specifically past neutral events  
 ```{r}
-p1 <- average_phenom %>%
+p1 <- average_phenom_events %>%
 filter(rating_type == "vivid") %>% 
   group_by(group, valence) %>%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -269,7 +300,7 @@ filter(rating_type == "vivid") %>%
   easy_remove_legend()
   
   
-p2 <- average_phenom %>%
+p2 <- average_phenom_events %>%
 filter(rating_type == "vivid") %>% 
   group_by(direction, group, valence) %>%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -293,7 +324,7 @@ filter(rating_type == "vivid") %>%
 ### Do pp with anxiety see negative events more coherently?
 Anxiety group sees events of all valences more coherently. When direction is also taken into account, anxiety groups sees future neutral, future positive, past neutral and past positive events more coherently. 
 ```{r}
-p3 <- average_phenom %>%
+p3 <- average_phenom_events %>%
 filter(rating_type == "coh") %>% 
   group_by(group, valence) %>%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -312,7 +343,7 @@ filter(rating_type == "coh") %>%
   easy_remove_legend()
   
   
-p4 <- average_phenom %>%
+p4 <- average_phenom_events %>%
 filter(rating_type == "coh") %>% 
   group_by(direction, group, valence) %>%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -333,9 +364,9 @@ filter(rating_type == "coh") %>%
 ```
 
 ### Do pp with anxiety pre-/re- experience negative events more? 
-Doesn't seem to be any group differences by direction or valence 
+No - Doesn't seem to be any group differences by direction or valence 
 ```{r}
-p5 <- average_phenom %>%
+p5 <- average_phenom_events %>%
 filter(rating_type == "prere") %>% 
   group_by(group, valence) %>%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -354,7 +385,7 @@ filter(rating_type == "prere") %>%
   easy_remove_legend()
   
   
-p6 <- average_phenom %>%
+p6 <- average_phenom_events %>%
 filter(rating_type == "prere") %>% 
   group_by(direction, group) %>%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -368,9 +399,93 @@ filter(rating_type == "prere") %>%
   theme_apa() + 
   scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
   theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
-  labs(title = "Pre-/re-experiencing ratings by \ndirection and group") +
+  labs(title = "Pre-/re-experiencing ratings \nby direction and group") +
   scale_fill_brewer(palette="Pastel1")
 
 p5 + p6 
+```
+
+### Do pp with anxiety see events as having more sensory detail?
+No - Doesn't seem to be any group differences by direction or valence 
+```{r}
+p7 <- average_phenom_events %>%
+filter(rating_type == "sense") %>% 
+  group_by(group, valence) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Sensory detail ratings by \nvalence and group") +
+  scale_fill_brewer(palette="Pastel1") + 
+  easy_remove_legend()
+  
+  
+p8 <- average_phenom_events %>%
+filter(rating_type == "sense") %>% 
+  group_by(direction, group) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ direction) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Sensory detail ratings by \ndirection and group") +
+  scale_fill_brewer(palette="Pastel1")
+
+p7 + p8
+```
+
+### Do pp with anxiety see events as being more contextually detailed? 
+Yes, for neutral events. When direction is also considered, anxiety group sees future neutral but not past neutral events as being more contextually detailed. 
+```{r}
+p9 <- average_phenom_events %>%
+filter(rating_type == "context") %>% 
+  group_by(group, valence) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Contextual detail ratings by \nvalence and group") +
+  scale_fill_brewer(palette="Pastel1") + 
+  easy_remove_legend()
+  
+  
+p10 <- average_phenom_events %>%
+filter(rating_type == "context") %>% 
+  group_by(direction, group, valence) %>%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ direction + valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = "Contextual detail ratings by direction, \nvalence, and group") +
+  scale_fill_brewer(palette="Pastel1") 
+
+p9 + p10
 ```
 
