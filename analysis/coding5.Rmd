@@ -335,10 +335,10 @@ p6 <- total_specificity %>%
             sd = sd(total_specificity_code, na.rm = TRUE), 
             n = n(), 
             stderror = sd/sqrt(n)) %>%
-  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  ggplot(aes(x = group, y = mean, fill = group)) +
   geom_col(position = "dodge") + 
-  facet_wrap(~ group) +
-  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  facet_wrap(~ direction) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
   theme_apa() + 
   scale_y_continuous(expand = c(0,0), limits = c(0, 6))+
   scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
@@ -352,10 +352,10 @@ p7 <- proportion_details %>%
             sd = sd(proportion_details_average, na.rm = TRUE), 
             n = n(), 
             stderror = sd/sqrt(n)) %>%
-  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  ggplot(aes(x = group, y = mean, fill = group)) +
   geom_col(position = "dodge") + 
-  facet_wrap(~ group) +
-  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  facet_wrap(~ direction) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
   theme_apa() + 
   scale_y_continuous(expand = c(0,0), limits = c(0, 1))+
   scale_x_discrete(labels=c("ANX" = "anxiety", "CON" = "control")) + 
@@ -407,12 +407,52 @@ p9 <- total_specificity %>%
 p8 + p9
 
 ```
+## Same as above, but looking at group differences... 
+
+```{r}
+p10 <- total_specificity %>%
+  filter(direction == "future") %>% 
+  group_by(group, valence) %>%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ valence) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+ 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Mean specificity scores for future \nevents by group and valence") + 
+  easy_remove_legend() 
+
+
+p11 <- total_specificity %>%
+  filter(direction == "past") %>% 
+  group_by(group, valence) %>%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ valence) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+ 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Mean specificity scores for past \nevents by group and valence") + 
+  easy_remove_legend()
+
+p10 + p11
+```
 
 ## Patterns in direction and valence for proportion of internal details
 
 ```{r}
 
-p10 <- proportion_details %>%
+p12 <- proportion_details %>%
   filter(group == "ANX") %>% 
   group_by(valence, direction) %>%
   summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
@@ -429,7 +469,7 @@ p10 <- proportion_details %>%
   labs(title = "Mean proportion of internal details \nin anxiety group by direction and \nvalence") + 
   easy_remove_legend() 
 
-p11 <- proportion_details %>%
+p13 <- proportion_details %>%
   filter(group == "CON") %>% 
   group_by(valence, direction) %>%
   summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
@@ -446,7 +486,46 @@ p11 <- proportion_details %>%
   labs(title = "Mean proportion of internal details \nin control group by direction and \nvalence") + 
   easy_remove_legend() 
 
-p10 + p11
+p12 + p13
 
 ```
+## Same as above, but looking at group differences... 
 
+```{r}
+p14 <- proportion_details %>%
+  filter(direction == "future") %>% 
+  group_by(group, valence) %>%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ valence) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+ 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Mean proportion of internal \ndetails for future events by \ngroup and valence") + 
+  easy_remove_legend() 
+
+p15 <- proportion_details %>%
+  filter(direction == "past") %>% 
+  group_by(group, valence) %>%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %>%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = "dodge") + 
+  facet_wrap(~ valence) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+ 
+  scale_fill_brewer(palette="Pastel1") +
+  labs(title = "Mean proportion of internal \ndetails for past events by \ngroup and valence") + 
+  easy_remove_legend() 
+
+p14 + p15
+
+```

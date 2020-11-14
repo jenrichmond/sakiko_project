@@ -50,6 +50,8 @@ Welcome to Sakiko's research website. This is where she will work on R code and 
 
 [Week 8 blog post](8_blog.html)
 
+[Week 9 blog post](9_blog.html)
+
 # MTT project
 
 [Coding 5](coding5.html)

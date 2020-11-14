@@ -1,0 +1,22 @@
+---
+title: "Week 9 Blog"
+author: "Sakiko Okayama"
+date: "14/11/2020"
+output: html_document
+---
+
+## MTT
+This week we read Bulley et al.'s (2017) paper detailing the taxonomy of threat-related cognition, which comprises of semantic and episodic forms of both memory and prospection. This paper extended quite well on last week's Miloyan et al. (2016) paper. 
+
+One thing that the authors covered that wasn't in last week's paper was the role of memory in threat-related thinking. Memory is relevant to threat-related cognitions because our worries must necessarily be triggered by either an immediate environmental cue or information in long-term memory. Threat memory may also be adaptive. By looking to episodic memory when thinking about threats, we can consider what went wrong in the past and why, and how to prevent this from happening again. 
+
+As well as memory and prospection, the authors also distinguished semantic and episodic threat-related thinking. Semantic knowledge is abstract and primarily verbal, while episodic knowledge is concrete, specific, and primarily imagery-based. Imagery-based thinking tends to be imbued with more emotions than verbal thinking. For example, it is more emotionally confronting to vividly imagine being in a car crash than describing such an experience. Therefore, people with anxiety may prefer semantic  thinking to avoid the strong negative emotions that imagery-based episodic thinking may trigger. A prime example of this is the act of worrying, which the authors characterise as semantic threat prospection. 
+
+Last week I touched on the adaptive function of specific versus general thinking, but what about semantic versus episodic thinking? On one hand, semantic threat-related thinking has some adaptive functions. Semantic knowledge is organised into categories, so it can be accessed more rapidly than episodic knowledge. Further, because a salient event such as trauma is unlikely to reoccur, it may be adaptive to extract general semantic knowledge from such events to prepare for future threats. Conversely, when a threat relates to events that a person regularly experiences, it may also be adaptive to pull out general rules rather than specific episodic details to prepare for the future. 
+
+However, the fact that people with psychiatric disorders such as depression tend to prefer semantic over episodic thinking suggests that semantic thinking can be maladaptive. Semantic thinking could interfere with episodic processes. Episodic processes are important for simulating the particularities of past and future events. For example, episodic threat prospection allows us to predict our affect in a particular future scenario, which can in turn inform and motivate our actions. 
+
+Next week, I need to focus on refining the structure and ideas of my introduction. In particular, my opening paragraph needs a bit of work, so I will look at some examples of opening paragraphs for guidance. 
+
+## Reference
+Bulley, A., Henry, J. D., & Suddendorf, T. (2017). Thinking about threats: Memory and prospection in human threat management. *Consciousness and Cognition*, *49*, 53-69. https://doi.org/https://doi.org/10.1016/j.concog.2017.01.005 
