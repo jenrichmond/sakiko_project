@@ -412,7 +412,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-10-25
+<strong>Last updated:</strong> 2020-11-15
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -503,16 +503,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree20beb995d867f0134d98cf0b67e0fc27b9749221targetblank20beb99a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/20beb995d867f0134d98cf0b67e0fc27b9749221" target="_blank">20beb99</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreea0ea34b4f0f628a18427ae833dcd45656a9d28cdtargetblanka0ea34ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/a0ea34b4f0f628a18427ae833dcd45656a9d28cd" target="_blank">a0ea34b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttree20beb995d867f0134d98cf0b67e0fc27b9749221targetblank20beb99a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreea0ea34b4f0f628a18427ae833dcd45656a9d28cdtargetblanka0ea34ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/20beb995d867f0134d98cf0b67e0fc27b9749221" target="_blank">20beb99</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/a0ea34b4f0f628a18427ae833dcd45656a9d28cd" target="_blank">a0ea34b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -559,6 +559,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/a0ea34b4f0f628a18427ae833dcd45656a9d28cd/analysis/coding5.Rmd" target="_blank">a0ea34b</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-11-15
+</td>
+<td>
+adding blog 9 and updated coding 5&amp;6
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/89dcd31fe2fd34102cadfc1a32966d0a9a1d7f96/docs/coding5.html" target="_blank">89dcd31</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-10-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1010,10 +1044,10 @@ p3 &lt;- number_details_average %&gt;%
             sd = sd(total_specificity_code, na.rm = TRUE), 
             n = n(), 
             stderror = sd/sqrt(n)) %&gt;%
-  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  ggplot(aes(x = group, y = mean, fill = group)) +
   geom_col(position = &quot;dodge&quot;) + 
-  facet_wrap(~ group) +
-  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  facet_wrap(~ direction) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
   theme_apa() + 
   scale_y_continuous(expand = c(0,0), limits = c(0, 6))+
   scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
@@ -1027,10 +1061,10 @@ p3 &lt;- number_details_average %&gt;%
             sd = sd(proportion_details_average, na.rm = TRUE), 
             n = n(), 
             stderror = sd/sqrt(n)) %&gt;%
-  ggplot(aes(x = direction, y = mean, fill = direction)) +
+  ggplot(aes(x = group, y = mean, fill = group)) +
   geom_col(position = &quot;dodge&quot;) + 
-  facet_wrap(~ group) +
-  geom_errorbar(aes(x = direction, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  facet_wrap(~ direction) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
   theme_apa() + 
   scale_y_continuous(expand = c(0,0), limits = c(0, 1))+
   scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
@@ -1078,11 +1112,47 @@ p3 &lt;- number_details_average %&gt;%
   easy_remove_legend() </code></pre>
 <pre><code>`summarise()` regrouping output by &#39;valence&#39; (override with `.groups` argument)</code></pre>
 <pre class="r"><code>p8 + p9</code></pre>
-<p><img src="figure/coding5.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /> ## Same as above, but looking at group differences…</p>
+<pre class="r"><code>p10 &lt;- total_specificity %&gt;%
+  filter(direction == &quot;future&quot;) %&gt;% 
+  group_by(group, valence) %&gt;%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ valence) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+ 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Mean specificity scores for future \nevents by group and valence&quot;) + 
+  easy_remove_legend() </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p11 &lt;- total_specificity %&gt;%
+  filter(direction == &quot;past&quot;) %&gt;% 
+  group_by(group, valence) %&gt;%
+  summarise(mean = mean(total_specificity_code, na.rm = TRUE), 
+            sd = sd(total_specificity_code, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ valence) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 6))+ 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Mean specificity scores for past \nevents by group and valence&quot;) + 
+  easy_remove_legend()</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p10 + p11</code></pre>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="patterns-in-direction-and-valence-for-proportion-of-internal-details" class="section level2">
 <h2>Patterns in direction and valence for proportion of internal details</h2>
-<pre class="r"><code>p10 &lt;- proportion_details %&gt;%
+<pre class="r"><code>p12 &lt;- proportion_details %&gt;%
   filter(group == &quot;ANX&quot;) %&gt;% 
   group_by(valence, direction) %&gt;%
   summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
@@ -1099,7 +1169,7 @@ p3 &lt;- number_details_average %&gt;%
   labs(title = &quot;Mean proportion of internal details \nin anxiety group by direction and \nvalence&quot;) + 
   easy_remove_legend() </code></pre>
 <pre><code>`summarise()` regrouping output by &#39;valence&#39; (override with `.groups` argument)</code></pre>
-<pre class="r"><code>p11 &lt;- proportion_details %&gt;%
+<pre class="r"><code>p13 &lt;- proportion_details %&gt;%
   filter(group == &quot;CON&quot;) %&gt;% 
   group_by(valence, direction) %&gt;%
   summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
@@ -1116,8 +1186,44 @@ p3 &lt;- number_details_average %&gt;%
   labs(title = &quot;Mean proportion of internal details \nin control group by direction and \nvalence&quot;) + 
   easy_remove_legend() </code></pre>
 <pre><code>`summarise()` regrouping output by &#39;valence&#39; (override with `.groups` argument)</code></pre>
-<pre class="r"><code>p10 + p11</code></pre>
-<p><img src="figure/coding5.Rmd/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>p12 + p13</code></pre>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /> ## Same as above, but looking at group differences…</p>
+<pre class="r"><code>p14 &lt;- proportion_details %&gt;%
+  filter(direction == &quot;future&quot;) %&gt;% 
+  group_by(group, valence) %&gt;%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ valence) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+ 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Mean proportion of internal \ndetails for future events by \ngroup and valence&quot;) + 
+  easy_remove_legend() </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p15 &lt;- proportion_details %&gt;%
+  filter(direction == &quot;past&quot;) %&gt;% 
+  group_by(group, valence) %&gt;%
+  summarise(mean = mean(proportion_details_average, na.rm = TRUE), 
+            sd = sd(proportion_details_average, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ valence) +
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) + 
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 1))+ 
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) +
+  labs(title = &quot;Mean proportion of internal \ndetails for past events by \ngroup and valence&quot;) + 
+  easy_remove_legend() </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p14 + p15</code></pre>
+<p><img src="figure/coding5.Rmd/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">

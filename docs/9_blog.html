@@ -11,9 +11,8 @@
 
 <meta name="author" content="Sakiko Okayama" />
 
-<meta name="date" content="2020-07-11" />
 
-<title>Week 8 Blog</title>
+<title>Week 9 Blog</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -386,9 +385,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Week 8 Blog</h1>
+<h1 class="title toc-ignore">Week 9 Blog</h1>
 <h4 class="author">Sakiko Okayama</h4>
-<h4 class="date">07/11/2020</h4>
+<h4 class="date">14/11/2020</h4>
 
 </div>
 
@@ -476,7 +475,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/8_blog.Rmd</code>) and HTML (<code>docs/8_blog.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/9_blog.Rmd</code>) and HTML (<code>docs/9_blog.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -505,7 +504,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/jenrichmond/sakiko_project/blob/a0ea34b4f0f628a18427ae833dcd45656a9d28cd/analysis/8_blog.Rmd" target="_blank">a0ea34b</a>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/a0ea34b4f0f628a18427ae833dcd45656a9d28cd/analysis/9_blog.Rmd" target="_blank">a0ea34b</a>
 </td>
 <td>
 Sakiko Okayama
@@ -517,40 +516,6 @@ Sakiko Okayama
 adding blog 9 and updated coding 5&amp;6
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/6a7ed28e62cb7d7e11f17b454da03925ca233a67/docs/8_blog.html" target="_blank">6a7ed28</a>
-</td>
-<td>
-Sakiko Okayama
-</td>
-<td>
-2020-11-08
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jenrichmond/sakiko_project/blob/d4254e3c9a61564d6f8b2c60c8ec135bb5a54ef9/analysis/8_blog.Rmd" target="_blank">d4254e3</a>
-</td>
-<td>
-Sakiko Okayama
-</td>
-<td>
-2020-11-08
-</td>
-<td>
-Week 8 blog and coding6 complete
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -560,19 +525,16 @@ Week 8 blog and coding6 complete
 </div>
 <div id="mtt" class="section level2">
 <h2>MTT</h2>
-<p>This week we read Miloyan et al.’s (2016) paper about the nature of episodic foresight in anxiety and how it is (or isn’t) adaptive from an evolutionary perspective. People with clinical anxiety can predict future threats more readily than healthy adults. They also tend to overestimate the likelihood of threatening outcomes actually occurring, and overexaggerate the negative impact of such outcomes.</p>
-<p>Anxious people’s enhanced ability to imagine negative future events can be adaptive to some extent. By imagining future threats, we can take action to prevent negative outcomes. The unique advantage of mental time travel in humans is that we can pre-experience events over greater temporal distances than other animals. Imbuing simulations about the future with negative affect further motivates us to take action to manage threats.</p>
-<p>However, it can also be maladaptive to have enhanced episodic foresight for threatening events. If we worry about future events that are outside our control or are unlikely to ever happen, ensuing costs to our mental health may overweigh any adaptive advantages. Somewhat counterintuitively, repeatedly simulating future threats may also cause us to make more short-sighted decisions. This is because we are motivated by reward as well as fear. If we perceive that the future is unlikely to be rewarding, we may make decisions that prioritise immediate rewards instead, which can be maladaptive.</p>
-<p>This paper also made me realise that in anxiety, the specificity of episodic thinking is a characteristic that is quite distinct from other features of MTT. People with anxiety tend to have an enhanced ability to generate, anticipate, and expect negative future events. In contrast, anxious individuals have a diminished ability to think specifically about future events. I think this pattern hints at why it’s so important to look at episodic specificity in anxiety. If we generate lots of negative future events but think about them in general terms, we can’t take many concrete steps to prevent negative outcomes. This may in turn lead to a sense of hopelessness. Generalised thoughts about negative future events may also exacerbate anxious feelings. This is because general, broadly defined events are more likely to occur than specific events.</p>
-<p>Next week I’d like to read more about the adaptive implications of overgeneral thinking in anxiety because it will help me better justify the significance of our research. I also need to read more about the similarities between anxiety and depression to better justify why I’m using the depression literature to guide my rationale.</p>
-</div>
-<div id="r" class="section level2">
-<h2>R</h2>
-<p>This week in coding, I learned how to merge dataframes vertically. While you use <code>merge()</code> to add new columns to a dataframe, you use <code>rbind(dataframeA, dataframeB)</code> to add new rows. To use <code>rbind()</code>, the dataframes you are combining must have the same variables. <code>rbind()</code> adds the second dataframe to the bottom of the first one, so you might also need to use <code>arrange()</code> to re-order the rows to your liking.</p>
+<p>This week we read Bulley et al.’s (2017) paper detailing the taxonomy of threat-related cognition, which comprises of semantic and episodic forms of both memory and prospection. This paper extended quite well on last week’s Miloyan et al. (2016) paper.</p>
+<p>One thing that the authors covered that wasn’t in last week’s paper was the role of memory in threat-related thinking. Memory is relevant to threat-related cognitions because our worries must necessarily be triggered by either an immediate environmental cue or information in long-term memory. Threat memory may also be adaptive. By looking to episodic memory when thinking about threats, we can consider what went wrong in the past and why, and how to prevent this from happening again.</p>
+<p>As well as memory and prospection, the authors also distinguished semantic and episodic threat-related thinking. Semantic knowledge is abstract and primarily verbal, while episodic knowledge is concrete, specific, and primarily imagery-based. Imagery-based thinking tends to be imbued with more emotions than verbal thinking. For example, it is more emotionally confronting to vividly imagine being in a car crash than describing such an experience. Therefore, people with anxiety may prefer semantic thinking to avoid the strong negative emotions that imagery-based episodic thinking may trigger. A prime example of this is the act of worrying, which the authors characterise as semantic threat prospection.</p>
+<p>Last week I touched on the adaptive function of specific versus general thinking, but what about semantic versus episodic thinking? On one hand, semantic threat-related thinking has some adaptive functions. Semantic knowledge is organised into categories, so it can be accessed more rapidly than episodic knowledge. Further, because a salient event such as trauma is unlikely to reoccur, it may be adaptive to extract general semantic knowledge from such events to prepare for future threats. Conversely, when a threat relates to events that a person regularly experiences, it may also be adaptive to pull out general rules rather than specific episodic details to prepare for the future.</p>
+<p>However, the fact that people with psychiatric disorders such as depression tend to prefer semantic over episodic thinking suggests that semantic thinking can be maladaptive. Semantic thinking could interfere with episodic processes. Episodic processes are important for simulating the particularities of past and future events. For example, episodic threat prospection allows us to predict our affect in a particular future scenario, which can in turn inform and motivate our actions.</p>
+<p>Next week, I need to focus on refining the structure and ideas of my introduction. In particular, my opening paragraph needs a bit of work, so I will look at some examples of opening paragraphs for guidance.</p>
 </div>
 <div id="reference" class="section level2">
 <h2>Reference</h2>
-<p>Miloyan, B., Bulley, A., &amp; Suddendorf, T. (2016). Episodic foresight and anxiety: Proximate and ultimate perspectives. <em>British Journal of Clinical Psychology</em>, <em>55</em>(1), 4-22. <a href="https://doi.org/10.1111/bjc.12080" class="uri">https://doi.org/10.1111/bjc.12080</a></p>
+<p>Bulley, A., Henry, J. D., &amp; Suddendorf, T. (2017). Thinking about threats: Memory and prospection in human threat management. <em>Consciousness and Cognition</em>, <em>49</em>, 53-69. <a href="https://doi.org/https://doi.org/10.1016/j.concog.2017.01.005" class="uri">https://doi.org/https://doi.org/10.1016/j.concog.2017.01.005</a></p>
 </div>
 
 

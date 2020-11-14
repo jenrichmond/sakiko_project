@@ -412,7 +412,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-11-08
+<strong>Last updated:</strong> 2020-11-15
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -503,16 +503,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreed4254e3c9a61564d6f8b2c60c8ec135bb5a54ef9targetblankd4254e3a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/d4254e3c9a61564d6f8b2c60c8ec135bb5a54ef9" target="_blank">d4254e3</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreea0ea34b4f0f628a18427ae833dcd45656a9d28cdtargetblanka0ea34ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/sakiko_project/tree/a0ea34b4f0f628a18427ae833dcd45656a9d28cd" target="_blank">a0ea34b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreed4254e3c9a61564d6f8b2c60c8ec135bb5a54ef9targetblankd4254e3a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondsakikoprojecttreea0ea34b4f0f628a18427ae833dcd45656a9d28cdtargetblanka0ea34ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/d4254e3c9a61564d6f8b2c60c8ec135bb5a54ef9" target="_blank">d4254e3</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/sakiko_project/tree/a0ea34b4f0f628a18427ae833dcd45656a9d28cd" target="_blank">a0ea34b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -559,6 +559,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/sakiko_project/blob/a0ea34b4f0f628a18427ae833dcd45656a9d28cd/analysis/coding6.Rmd" target="_blank">a0ea34b</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-11-15
+</td>
+<td>
+adding blog 9 and updated coding 5&amp;6
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/sakiko_project/6a7ed28e62cb7d7e11f17b454da03925ca233a67/docs/coding6.html" target="_blank">6a7ed28</a>
+</td>
+<td>
+Sakiko Okayama
+</td>
+<td>
+2020-11-08
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1172,8 +1206,8 @@ average_phenom_combine &lt;- rbind(average_phenom_context, average_phenom_sense,
 </div>
 <div id="do-pp-with-anxiety-rate-future-events-as-more-important" class="section level3">
 <h3>Do pp with anxiety rate future events as more important?</h3>
-<p>Yes</p>
-<pre class="r"><code>average_phenom_events %&gt;%
+<p>Yes, specifically future neutral events.</p>
+<pre class="r"><code>p1 &lt;- average_phenom_events %&gt;%
 filter(rating_type == &quot;impt&quot;) %&gt;% 
   group_by(direction, group) %&gt;%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -1191,6 +1225,24 @@ filter(rating_type == &quot;impt&quot;) %&gt;%
   scale_fill_brewer(palette=&quot;Pastel1&quot;) + 
   easy_remove_legend()</code></pre>
 <pre><code>`summarise()` regrouping output by &#39;direction&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p2 &lt;- average_phenom_events %&gt;%
+filter(rating_type == &quot;impt&quot;) %&gt;% 
+  group_by(direction, group, valence) %&gt;%
+  summarise(mean = mean(average_rating, na.rm = TRUE), 
+            sd = sd(average_rating, na.rm = TRUE), 
+            n = n(), 
+            stderror = sd/sqrt(n)) %&gt;%
+  ggplot(aes(x = group, y = mean, fill = group)) +
+  geom_col(position = &quot;dodge&quot;) + 
+  facet_wrap(~ direction + valence) + 
+  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
+  theme_apa() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = &quot;Importance ratings by direction, \nvalence, and group&quot;) +
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;direction&#39;, &#39;group&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>p1 + p2</code></pre>
 <p><img src="figure/coding6.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="are-pp-with-anxiety-more-likely-to-see-future-events-from-a-fly-on-the-wall-perspective" class="section level3">
@@ -1198,28 +1250,27 @@ filter(rating_type == &quot;impt&quot;) %&gt;%
 <p>No - no group differences in ratio of events seen through field perspective</p>
 <pre class="r"><code>average_phenom_events %&gt;%
 filter(rating_type == &quot;perspective&quot;) %&gt;% 
-  group_by(direction, group) %&gt;%
+  group_by(direction, group, valence) %&gt;%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
             sd = sd(average_rating, na.rm = TRUE), 
             n = n(), 
             stderror = sd/sqrt(n)) %&gt;%
   ggplot(aes(x = group, y = mean, fill = group)) +
   geom_col(position = &quot;dodge&quot;) + 
-  facet_wrap(~ direction) + 
+  facet_wrap(~ direction + valence) + 
   geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
   theme_apa() + 
-  scale_y_continuous(expand = c(0,0), limits = c(0, 3)) +
-  scale_x_discrete(labels=c(&quot;ANX&quot; = &quot;anxiety&quot;, &quot;CON&quot; = &quot;control&quot;)) + 
-  labs(title = &quot;Ratio of events seen through field perspective by direction and group&quot;) +
-  scale_fill_brewer(palette=&quot;Pastel1&quot;) + 
-  easy_remove_legend()</code></pre>
-<pre><code>`summarise()` regrouping output by &#39;direction&#39; (override with `.groups` argument)</code></pre>
+  scale_y_continuous(expand = c(0,0)) +
+  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
+  labs(title = &quot;Ratio of events seen through field perspective by \ndirection, valence, and group&quot;) +
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;direction&#39;, &#39;group&#39; (override with `.groups` argument)</code></pre>
 <p><img src="figure/coding6.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="do-pp-with-anxiety-see-negative-events-more-vividly" class="section level3">
 <h3>Do pp with anxiety see negative events more vividly?</h3>
 <p>No - anxiety group only seems to see neutral events more vividly than controls - and specifically past neutral events</p>
-<pre class="r"><code>p1 &lt;- average_phenom_events %&gt;%
+<pre class="r"><code>p3 &lt;- average_phenom_events %&gt;%
 filter(rating_type == &quot;vivid&quot;) %&gt;% 
   group_by(group, valence) %&gt;%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -1237,7 +1288,7 @@ filter(rating_type == &quot;vivid&quot;) %&gt;%
   scale_fill_brewer(palette=&quot;Pastel1&quot;) + 
   easy_remove_legend()</code></pre>
 <pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
-<pre class="r"><code>p2 &lt;- average_phenom_events %&gt;%
+<pre class="r"><code>p4 &lt;- average_phenom_events %&gt;%
 filter(rating_type == &quot;vivid&quot;) %&gt;% 
   group_by(direction, group, valence) %&gt;%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -1254,13 +1305,13 @@ filter(rating_type == &quot;vivid&quot;) %&gt;%
   labs(title = &quot;Vividness ratings by direction, \nvalence, and group&quot;) +
   scale_fill_brewer(palette=&quot;Pastel1&quot;) </code></pre>
 <pre><code>`summarise()` regrouping output by &#39;direction&#39;, &#39;group&#39; (override with `.groups` argument)</code></pre>
-<pre class="r"><code>  p1 + p2 </code></pre>
+<pre class="r"><code> p3 + p4 </code></pre>
 <p><img src="figure/coding6.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="do-pp-with-anxiety-see-negative-events-more-coherently" class="section level3">
 <h3>Do pp with anxiety see negative events more coherently?</h3>
 <p>Anxiety group sees events of all valences more coherently. When direction is also taken into account, anxiety groups sees future neutral, future positive, past neutral and past positive events more coherently.</p>
-<pre class="r"><code>p3 &lt;- average_phenom_events %&gt;%
+<pre class="r"><code>p5 &lt;- average_phenom_events %&gt;%
 filter(rating_type == &quot;coh&quot;) %&gt;% 
   group_by(group, valence) %&gt;%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -1278,7 +1329,7 @@ filter(rating_type == &quot;coh&quot;) %&gt;%
   scale_fill_brewer(palette=&quot;Pastel1&quot;) + 
   easy_remove_legend()</code></pre>
 <pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
-<pre class="r"><code>p4 &lt;- average_phenom_events %&gt;%
+<pre class="r"><code>p6 &lt;- average_phenom_events %&gt;%
 filter(rating_type == &quot;coh&quot;) %&gt;% 
   group_by(direction, group, valence) %&gt;%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -1295,95 +1346,57 @@ filter(rating_type == &quot;coh&quot;) %&gt;%
   labs(title = &quot;Coherence ratings by direction, \nvalence, and group&quot;) +
   scale_fill_brewer(palette=&quot;Pastel1&quot;) </code></pre>
 <pre><code>`summarise()` regrouping output by &#39;direction&#39;, &#39;group&#39; (override with `.groups` argument)</code></pre>
-<pre class="r"><code>  p3 + p4 </code></pre>
+<pre class="r"><code>p5 + p6 </code></pre>
 <p><img src="figure/coding6.Rmd/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="do-pp-with-anxiety-pre-re--experience-negative-events-more" class="section level3">
 <h3>Do pp with anxiety pre-/re- experience negative events more?</h3>
 <p>No - Doesn’t seem to be any group differences by direction or valence</p>
-<pre class="r"><code>p5 &lt;- average_phenom_events %&gt;%
+<pre class="r"><code>average_phenom_events %&gt;%
 filter(rating_type == &quot;prere&quot;) %&gt;% 
-  group_by(group, valence) %&gt;%
+  group_by(direction, group, valence) %&gt;%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
             sd = sd(average_rating, na.rm = TRUE), 
             n = n(), 
             stderror = sd/sqrt(n)) %&gt;%
   ggplot(aes(x = group, y = mean, fill = group)) +
   geom_col(position = &quot;dodge&quot;) + 
-  facet_wrap(~ valence) + 
+  facet_wrap(~ direction + valence) + 
   geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
   theme_apa() + 
   scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
   theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
-  labs(title = &quot;Pre-/re-experiencing ratings \nby valence and group&quot;) +
-  scale_fill_brewer(palette=&quot;Pastel1&quot;) + 
-  easy_remove_legend()</code></pre>
-<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
-<pre class="r"><code>p6 &lt;- average_phenom_events %&gt;%
-filter(rating_type == &quot;prere&quot;) %&gt;% 
-  group_by(direction, group) %&gt;%
-  summarise(mean = mean(average_rating, na.rm = TRUE), 
-            sd = sd(average_rating, na.rm = TRUE), 
-            n = n(), 
-            stderror = sd/sqrt(n)) %&gt;%
-  ggplot(aes(x = group, y = mean, fill = group)) +
-  geom_col(position = &quot;dodge&quot;) + 
-  facet_wrap(~ direction) + 
-  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
-  theme_apa() + 
-  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
-  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
-  labs(title = &quot;Pre-/re-experiencing ratings \nby direction and group&quot;) +
-  scale_fill_brewer(palette=&quot;Pastel1&quot;)</code></pre>
-<pre><code>`summarise()` regrouping output by &#39;direction&#39; (override with `.groups` argument)</code></pre>
-<pre class="r"><code>p5 + p6 </code></pre>
+  labs(title = &quot;Pre-/re-experiencing ratings by direction, \nvalence, and group&quot;) +
+  scale_fill_brewer(palette=&quot;Pastel1&quot;) </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;direction&#39;, &#39;group&#39; (override with `.groups` argument)</code></pre>
 <p><img src="figure/coding6.Rmd/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="do-pp-with-anxiety-see-events-as-having-more-sensory-detail" class="section level3">
 <h3>Do pp with anxiety see events as having more sensory detail?</h3>
 <p>No - Doesn’t seem to be any group differences by direction or valence</p>
-<pre class="r"><code>p7 &lt;- average_phenom_events %&gt;%
+<pre class="r"><code>average_phenom_events %&gt;%
 filter(rating_type == &quot;sense&quot;) %&gt;% 
-  group_by(group, valence) %&gt;%
+  group_by(direction, group, valence) %&gt;%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
             sd = sd(average_rating, na.rm = TRUE), 
             n = n(), 
             stderror = sd/sqrt(n)) %&gt;%
   ggplot(aes(x = group, y = mean, fill = group)) +
   geom_col(position = &quot;dodge&quot;) + 
-  facet_wrap(~ valence) + 
+  facet_wrap(~ direction + valence) + 
   geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
   theme_apa() + 
   scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
   theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
-  labs(title = &quot;Sensory detail ratings by \nvalence and group&quot;) +
-  scale_fill_brewer(palette=&quot;Pastel1&quot;) + 
-  easy_remove_legend()</code></pre>
-<pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
-<pre class="r"><code>p8 &lt;- average_phenom_events %&gt;%
-filter(rating_type == &quot;sense&quot;) %&gt;% 
-  group_by(direction, group) %&gt;%
-  summarise(mean = mean(average_rating, na.rm = TRUE), 
-            sd = sd(average_rating, na.rm = TRUE), 
-            n = n(), 
-            stderror = sd/sqrt(n)) %&gt;%
-  ggplot(aes(x = group, y = mean, fill = group)) +
-  geom_col(position = &quot;dodge&quot;) + 
-  facet_wrap(~ direction) + 
-  geom_errorbar(aes(x = group, ymin = mean-stderror, ymax = mean+stderror, width=.2)) +
-  theme_apa() + 
-  scale_y_continuous(expand = c(0,0), limits = c(0, 7)) +
-  theme(axis.text.x = element_blank(),axis.ticks = element_blank()) + 
-  labs(title = &quot;Sensory detail ratings by \ndirection and group&quot;) +
+  labs(title = &quot;Sensory detail ratings by direction, \nvalence, and group&quot;) +
   scale_fill_brewer(palette=&quot;Pastel1&quot;)</code></pre>
-<pre><code>`summarise()` regrouping output by &#39;direction&#39; (override with `.groups` argument)</code></pre>
-<pre class="r"><code>p7 + p8</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;direction&#39;, &#39;group&#39; (override with `.groups` argument)</code></pre>
 <p><img src="figure/coding6.Rmd/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="do-pp-with-anxiety-see-events-as-being-more-contextually-detailed" class="section level3">
 <h3>Do pp with anxiety see events as being more contextually detailed?</h3>
 <p>Yes, for neutral events. When direction is also considered, anxiety group sees future neutral but not past neutral events as being more contextually detailed.</p>
-<pre class="r"><code>p9 &lt;- average_phenom_events %&gt;%
+<pre class="r"><code>p7 &lt;- average_phenom_events %&gt;%
 filter(rating_type == &quot;context&quot;) %&gt;% 
   group_by(group, valence) %&gt;%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -1401,7 +1414,7 @@ filter(rating_type == &quot;context&quot;) %&gt;%
   scale_fill_brewer(palette=&quot;Pastel1&quot;) + 
   easy_remove_legend()</code></pre>
 <pre><code>`summarise()` regrouping output by &#39;group&#39; (override with `.groups` argument)</code></pre>
-<pre class="r"><code>p10 &lt;- average_phenom_events %&gt;%
+<pre class="r"><code>p8 &lt;- average_phenom_events %&gt;%
 filter(rating_type == &quot;context&quot;) %&gt;% 
   group_by(direction, group, valence) %&gt;%
   summarise(mean = mean(average_rating, na.rm = TRUE), 
@@ -1418,7 +1431,7 @@ filter(rating_type == &quot;context&quot;) %&gt;%
   labs(title = &quot;Contextual detail ratings by direction, \nvalence, and group&quot;) +
   scale_fill_brewer(palette=&quot;Pastel1&quot;) </code></pre>
 <pre><code>`summarise()` regrouping output by &#39;direction&#39;, &#39;group&#39; (override with `.groups` argument)</code></pre>
-<pre class="r"><code>p9 + p10</code></pre>
+<pre class="r"><code>p7 + p8</code></pre>
 <p><img src="figure/coding6.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
