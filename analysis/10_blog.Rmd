@@ -1,0 +1,22 @@
+---
+title: "Week 10 Blog"
+author: "Sakiko Okayama"
+date: "22/11/2020"
+output: html_document
+---
+
+## MTT 
+This week I received feedback on my second draft. The biggest thing I need to fix is the section discussing past findings on MTT specificity/detail in anxiety disorders. At the moment, I have one paragraph describing studies that align with my hypothesis, and one paragraph describing studies that don't. The only way I've added my own voice is by saying that past results conflict. After considering the feedback and looking at other papers as examples, I learned why this approach doesn't work. 
+
+While it's important to describe studies in terms of what the participants experienced, what was measured, and what was found, if I leave it at that, the reader is just going to think, "so what?" I need to do more heavy-lifting and elaborate on what it all means. In particular, I need to actually explain the conflicting findings by identifying similarities between studies that found similar results, and pointing out differences between studies that may account for different results. 
+
+In the coming weeks, I need to re-think which studies I'm going to keep and how to structure them into paragraphs. To do this, I need to consider a few things:
+
+* Which studies are the most relevant? 
+   + Writing about fewer studies but in more detail might be the way to go. Any more than two studies in one paragraph might be confusing, because in this area of research, people are always testing different things in different ways. 
+* What arguments do I want to make to "set up" my rationale? 
+   + In other words, what kind of topic sentences do I want to write, and in what order? For example, it might make more sense to divide the studies in terms of past/future thinking rather than those that support/don't support my hypothesis, because much of my rationale is about anxiety being a future-oriented state. 
+* Why do the findings actually conflict? 
+   + This is a difficult one to answer... I need to closely examine the studies in terms of the population they studied (clinical, non-clinical, what kind of anxiety disorder) and the methods the researchers used. Then, I need to draw comparisons and conclusions to build a convincing story that logically leads to my rationale. 
+
+
